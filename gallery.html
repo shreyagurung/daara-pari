@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery | Daara Pari</title>
+
+  <!-- Fonts (match your site) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Your main CSS -->
+  <link rel="stylesheet" href="/style.css">
+
+  <style>
+    body { background:#f3e9dc; color:#1f3d2b; }
+
+    .carousel-track {
+      display:flex;
+      overflow-x:auto;
+      gap:40px;
+      scroll-snap-type:x mandatory;
+      scroll-behavior:smooth;
+    }
+
+    .carousel-track::-webkit-scrollbar { display:none; }
+
+    .slide {
+      flex:0 0 85%;
+      scroll-snap-align:center;
+    }
+
+    @media(min-width:768px){
+      .slide { flex:0 0 48%; }
+    }
+
+    .carousel-btn {
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      background:rgba(243,233,220,0.6);
+      backdrop-filter:blur(6px);
+      border:none;
+      padding:6px 10px;
+      cursor:pointer;
+      opacity:0.5;
+    }
+
+    .carousel-btn:hover { opacity:1; }
+  </style>
+</head>
+
+<body class="font-sans antialiased text-forest bg-beige">
+
+<!-- NAV -->
+<nav id="navbar"
+  class="fixed w-full top-0 z-[9999] px-6 md:px-12 py-6 flex justify-between items-center bg-beige/90 backdrop-blur-md border-b border-forest/10">
+
+  <a href="index.html" class="font-hindi text-3xl text-forest">
+    डाँडा पारी
+  </a>
+
+  <div class="hidden md:flex space-x-12 text-sm uppercase tracking-widest font-sans text-forest/80">
+    <a href="stay.html" class="hover:opacity-70">Stay</a>
+    <a href="experience.html" class="hover:opacity-70">Experience</a>
+    <a href="story.html" class="hover:opacity-70">Story</a>
+    <a href="gallery.html" class="opacity-70">Gallery</a>
+  </div>
+
+  <a href="booking.html"
+     class="hidden md:block text-sm uppercase tracking-widest font-sans text-forest hover:opacity-70">
+    Enquire
+  </a>
+</nav>
+
+
+<!-- INTRO -->
+<header class="mx-auto max-w-2xl px-6 pt-44 pb-10 md:pt-52">
+  <p class="text-xs uppercase tracking-[0.3em] text-forest/50 font-sans">
+    A gallery
+  </p>
+
+  <h1 class="mt-6 font-serif text-4xl md:text-6xl font-light leading-[1.15]">
+    Some pictures, in no particular order.
+  </h1>
+
+  <p class="mt-8 text-[15px] leading-[1.85] text-forest/70">
+    Most of these were taken on ordinary mornings. Scroll slowly.
+  </p>
+</header>
+
+
+<!-- SECTION TITLE -->
+<section class="mx-auto max-w-2xl px-6 pt-32 pb-16">
+  <p class="text-xs uppercase tracking-[0.3em] text-forest/50">One</p>
+  <h2 class="font-serif text-3xl md:text-5xl font-light mt-6">The Spaces</h2>
+</section>
+
+
+<script>
+function scrollCarousel(btn, dir){
+  const track = btn.parentElement.querySelector('.carousel-track');
+  const slide = track.querySelector('.slide');
+  const width = slide.offsetWidth + 40;
+
+  track.scrollBy({ left: dir * width, behavior:'smooth' });
+}
+</script>
+
+
+<!-- MUD HOUSE -->
+<section class="mx-auto max-w-5xl px-6">
+
+<p class="font-serif italic text-xl mb-4">Mud House</p>
+
+<!-- HERO IMAGE (added correctly) -->
+<img src="/images/mud-house-hero.jpg" class="w-full mb-10 object-cover">
+
+<!-- GRID → CAROUSEL -->
+<div class="relative">
+
+  <button onclick="scrollCarousel(this,-1)" class="carousel-btn left-2">←</button>
+  <button onclick="scrollCarousel(this,1)" class="carousel-btn right-2">→</button>
+
+  <div class="carousel-track">
+    <div class="slide">
+      <img src="/images/mud-house.jpg" class="aspect-[4/3] object-cover">
+    </div>
+    <div class="slide">
+      <img src="/images/mud-interior.jpg" class="aspect-[4/5] object-cover">
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- MAIN HOUSE (unchanged) -->
+<section class="mx-auto max-w-5xl px-6 pt-20">
+  <p class="font-serif italic text-xl mb-4">Main House</p>
+  <img src="/images/main-house.jpg" class="w-full object-cover">
+</section>
+
+
+<!-- PRIVATE ROOMS -->
+<section class="mx-auto max-w-5xl px-6 pt-20">
+
+<p class="text-xs uppercase tracking-[0.25em] text-forest/55">Private rooms</p>
+
+<div class="relative mt-6">
+
+  <button onclick="scrollCarousel(this,-1)" class="carousel-btn left-2">←</button>
+  <button onclick="scrollCarousel(this,1)" class="carousel-btn right-2">→</button>
+
+  <div class="carousel-track">
+    <div class="slide">
+      <img src="/images/private-room.jpg" class="aspect-[4/5] object-cover">
+    </div>
+    <div class="slide">
+      <img src="/images/verandah.jpg" class="aspect-[4/5] object-cover">
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- SHARED ROOM -->
+<section class="mx-auto max-w-5xl px-6 pt-20">
+  <p class="text-xs uppercase tracking-[0.25em] text-forest/55">Shared rooms</p>
+  <img src="/images/shared-room.jpg" class="w-full object-cover mt-6">
+</section>
+
+
+<!-- DORM -->
+<section class="mx-auto max-w-5xl px-6 pt-20">
+  <p class="text-xs uppercase tracking-[0.25em] text-forest/55">Dormitory</p>
+  <img src="/images/dorm.jpg" class="w-full object-cover mt-6">
+</section>
+
+
+<!-- SHARED LIVING -->
+<section class="mx-auto max-w-5xl px-6 pt-20">
+
+<div class="relative">
+
+  <button onclick="scrollCarousel(this,-1)" class="carousel-btn left-2">←</button>
+  <button onclick="scrollCarousel(this,1)" class="carousel-btn right-2">→</button>
+
+  <div class="carousel-track">
+    <div class="slide">
+      <img src="/images/shared-living.jpg" class="aspect-[4/3] object-cover">
+    </div>
+    <div class="slide">
+      <img src="/images/kitchen.jpg" class="aspect-[4/3] object-cover">
+    </div>
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+<section class="px-6 py-40 text-center">
+  <p class="mx-auto max-w-md font-serif text-2xl italic">
+    If anything here looks like a place you'd like to be, write to us.
+  </p>
+
+  <a href="booking.html"
+     class="mt-12 inline-block border-b border-forest pb-1 text-sm uppercase tracking-[0.25em] font-sans">
+    Enquire about a stay
+  </a>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="border-t px-6 py-10 text-center text-xs uppercase tracking-[0.2em] text-forest/60 font-sans">
+  Daara Pari · the Indian Himalayas
+</footer>
+
+<script type="module" src="/main.js"></script>
+
+</body>
+</html>

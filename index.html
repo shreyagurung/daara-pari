@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daara Pari | Not a stay. A way of living.</title>
+  <meta name="description" content="Slow living in the hills of Sikkim. A working farm, not a resort. Come only if you're ready to slow down.">
+  <style>
+    html{visibility:hidden;opacity:0;}
+    #hero-img.hero-night{filter:grayscale(1) brightness(.28) blur(1.5px);}
+  </style>
+</head>
+<body class="font-sans antialiased text-forest bg-beige selection:bg-forest selection:text-beige overflow-hidden">
+
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed w-full top-0 z-50 transition duration-300 ease-in-out px-6 md:px-12 py-6 flex justify-between items-center text-beige">
+    <a href="index.html" class="font-hindi text-3xl tracking-wide">डाँडा पारी</a>
+    <div class="hidden md:flex space-x-12 text-sm uppercase tracking-widest">
+      <a href="stay.html" class="hover:opacity-70 transition-opacity duration-300">Stay</a>
+      <a href="experience.html" class="hover:opacity-70 transition-opacity duration-300">Experience</a>
+      <a href="story.html" class="hover:opacity-70 transition-opacity duration-300">Story</a>
+      <a href="gallery.html" class="hover:opacity-70 transition-opacity duration-300">Gallery</a>
+    </div>
+    <a href="booking.html" class="hidden md:block hover:opacity-70 text-sm uppercase tracking-widest transition-opacity duration-300">Enquire</a>
+    <button class="md:hidden block uppercase tracking-widest text-sm">Menu</button>
+  </nav>
+
+<!-- Hero Section -->
+<section class="relative h-screen w-full overflow-hidden bg-black">
+
+  <!-- Image -->
+  <img 
+    src="/images/hero.jpg" 
+    id="hero-img"
+    alt="A stone farmhouse glowing softly on a Himalayan hillside at night"
+    class="hero-night absolute inset-0 w-full h-full 
+           object-cover object-[20%_75%] md:object-[center]
+           will-change-[filter,transform]
+           transition-[filter] duration-[1600ms]
+           ease-[cubic-bezier(0.2,0,0.16,1)]
+           grayscale brightness-[0.28] blur-[1.5px]"
+    style="filter: grayscale(1) brightness(0.28) blur(1.5px);"
+  />
+
+  <!-- Vignette -->
+  <div class="pointer-events-none absolute inset-0 
+              bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.6)_100%)]">
+  </div>
+
+  <!-- Hotspot (aligned to house) -->
+  <button 
+  type="button"
+  id="lamp-hotspot"
+  aria-label="A light is on. Enter Daara Pari."
+  class="group absolute z-20 flex items-center justify-center
+        
+         left-[38%] top-[76%]     /* MOBILE FIX */
+         md:left-[26%] md:top-[78%]  /* DESKTOP unchanged */
+
+         w-14 h-14 md:w-[5.5rem] md:h-[5.5rem]
+         -translate-x-1/2 -translate-y-1/2"
+>
+  <span class="absolute inset-0 rounded-full bg-amber-200/25 blur-xl md:blur-2xl animate-soft-pulse"></span>
+  <span class="absolute inset-4 rounded-full bg-amber-100/40 blur-lg md:blur-xl animate-soft-pulse"></span>
+  <span class="relative h-2 w-2 rounded-full bg-amber-50 shadow-[0_0_24px_8px_rgba(255,221,160,0.6)]"></span>
+</button>
+
+  <!-- Hint -->
+  <p 
+    id="hint-text"
+    class="pointer-events-none absolute left-1/2 bottom-10 z-10 
+           -translate-x-1/2 text-[11px] uppercase tracking-[0.4em]
+           text-white/55 opacity-0 transition-opacity duration-[1600ms]"
+  >
+    there's a light on
+  </p>
+
+  <!-- Hero Text -->
+  <div 
+    id="hero-text"
+    class="pointer-events-none absolute inset-0 z-10 flex flex-col justify-center
+        
+           px-6
+           items-center text-center
+           
+           md:items-end md:text-right md:pr-20 md:pl-6
+           
+           opacity-0 translate-x-[40px]
+           transition-[opacity,transform] duration-[1800ms]
+           ease-[cubic-bezier(0.22,0.61,0.36,1)] delay-[600ms]"
+  >
+    <h1 class="text-4xl md:text-6xl font-serif text-white/95 leading-tight">
+      Daara Pari
+    </h1>
+    <p class="mt-5 text-xl md:text-2xl text-white/75 font-hindi">
+      डाँडा पारी
+    </p>
+  </div>
+
+</section>
+
+
+  <!-- Philosophy -->
+  <section class="py-32 px-6 md:px-12 max-w-4xl mx-auto text-center">
+    <div class="reveal">
+      <h2 class="font-serif text-4xl md:text-5xl mb-12 text-balance leading-tight">Not a stay.<br>A way of living.</h2>
+      <p class="text-lg md:text-xl text-forest/80 leading-relaxed font-light text-balance mx-auto">
+        "The idea is to Look up. Slow Down. Breathe. Chill."<br><br>
+        I didn't build Daara Pari as a resort (mostly because I have no idea how to run one). It is my home, a working farm, and a community. If you're looking for room service and tiny chocolates on your pillows, this definitely isn't for you. But if you're okay with mud on your boots and a lot of quiet... you might just love it here with us.
+      </p>
+    </div>
+  </section>
+
+  <!-- Stay Preview -->
+  <section class="py-28 md:py-32 px-6 md:px-12 bg-mud text-beige">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <div class="reveal">
+        <span class="uppercase tracking-widest text-xs opacity-70 mb-4 block">The Spaces</span>
+        <h2 class="font-serif text-4xl md:text-5xl mb-6">Honest Simplicity</h2>
+        <p class="text-lg font-light opacity-90 mb-8 max-w-md">I built our mud house with the actual earth they stand on. It is raw, unpolished, and warmed by the fire, so don't expect marble floors, but do expect very cozy toes.</p>
+        <a href="stay.html" class="inline-block border-b border-beige pb-1 text-sm uppercase tracking-widest hover:opacity-70 transition-opacity">Explore Stays</a>
+      </div>
+      <div class="group overflow-hidden rounded-sm reveal delay-200 relative aspect-[4/5] md:aspect-auto md:h-[480px] lg:h-[520px] xl:h-[560px]">
+        <img src="/images/mudhouse-1.jpg" alt="Mud house" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-500"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Preview -->
+  <section class="py-28 md:py-32 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center flex-row-reverse">
+      <div class="order-2 md:order-1 group overflow-hidden rounded-sm reveal delay-200 relative aspect-[4/5] md:aspect-auto md:h-[480px] lg:h-[520px] xl:h-[560px]">
+        <img src="/images/hand-in-soil.jpg" alt="Farm hands" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-500"></div>
+      </div>
+      <div class="order-1 md:order-2 reveal pl-0 md:pl-12">
+        <span class="uppercase tracking-widest text-xs text-forest/50 mb-4 block">The Farm</span>
+        <h2 class="font-serif text-4xl md:text-5xl mb-6">Hands in the soil</h2>
+        <p class="text-lg font-light text-forest/80 mb-8 max-w-md">I invite you to connect with where your food comes from (yes, that means getting your hands dirty). Join me in the fields, walk through the mist, and let the quietness settle in.</p>
+        <a href="experience.html" class="inline-block border-b border-forest pb-1 text-sm uppercase tracking-widest hover:opacity-70 transition-opacity">Discover Experiences</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- People Section -->
+  <section class="py-32 px-6 md:px-12 bg-mist/30">
+    <div class="max-w-4xl mx-auto text-center reveal">
+      <h2 class="font-serif text-4xl md:text-5xl mb-6">People of Dara Pari</h2>
+      <p class="text-lg text-forest/80 font-light mb-16">BB Daju doesn't just cook for us. He feeds you like you're part of my family, which means he will actively ignore you if you say you're 'full'.</p>
+      <div class="w-full max-w-2xl mx-auto rounded-sm overflow-hidden aspect-video">
+        <img src="/images/bb-dai.jpg" alt="BB Daju" class="w-full h-full object-cover" />
+      </div>
+      <div class="mt-12">
+        <a href="story.html" class="inline-block border-b border-forest pb-1 text-sm uppercase tracking-widest hover:opacity-70 transition-opacity">Read our story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- A Day Here -->
+  <section class="py-32 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-20 reveal">
+        <h2 class="font-serif text-4xl md:text-5xl mb-4">A Day Here</h2>
+        <p class="text-lg text-forest/80 font-light">No alarms. No plans. Just the way I live every day.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div class="reveal delay-100">
+          <h3 class="font-serif text-2xl mb-4 border-b border-forest/20 pb-4">Morning</h3>
+          <p class="text-forest/80 font-light leading-relaxed">When you wake up, the mist usually hasn't lifted. I'll have tea ready by the fire, and there's no rush to be anywhere.</p>
+        </div>
+        <div class="reveal delay-200">
+          <h3 class="font-serif text-2xl mb-4 border-b border-forest/20 pb-4">Afternoon</h3>
+          <p class="text-forest/80 font-light leading-relaxed">You can walk the village paths or just sit on the balcony. Time softens here. You might finally read that book you've been pretending to read for years.</p>
+        </div>
+        <div class="reveal delay-300">
+          <h3 class="font-serif text-2xl mb-4 border-b border-forest/20 pb-4">Evening</h3>
+          <p class="text-forest/80 font-light leading-relaxed">We all eat together. I'll serve home-cooked meals straight from our farm. The fire crackles, and somehow, you won't even miss your phone notifications.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Alignment Section: For / Not For -->
+  <section id="alignment" class="py-28 md:py-32 px-6 md:px-12 bg-beige border-t border-forest/10 scroll-mt-20">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20">
+      
+      <!-- Who this is for -->
+      <div class="reveal">
+        <span class="text-[10px] uppercase tracking-[0.2em] text-forest/50 font-semibold mb-4 block">The Right Fit</span>
+        <h3 class="font-serif text-2xl md:text-3xl mb-8 text-forest">Who finds their way here</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start">
+            <svg class="w-4 h-4 mt-1 mr-4 text-forest/50 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-forest/70 font-light text-base leading-7">Couples & solo travelers seeking deep rest over constant activity.</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-4 h-4 mt-1 mr-4 text-forest/50 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-forest/70 font-light text-base leading-7">Those comfortable with nature's rhythm - mist, rain, bugs, and quiet.</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-4 h-4 mt-1 mr-4 text-forest/50 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-forest/70 font-light text-base leading-7">Creators and urban professionals experiencing burnout.</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-4 h-4 mt-1 mr-4 text-forest/50 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-forest/70 font-light text-base leading-7">People looking for uncurated, authentic village immersion.</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-4 h-4 mt-1 mr-4 text-forest/50 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"></path></svg>
+            <span class="text-forest/70 font-light text-base leading-7">Anyone who wants to eat farm-grown food and do absolutely nothing.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Who this is not for -->
+      <div class="reveal delay-200">
+        <span class="text-[10px] uppercase tracking-[0.2em] text-forest/50 font-semibold mb-4 block">Setting Expectations</span>
+        <h3 class="font-serif text-2xl md:text-3xl mb-8 text-forest">Who might prefer elsewhere</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start">
+            <svg class="w-4 h-4 mt-1 mr-4 text-forest/50 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+            <span class="text-forest/70 font-light text-base leading-7">Traditional luxury seekers expecting room service and resort amenities.</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-4 h-4 mt-1 mr-4 text-forest/50 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+            <span class="text-forest/70 font-light text-base leading-7">Travelers with rigid itineraries looking to "maximize" sightseeing.</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-4 h-4 mt-1 mr-4 text-forest/50 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+            <span class="text-forest/70 font-light text-base leading-7">Loud groups or those looking for a party atmosphere.</span>
+          </li>
+          <li class="flex items-start">
+            <svg class="w-4 h-4 mt-1 mr-4 text-forest/50 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+            <span class="text-forest/70 font-light text-base leading-7">Those uncomfortable with the honest realities of rural farm life.</span>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-28 md:py-32 bg-forest text-beige overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 mb-16">
+      <span class="uppercase tracking-widest text-xs opacity-70 block mb-4">Guest Stories</span>
+    </div>
+    <div class="flex overflow-x-auto hide-scrollbar pl-6 md:pl-12 pr-6 pb-8 snap-x" id="testimonial-container" style="scrollbar-width: none;">
+      <div class="flex-none w-[85vw] md:w-[40vw] mr-8 snap-center">
+        <div class="flex text-yellow-400 mb-4 text-sm">★★★★★</div>
+        <p class="font-serif text-xl md:text-2xl leading-relaxed mb-4">"If you want to step away from city distractions and experience slow living... this place is perfect."</p>
+        <span class="uppercase tracking-widest text-xs opacity-70 block">Gaurav B. <span class="opacity-50 ml-2">via TripAdvisor</span></span>
+      </div>
+      <div class="flex-none w-[85vw] md:w-[40vw] mr-8 snap-center">
+        <div class="flex text-yellow-400 mb-4 text-sm">★★★★★</div>
+        <p class="font-serif text-xl md:text-2xl leading-relaxed mb-4">"I stayed for almost 4 weeks - but I could have spent one year. This place truly feels like home."</p>
+        <span class="uppercase tracking-widest text-xs opacity-70 block">Gemma R. <span class="opacity-50 ml-2">via TripAdvisor</span></span>
+      </div>
+      <div class="flex-none w-[85vw] md:w-[40vw] mr-8 snap-center">
+        <div class="flex text-yellow-400 mb-4 text-sm">★★★★★</div>
+        <p class="font-serif text-xl md:text-2xl leading-relaxed mb-4">"Every meal was made with so much care... it truly felt like a home away from home."</p>
+        <span class="uppercase tracking-widest text-xs opacity-70 block">Sajith C. <span class="opacity-50 ml-2">via TripAdvisor</span></span>
+      </div>
+      <div class="flex-none w-[85vw] md:w-[40vw] mr-8 snap-center">
+        <div class="flex text-yellow-400 mb-4 text-sm">★★★★★</div>
+        <p class="font-serif text-xl md:text-2xl leading-relaxed mb-4">"BB Daju's food and Sristi's warmth made this an unforgettable stay."</p>
+        <span class="uppercase tracking-widest text-xs opacity-70 block">Prakash M. <span class="opacity-50 ml-2">via TripAdvisor</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Preview -->
+  <section class="py-28 md:py-32 bg-beige overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 mb-16 reveal">
+      <span class="text-xs uppercase tracking-[0.2em] text-forest/50 font-semibold block mb-2">Moments</span>
+      <h2 class="font-serif text-3xl md:text-4xl text-forest/90">Life around the farm</h2>
+    </div>
+    <div class="flex overflow-x-auto hide-scrollbar pl-6 md:pl-12 pb-8 snap-x">
+      
+      <a href="gallery.html" class="group flex-none w-[78vw] md:w-[42vw] lg:w-[30vw] mr-6 md:mr-10 snap-center block cursor-pointer">
+        <div class="overflow-hidden rounded-sm aspect-[4/5] bg-mud/5">
+          <img src="/images/mudhouse-1.jpg" alt="Mud house" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]" />
+        </div>
+      </a>
+
+      <a href="gallery.html" class="group flex-none w-[78vw] md:w-[42vw] lg:w-[30vw] mr-6 md:mr-10 snap-center block cursor-pointer">
+        <div class="overflow-hidden rounded-sm aspect-[4/5] bg-mud/5">
+          <img src="/images/deck.png" alt="Main house" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]" />
+        </div>
+      </a>
+
+      <a href="gallery.html" class="group flex-none w-[78vw] md:w-[42vw] lg:w-[30vw] mr-6 md:mr-10 snap-center block cursor-pointer">
+        <div class="overflow-hidden rounded-sm aspect-[4/5] bg-mud/5">
+          <img src="/images/bb-dai.jpg" alt="BB Daju" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]" />
+        </div>
+      </a>
+
+      <a href="gallery.html" class="group flex-none w-[78vw] md:w-[42vw] lg:w-[30vw] mr-6 md:mr-10 snap-center block cursor-pointer">
+        <div class="overflow-hidden rounded-sm aspect-[4/5] bg-mud/5">
+          <img src="/images/hand-in-soil.jpg" alt="Farm fields" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]" />
+        </div>
+      </a>
+
+      <!-- Adding an empty spacer to ensure the last image can scroll to the center/edge comfortably -->
+      <a href="gallery.html" class="group flex-none w-[78vw] md:w-[42vw] lg:w-[30vw] snap-center block cursor-pointer">
+        <div class="overflow-hidden rounded-sm aspect-[4/5] bg-mud/5">
+          <img src="/images/hero.jpg" alt="Night farm" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]" />
+        </div>
+      </a>
+      <div class="flex-none w-6 md:w-12"></div>
+
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-28 md:py-32 px-6 md:px-12 text-center bg-beige">
+  <div class="reveal">
+
+    <p class="mx-auto max-w-md font-serif text-2xl italic leading-[1.6]">
+      No honking. No hurry.
+      <br>The only thing running is the river nearby.
+    </p>
+
+    <a href="booking.html"
+       class="mt-12 inline-block border-b border-forest pb-1 text-sm uppercase tracking-[0.25em] font-sans hover:opacity-70">
+      Enquire about a stay
+    </a>
+
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="bg-forest text-beige/60 py-16 px-6 md:px-12 border-t border-beige/10">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-xs uppercase tracking-widest">
+      <div>
+        <span class="text-beige text-2xl font-hindi tracking-wide block mb-4">डाँडा पारी</span>
+        <p class="leading-relaxed">Sambok Village, Gyalshing<br>West Sikkim, India - 737111</p>
+      </div>
+      <div class="flex flex-col space-y-4">
+        <span class="text-beige font-serif tracking-widest text-sm">Contact</span>
+        <a href="tel:+918389874713" class="hover:text-beige transition-colors">+91 83898 74713</a>
+        <a href="mailto:findyoursukoon@gmail.com" class="hover:text-beige transition-colors">findyoursukoon@gmail.com</a>
+      </div>
+      <div class="flex flex-col space-y-4">
+        <span class="text-beige font-serif tracking-widest text-sm">Follow Us</span>
+        <a href="https://www.instagram.com/daarapari/" class="hover:text-beige transition-colors">Instagram</a>
+        <div class="flex items-center space-x-2 pt-2">
+          <span>TripAdvisor</span>
+          <span class="text-yellow-400 text-sm">★★★★★</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>

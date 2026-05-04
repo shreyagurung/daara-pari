@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enquire | Daara Pari</title>
+  <meta name="description" content="Enquire to stay at Daara Pari.">
+  <style>html{visibility: hidden;opacity:0;}</style>
+</head>
+<body class="font-sans antialiased text-forest bg-beige selection:bg-forest selection:text-beige">
+
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed w-full top-0 z-50 transition duration-300 ease-in-out px-6 md:px-12 py-6 flex justify-between items-center text-forest bg-beige/95 backdrop-blur-md shadow-sm">
+    <a href="index.html" class="font-hindi text-3xl tracking-wide">डाँडा पारी</a>
+    <div class="hidden md:flex space-x-12 text-sm uppercase tracking-widest">
+      <a href="stay.html" class="hover:opacity-70 transition-opacity duration-300">Stay</a>
+      <a href="experience.html" class="hover:opacity-70 transition-opacity duration-300">Experience</a>
+      <a href="story.html" class="hover:opacity-70 transition-opacity duration-300">Story</a>
+      <a href="gallery.html" class="hover:opacity-70 transition-opacity duration-300">Gallery</a>
+    </div>
+    <a href="booking.html" class="hidden md:block hover:opacity-70 text-sm uppercase tracking-widest transition-opacity duration-300 opacity-70">Enquire</a>
+    <button class="md:hidden block uppercase tracking-widest text-sm">Menu</button>
+  </nav>
+
+  <!-- Header -->
+  <section class="pt-40 pb-12 px-6 md:px-12 text-center">
+    <div class="max-w-4xl mx-auto reveal active">
+      <h1 class="font-serif text-5xl md:text-7xl mb-6">Slow Down</h1>
+      <p class="text-lg text-forest/80 font-light max-w-2xl mx-auto">Please tell me a bit about your journey.</p>
+    </div>
+  </section>
+
+  <!-- Form & Contact -->
+  <section class="pb-32 px-6 md:px-12">
+    <div class="max-w-6xl mx-auto reveal delay-200 grid grid-cols-1 lg:grid-cols-2 gap-20">
+      
+      <!-- Form Column -->
+      <div>
+          <form class="space-y-12" onsubmit="event.preventDefault(); alert('Thank you. I will get back to you slowly.');">
+          
+          <div class="space-y-2 border-b border-forest/20 pb-2">
+            <label for="name" class="block text-xs uppercase tracking-widest text-forest/70">Your Name</label>
+            <input type="text" id="name" required class="w-full bg-transparent border-none focus:ring-0 text-lg font-serif placeholder-forest/30 outline-none" placeholder="How should I address you?" />
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="space-y-2 border-b border-forest/20 pb-2">
+              <label for="dates" class="block text-xs uppercase tracking-widest text-forest/70">Desired Dates</label>
+              <input type="text" id="dates" class="w-full bg-transparent border-none focus:ring-0 text-lg font-serif placeholder-forest/30 outline-none" placeholder="e.g., Oct 12 - Oct 18" />
+            </div>
+            <div class="space-y-2 border-b border-forest/20 pb-2">
+              <label for="guests" class="block text-xs uppercase tracking-widest text-forest/70">Guests</label>
+              <input type="number" id="guests" min="1" max="10" class="w-full bg-transparent border-none focus:ring-0 text-lg font-serif placeholder-forest/30 outline-none" placeholder="2" />
+            </div>
+          </div>
+
+          <div class="space-y-2 border-b border-forest/20 pb-2">
+            <label for="message" class="block text-xs uppercase tracking-widest text-forest/70">Why Daara Pari?</label>
+            <textarea id="message" rows="4" class="w-full bg-transparent border-none focus:ring-0 text-lg font-serif placeholder-forest/30 outline-none resize-none" placeholder="Tell me what you're looking for (or just vent about your boss, that's fine too)..."></textarea>
+          </div>
+          <div class="pt-4 pb-2">
+            <label class="flex items-start space-x-4 cursor-pointer group">
+              <div class="relative flex items-center justify-center mt-1">
+                <input type="checkbox" required class="peer appearance-none w-5 h-5 border border-forest/40 rounded-sm checked:bg-forest checked:border-forest transition-colors cursor-pointer" />
+                <svg class="absolute w-3 h-3 text-beige pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity" style="left: 4px; top: 4px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <span class="text-sm font-light text-forest/80 leading-relaxed max-w-sm group-hover:text-forest transition-colors">I understand that Daara Pari is a working farm and a slow-living space, not a traditional luxury hotel.</span>
+            </label>
+          </div>
+
+          <div class="pt-4">
+            <button type="submit" class="bg-forest text-beige px-12 py-4 uppercase tracking-[0.2em] text-sm hover:bg-mud transition-colors duration-300 w-full md:w-auto">Send Enquiry</button>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Contact Info Column -->
+      <div class="space-y-12 lg:border-l border-forest/20 lg:pl-20">
+        <div>
+          <h3 class="font-serif text-3xl mb-6">Contact Me</h3>
+          <p class="text-forest/80 font-light mb-8 text-lg">For urgent enquiries (or if you just can't figure out the form), feel free to reach out to me directly.</p>
+          
+          <div class="flex flex-col space-y-4">
+            <a href="mailto:findyoursukoon@gmail.com" class="inline-flex items-center border border-forest px-8 py-3 text-sm uppercase tracking-widest hover:bg-forest hover:text-beige transition-colors justify-center w-full md:w-auto text-center">
+              Email: findyoursukoon@gmail.com
+            </a>
+            <a href="tel:+918389874713" class="inline-flex items-center border border-forest px-8 py-3 text-sm uppercase tracking-widest hover:bg-forest hover:text-beige transition-colors justify-center w-full md:w-auto text-center">
+              Call: +91 83898 74713
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-serif text-3xl mb-6">Location</h3>
+          <p class="text-forest/80 font-light mb-6 text-lg">Sambok Village, Gyalshing (near Kaluk/Bermiok), West Sikkim, India - 737111.</p>
+          <div class="w-full h-64 overflow-hidden rounded-sm grayscale hover:grayscale-0 transition-all duration-700">
+            <iframe src="https://maps.google.com/maps?q=27.2562727,88.2423692&hl=en&z=12&amp;output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-forest text-beige/60 py-16 px-6 md:px-12 border-t border-beige/10">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-xs uppercase tracking-widest">
+      <div>
+        <span class="text-beige text-2xl font-hindi tracking-wide block mb-4">डाँडा पारी</span>
+        <p class="leading-relaxed">Sambok Village, Gyalshing<br>West Sikkim, India - 737111</p>
+      </div>
+      <div class="flex flex-col space-y-4">
+        <span class="text-beige font-serif tracking-widest text-sm">Contact</span>
+        <a href="tel:+918389874713" class="hover:text-beige transition-colors">+91 83898 74713</a>
+        <a href="mailto:findyoursukoon@gmail.com" class="hover:text-beige transition-colors">findyoursukoon@gmail.com</a>
+      </div>
+      <div class="flex flex-col space-y-4">
+        <span class="text-beige font-serif tracking-widest text-sm">Follow Us</span>
+        <a href="https://www.instagram.com/daarapari/" class="hover:text-beige transition-colors">Instagram</a>
+        <div class="flex items-center space-x-2 pt-2">
+          <span>TripAdvisor</span>
+          <span class="text-yellow-400 text-sm">★★★★★</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
