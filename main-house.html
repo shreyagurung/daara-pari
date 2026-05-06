@@ -14,7 +14,24 @@
   <nav id="navbar" class="fixed w-full top-0 z-50 px-6 md:px-12 py-6 flex justify-between items-center text-beige">
     <a href="index.html" class="font-hindi text-3xl tracking-wide">डाँडा पारी</a>
     <div class="hidden md:flex space-x-12 text-sm uppercase tracking-widest">
-      <a href="stay.html" class="opacity-70">Stay</a>
+      <div class="relative group">
+  <a href="stay.html" class="hover:opacity-70 transition-opacity duration-300">
+    Stay
+  </a>
+
+  <!-- Floating options -->
+  <div class="absolute left-0 mt-6 pt-2 min-w-max flex flex-col gap-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
+    
+    <a href="mudhouse.html" class="px-3 py-2 text-xs tracking-widest text-beige bg-forest/80 backdrop-blur-sm hover:bg-forest transition-colors duration-300 whitespace-nowrap">
+      Mudhouse
+    </a>
+
+    <a href="main-house.html" class="px-3 py-2 text-xs tracking-widest text-beige bg-forest/80 backdrop-blur-sm hover:bg-forest transition-colors duration-300 whitespace-nowrap">
+      Main House
+    </a>
+
+  </div>
+</div>
       <a href="experience.html" class="hover:opacity-70">Experience</a>
       <a href="story.html" class="hover:opacity-70">Story</a>
       <a href="gallery.html" class="hover:opacity-70">Gallery</a>
@@ -28,7 +45,7 @@
     <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
 
     <div class="absolute bottom-12 left-6 md:left-12 text-beige max-w-xl">
-      <h1 class="font-serif text-4xl md:text-6xl leading-tight">The Main House</h1>
+      <h1 class="font-serif text-4xl md:text-6xl leading-tight">Mul Ghar</h1>
       <p class="mt-4 text-lg font-light text-beige/80">
         A house we live in, with extra rooms for the people who come to stay.
       </p>
@@ -36,7 +53,7 @@
   </section>
 
   <!-- Info Strip -->
-  <section class="px-6 py-24 text-center md:px-12 md:py-28">
+  <section class="px-6 py-24 pb-12 text-center md:px-12 md:py-28">
     <div class="max-w-3xl mx-auto">
       <p class="text-lg text-forest/90">
         Private & shared rooms · Dorm · Shared living spaces
@@ -74,7 +91,7 @@
           A dorm, for those travelling light.
         </h3>
         <p class="text-forest/80 font-light leading-relaxed">
-          Three beds, clean sheets, a window that faces the hill. It's the simplest way to be here, and honestly some of our favourite conversations have started in this room at an unreasonable hour.
+          Four beds, clean sheets, a window that faces the hill. It's the simplest way to be here, and honestly some of our favourite conversations have started in this room at an unreasonable hour.
         </p>
       </div>
 
@@ -94,7 +111,10 @@
           Meals happen at one table.
         </h3>
         <p class="text-forest/80 font-light leading-relaxed">
-          Breakfast, lunch and dinner are cooked in the same kitchen and eaten together. The food is mostly what the garden gave us that morning. We don't ask anyone to stay quiet, but the conversation is usually softer than you'd expect.
+          Brunch and dinner are cooked in the same kitchen and eaten together.
+That’s just how people here have always eaten. One proper meal in the morning before the day begins, and another when the work is done.
+What’s on the table comes from the garden when it can, and from nearby when it doesn’t.
+We don’t ask anyone to stay quiet, but the conversation is usually softer than you’d expect.
         </p>
       </div>
 
@@ -110,7 +130,7 @@
           It is, first, a farm.
         </h3>
         <p class="text-forest/80 font-light leading-relaxed">
-          If you want to help in the beds, we'll happily put a tool in your hand. If you'd rather watch the work happen from the verandah with a second cup of coffee, we understand that too. Both are honest ways to spend a morning.
+          If you want to help out, we'll happily put a tool in your hand. If you'd rather watch the work happen from the verandah with a second cup of coffee, we understand that too. Both are honest ways to spend a morning.
         </p>
       </div>
 
@@ -170,7 +190,7 @@
 
         <div>
           <h4 class="font-serif text-xl mb-3">What's included</h4>
-          <p class="text-forest/70 font-light">Three meals a day, mostly from the farm</p>
+          <p class="text-forest/70 font-light">Two meals a day, mostly from the farm</p>
           <p class="text-forest/70 font-light">Endless tea and coffee</p>
           <p class="text-forest/70 font-light">The living room, verandah, garden, and the dog</p>
         </div>
@@ -182,11 +202,12 @@
 
   <!-- CTA -->
   <section class="px-6 py-32 text-center md:px-12 md:py-40">
-    <h2 class="font-serif text-3xl md:text-5xl font-light leading-tight max-w-3xl mx-auto">
-      This house works best if you don’t mind sharing a little space.
-    </h2>
+    <p class="mx-auto max-w-md font-serif text-2xl italic leading-[1.6]">
+      This space works best if you’re not in a hurry.
+    </p>
 
-    <a href="booking.html" class="inline-block mt-10 border border-forest px-8 py-3 text-sm uppercase tracking-widest hover:bg-forest hover:text-beige transition">
+    <a href="booking.html"
+       class="mt-12 inline-block border-b border-forest pb-1 text-sm uppercase tracking-[0.25em] font-sans hover:opacity-70">
       Enquire about this stay
     </a>
   </section>

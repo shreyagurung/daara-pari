@@ -60,7 +60,24 @@
   </a>
 
   <div class="hidden md:flex space-x-12 text-sm uppercase tracking-widest font-sans text-forest/80">
-    <a href="stay.html" class="hover:opacity-70">Stay</a>
+    <div class="relative group">
+  <a href="stay.html" class="hover:opacity-70 transition-opacity duration-300">
+    Stay
+  </a>
+
+  <!-- Floating options -->
+  <div class="absolute left-0 mt-6 pt-2 min-w-max flex flex-col gap-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
+    
+    <a href="mudhouse.html" class="px-3 py-2 text-xs tracking-widest text-beige bg-forest/80 backdrop-blur-sm hover:bg-forest transition-colors duration-300 whitespace-nowrap">
+      Mudhouse
+    </a>
+
+    <a href="main-house.html" class="px-3 py-2 text-xs tracking-widest text-beige bg-forest/80 backdrop-blur-sm hover:bg-forest transition-colors duration-300 whitespace-nowrap">
+      Main House
+    </a>
+
+  </div>
+</div>
     <a href="experience.html" class="hover:opacity-70">Experience</a>
     <a href="story.html" class="hover:opacity-70">Story</a>
     <a href="gallery.html" class="opacity-70">Gallery</a>
@@ -202,12 +219,12 @@ function scrollCarousel(btn, dir){
 
 <!-- CTA -->
 <section class="px-6 py-40 text-center">
-  <p class="mx-auto max-w-md font-serif text-2xl italic">
+  <p class="mx-auto max-w-md font-serif text-2xl italic leading-[1.6]">
     If anything here looks like a place you'd like to be, write to us.
   </p>
 
   <a href="booking.html"
-     class="mt-12 inline-block border-b border-forest pb-1 text-sm uppercase tracking-[0.25em] font-sans">
+     class="mt-12 inline-block border-b border-forest pb-1 text-sm uppercase tracking-[0.25em] font-sans hover:opacity-70">
     Enquire about a stay
   </a>
 </section>

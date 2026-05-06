@@ -74,6 +74,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, 5600);
 
+    if (heroText) {
+      heroText.style.opacity = '0';
+      heroText.style.transform = 'translateX(40px)';
+      heroText.style.visibility = 'hidden';
+    }
+
     const awaken = () => {
       if (heroImg.classList.contains('hero-day')) return;
 
@@ -92,8 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // 3. Reveal Hero Text
       if (heroText) {
-        heroText.style.opacity = '';
-        heroText.style.transform = '';
+        heroText.style.visibility = 'visible';
+        heroText.style.opacity = '1';
+        heroText.style.transform = 'translateX(0)';
         heroText.classList.remove('opacity-0', 'translate-x-[40px]');
         heroText.classList.add('opacity-100', 'translate-x-0');
       }

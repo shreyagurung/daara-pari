@@ -13,7 +13,24 @@
   <nav id="navbar" class="fixed w-full top-0 z-50 transition duration-300 ease-in-out px-6 md:px-12 py-6 flex justify-between items-center text-forest bg-beige/95 backdrop-blur-md shadow-sm">
     <a href="index.html" class="font-hindi text-3xl tracking-wide">डाँडा पारी</a>
     <div class="hidden md:flex space-x-12 text-sm uppercase tracking-widest">
-      <a href="stay.html" class="hover:opacity-70 transition-opacity duration-300">Stay</a>
+      <div class="relative group">
+  <a href="stay.html" class="hover:opacity-70 transition-opacity duration-300">
+    Stay
+  </a>
+
+  <!-- Floating options -->
+  <div class="absolute left-0 mt-6 pt-2 min-w-max flex flex-col gap-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
+    
+    <a href="mudhouse.html" class="px-3 py-2 text-xs tracking-widest text-beige bg-forest/80 backdrop-blur-sm hover:bg-forest transition-colors duration-300 whitespace-nowrap">
+      Mudhouse
+    </a>
+
+    <a href="main-house.html" class="px-3 py-2 text-xs tracking-widest text-beige bg-forest/80 backdrop-blur-sm hover:bg-forest transition-colors duration-300 whitespace-nowrap">
+      Main House
+    </a>
+
+  </div>
+</div>
       <a href="experience.html" class="opacity-70">Experience</a>
       <a href="story.html" class="hover:opacity-70 transition-opacity duration-300">Story</a>
       <a href="gallery.html" class="hover:opacity-70 transition-opacity duration-300">Gallery</a>

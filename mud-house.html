@@ -14,7 +14,24 @@
   <nav id="navbar" class="fixed w-full top-0 z-50 px-6 md:px-12 py-6 flex justify-between items-center text-beige">
     <a href="index.html" class="font-hindi text-3xl tracking-wide">डाँडा पारी</a>
     <div class="hidden md:flex space-x-12 text-sm uppercase tracking-widest">
-      <a href="stay.html" class="opacity-70">Stay</a>
+      <div class="relative group">
+  <a href="stay.html" class="hover:opacity-70 transition-opacity duration-300">
+    Stay
+  </a>
+
+  <!-- Floating options -->
+  <div class="absolute left-0 mt-6 pt-2 min-w-max flex flex-col gap-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
+    
+    <a href="mudhouse.html" class="px-3 py-2 text-xs tracking-widest text-beige bg-forest/80 backdrop-blur-sm hover:bg-forest transition-colors duration-300 whitespace-nowrap">
+      Mudhouse
+    </a>
+
+    <a href="main-house.html" class="px-3 py-2 text-xs tracking-widest text-beige bg-forest/80 backdrop-blur-sm hover:bg-forest transition-colors duration-300 whitespace-nowrap">
+      Main House
+    </a>
+
+  </div>
+</div>
       <a href="experience.html" class="hover:opacity-70">Experience</a>
       <a href="story.html" class="hover:opacity-70">Story</a>
       <a href="gallery.html" class="hover:opacity-70">Gallery</a>
@@ -28,15 +45,15 @@
     <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
 
     <div class="absolute bottom-12 left-6 md:left-12 text-beige max-w-xl">
-      <h1 class="font-serif text-4xl md:text-6xl leading-tight">The Mud House</h1>
+      <h1 class="font-serif text-4xl md:text-6xl leading-tight">Gairi Ghar</h1>
       <p class="mt-4 text-lg font-light text-beige/80">
-        A small house of earth and slate, on its own at the edge of the field.
+        Every corner carries a story, shaped by bare hands.
       </p>
     </div>
   </section>
 
   <!-- Info Strip -->
-  <section class="px-6 py-24 text-center md:px-12 md:py-28">
+  <section class="px-6 pt-24 pb-12 text-center md:px-12 md:pt-28 md:pb-16">
     <div class="max-w-3xl mx-auto">
       <p class="text-lg text-forest/90">
         Private 1BHK · Kitchen · Living space · Attached bath
@@ -55,10 +72,10 @@
 
       <div class="md:pt-12 max-w-md">
         <h3 class="font-serif text-2xl md:text-3xl mb-4">
-          One room, mostly window.
+          A Mudhouse, and Beyond
         </h3>
         <p class="text-forest/80 font-light leading-relaxed">
-          The walls are made by hand, so they aren't quite straight, and the light moves across them in a way that's hard to photograph. There is a bed, a stool, a blanket that smells of the line it was dried on. Nothing here is trying very hard.
+          A 1BHK mudhouse with a warm kitchen, a small herb garden, and a sunlit lawn. An outdoor shower open to the sky. Out back, a quiet stretch of green that opens into endless cardamom fields, where wild musk deer still wander.
         </p>
       </div>
 
@@ -74,7 +91,7 @@
           A kitchen, in case you'd like to cook.
         </h3>
         <p class="text-forest/80 font-light leading-relaxed">
-          Two burners, a kettle, jars of things from the garden. We can leave you with rice, dal, eggs, whatever the season is offering. Or we'll send food across from the main house, whichever feels easier on the day.
+          Step inside, and you're greeted by an open, sunlit kitchen. A skylight fills the space with natural light, and at its center sits a stone slab from our farm, used as both a prep space and dining table. It’s simple, intuitive, and made for slow, unhurried meals.
         </p>
       </div>
 
@@ -91,10 +108,10 @@
 
       <div class="md:pt-12 max-w-md">
         <h3 class="font-serif text-2xl md:text-3xl mb-4">
-          What grows here ends up on the table.
+          A spot to sink into.
         </h3>
         <p class="text-forest/80 font-light leading-relaxed">
-          It's a working farm, not a postcard of one. Some weeks there is more than we know what to do with. Some weeks the deer get there first. Either way, you're welcome to walk through the beds and pick what you want for the next meal.
+          A cozy mud sofa invites you to sink in with a book or your thoughts. A farm-sourced coffee table and a small work desk complete the space, holding both comfort and quiet productivity.
         </p>
       </div>
 
@@ -107,10 +124,10 @@
 
       <div class="md:pt-12 max-w-md md:order-1">
         <h3 class="font-serif text-2xl md:text-3xl mb-4">
-          And then, the doing of nothing.
+          Where the day softens.
         </h3>
         <p class="text-forest/80 font-light leading-relaxed">
-          There is a chair on the verandah that gets the morning sun. Most of our guests find it within the first hour and don't move very far for the rest of the stay. We think this is a perfectly reasonable use of a holiday.
+          Beyond the living room, the bedroom opens into a quiet, earthen space. The bed, built from mud, holds you in a deep, grounding comfort, while a sunroof above frames drifting clouds, monsoon rain, or starlit skies, all from the warmth of your bed.
         </p>
       </div>
 
@@ -118,14 +135,33 @@
 
     </div>
   </section>
+  <!-- SECTION 5 -->
+  <section class="px-6 py-24 md:px-12 md:py-32">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-start">
+      
+      <img src="/images/farm-harvest.jpg" class="w-full h-auto object-cover">
+
+      <div class="md:pt-12 max-w-md">
+        <h3 class="font-serif text-2xl md:text-3xl mb-4">
+          More than just a washroom.
+        </h3>
+        <p class="text-forest/80 font-light leading-relaxed">
+          Yes, even our bathroom deserves its own little paragraph. It’s a bit of a vibe.
+
+Morning rituals come with birdsong, fresh air, and the occasional feathery visitor. They seem to like it here too :)
+      </div>
+
+    </div>
+  </section>
 
   <!-- CTA -->
   <section class="px-6 py-32 text-center md:px-12 md:py-40">
-    <h2 class="font-serif text-3xl md:text-5xl font-light leading-tight max-w-3xl mx-auto">
-      This space works best if you’re not in a hurry.
-    </h2>
+    <p class="mx-auto max-w-md font-serif text-2xl italic leading-[1.6]">
+      This house works best if you don’t mind sharing a little space.
+    </p>
 
-    <a href="booking.html" class="inline-block mt-10 border border-forest px-8 py-3 text-sm uppercase tracking-widest hover:bg-forest hover:text-beige transition">
+    <a href="booking.html"
+       class="mt-12 inline-block border-b border-forest pb-1 text-sm uppercase tracking-[0.25em] font-sans hover:opacity-70">
       Enquire about this stay
     </a>
   </section>

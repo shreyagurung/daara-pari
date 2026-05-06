@@ -16,7 +16,24 @@
   <nav id="navbar" class="fixed w-full top-0 z-50 transition duration-300 ease-in-out px-6 md:px-12 py-6 flex justify-between items-center text-beige">
     <a href="index.html" class="font-hindi text-3xl tracking-wide">डाँडा पारी</a>
     <div class="hidden md:flex space-x-12 text-sm uppercase tracking-widest">
-      <a href="stay.html" class="hover:opacity-70 transition-opacity duration-300">Stay</a>
+      <div class="relative group">
+  <a href="stay.html" class="hover:opacity-70 transition-opacity duration-300">
+    Stay
+  </a>
+
+  <!-- Floating options -->
+  <div class="absolute left-0 mt-6 pt-2 min-w-max flex flex-col gap-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
+    
+    <a href="mudhouse.html" class="px-3 py-2 text-xs tracking-widest text-beige bg-forest/80 backdrop-blur-sm hover:bg-forest transition-colors duration-300 whitespace-nowrap">
+      Mudhouse
+    </a>
+
+    <a href="main-house.html" class="px-3 py-2 text-xs tracking-widest text-beige bg-forest/80 backdrop-blur-sm hover:bg-forest transition-colors duration-300 whitespace-nowrap">
+      Main House
+    </a>
+
+  </div>
+</div>
       <a href="experience.html" class="hover:opacity-70 transition-opacity duration-300">Experience</a>
       <a href="story.html" class="hover:opacity-70 transition-opacity duration-300">Story</a>
       <a href="gallery.html" class="hover:opacity-70 transition-opacity duration-300">Gallery</a>
@@ -88,6 +105,7 @@
            opacity-0 translate-x-[40px]
            transition-[opacity,transform] duration-[1800ms]
            ease-[cubic-bezier(0.22,0.61,0.36,1)] delay-[600ms]"
+    style="opacity:0; transform: translateX(40px); visibility:hidden;"
   >
     <h1 class="text-4xl md:text-6xl font-serif text-white/95 leading-tight">
       Daara Pari
@@ -128,20 +146,52 @@
   </section>
 
   <!-- Experience Preview -->
-  <section class="py-28 md:py-32 px-6 md:px-12">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center flex-row-reverse">
-      <div class="order-2 md:order-1 group overflow-hidden rounded-sm reveal delay-200 relative aspect-[4/5] md:aspect-auto md:h-[480px] lg:h-[520px] xl:h-[560px]">
-        <img src="/images/hand-in-soil.jpg" alt="Farm hands" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-500"></div>
-      </div>
-      <div class="order-1 md:order-2 reveal pl-0 md:pl-12">
-        <span class="uppercase tracking-widest text-xs text-forest/50 mb-4 block">The Farm</span>
-        <h2 class="font-serif text-4xl md:text-5xl mb-6">Hands in the soil</h2>
-        <p class="text-lg font-light text-forest/80 mb-8 max-w-md">I invite you to connect with where your food comes from (yes, that means getting your hands dirty). Join me in the fields, walk through the mist, and let the quietness settle in.</p>
-        <a href="experience.html" class="inline-block border-b border-forest pb-1 text-sm uppercase tracking-widest hover:opacity-70 transition-opacity">Discover Experiences</a>
-      </div>
+<section class="py-28 md:py-32 px-6 md:px-12">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20 items-center">
+
+    <!-- Image -->
+    <div class="order-2 md:order-1 group overflow-hidden rounded-sm reveal delay-200 relative aspect-[4/5] md:aspect-auto md:h-[480px] lg:h-[520px] xl:h-[560px]">
+      <img src="/images/hand-in-soil.jpg" alt="Hands in soil" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+      <div class="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-500"></div>
     </div>
-  </section>
+
+    <!-- Text -->
+    <div class="order-1 md:order-2 reveal pl-0 md:pl-12 max-w-lg">
+
+      <span class="uppercase tracking-widest text-xs text-forest/50 mb-4 block">
+        The Farm
+      </span>
+
+      <h2 class="font-serif text-4xl md:text-5xl mb-6">
+        Hands in the soil
+      </h2>
+
+      <p class="text-lg font-light text-forest/80 leading-relaxed space-y-4">
+        I invite you to connect with where your food comes from (yes, that means getting your hands dirty). Join me in the fields, walk through the mist, and let the quietness settle in.
+      </p>
+
+      <p class="text-lg font-light text-forest/80 leading-relaxed mt-4">
+        What we grow here, and what we gather from nearby, shapes everything we eat and share. Some of it even travels a little further.
+      </p>
+
+      <!-- CTA Group -->
+      <div class="flex flex-col sm:flex-row sm:items-center gap-6 mt-10">
+
+        <a href="https://www.nanglo.in" target="_blank"
+           class="inline-block border-b border-forest pb-1 text-sm uppercase tracking-widest hover:opacity-70 transition-opacity">
+          Explore Nanglo
+        </a>
+
+        <a href="experience.html"
+           class="inline-block border-b border-forest/40 pb-1 text-sm uppercase tracking-widest hover:opacity-70 transition-opacity text-forest/70">
+          Discover Experiences
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+</section>
 
   <!-- People Section -->
   <section class="py-32 px-6 md:px-12 bg-mist/30">
@@ -168,7 +218,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
         <div class="reveal delay-100">
           <h3 class="font-serif text-2xl mb-4 border-b border-forest/20 pb-4">Morning</h3>
-          <p class="text-forest/80 font-light leading-relaxed">When you wake up, the mist usually hasn't lifted. I'll have tea ready by the fire, and there's no rush to be anywhere.</p>
+          <p class="text-forest/80 font-light leading-relaxed">Mornings take their own time here. They might begin long after noon. No plans, no straight lines, just the hills slowly setting the rhythm of your day.</p>
         </div>
         <div class="reveal delay-200">
           <h3 class="font-serif text-2xl mb-4 border-b border-forest/20 pb-4">Afternoon</h3>
