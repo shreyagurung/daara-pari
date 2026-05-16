@@ -1,0 +1,39 @@
+backend:
+  name: github
+  repo: shreyagurung/daara-pari
+  branch: main
+
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: YOUR_CLOUD_NAME
+    api_key: YOUR_API_KEY
+
+collections:
+  - name: "site_images"
+    label: "Site Images"
+    files:
+      - file: "content/site-images.json"
+        label: "Main Images"
+        name: "images"
+        fields:
+          - { label: "Hero Image", name: "hero_image", widget: "image" }
+          - { label: "Mudhouse Image", name: "mudhouse_image", widget: "image" }
+          - { label: "Deck Image", name: "deck_image", widget: "image" }
+          - { label: "BB Daju Image", name: "bb_daju_image", widget: "image" }
+          - { label: "Hands in Soil", name: "hand_soil_image", widget: "image" }
+
+  - name: "gallery"
+    label: "Gallery"
+    files:
+      - file: "content/gallery.json"
+        label: "Gallery Images"
+        name: "gallery"
+        fields:
+          - label: "Images"
+            name: "images"
+            widget: "list"
+            field:
+              label: "Image"
+              name: "image"
+              widget: "image"

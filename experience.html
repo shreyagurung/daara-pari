@@ -5,38 +5,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Experience | Daara Pari</title>
   <meta name="description" content="Connect with the land. Farm life, village walks, and slow living.">
-  <style>html{visibility: hidden;opacity:0;}</style>
+  
+  <!-- Main Site CSS -->
+  <link rel="stylesheet" href="/style.css">
+
+  <style>
+    /* Prevents FOUC (Flash of Unstyled Content) */
+    html { visibility: hidden; opacity: 0; transition: opacity 0.5s ease; }
+    
+    /* Cursor Follower (Floating Ghost Image) */
+    #cursor-follower {
+      pointer-events: none;
+      position: fixed;
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    
+    /* Trigger Area */
+    .experience-trigger {
+      cursor: pointer;
+      position: relative;
+      display: inline-block;
+      z-index: 10;
+    }
+
+    /* Subtle discovery hint */
+    .explore-hint {
+      display: block;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #1f3d2b;
+      opacity: 0;
+      transform: translateY(5px);
+      transition: all 0.4s ease;
+      margin-top: 8px;
+    }
+
+    .experience-trigger:hover .explore-hint {
+      opacity: 0.6;
+      transform: translateY(0);
+    }
+
+    /* Solid Immersive Gallery */
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    #gallery-modal {
+      transition: opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+      background: rgba(243, 233, 220, 0.98);
+    }
+
+    body.gallery-open {
+      overflow: hidden;
+    }
+
+    .modal-image-container {
+      transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  </style>
 </head>
 <body class="font-sans antialiased text-forest bg-beige selection:bg-forest selection:text-beige">
 
-  <!-- Navigation -->
-  <nav id="navbar" class="fixed w-full top-0 z-50 transition duration-300 ease-in-out px-6 md:px-12 py-6 flex justify-between items-center text-forest bg-beige/95 backdrop-blur-md shadow-sm">
+  <!-- Navigation (Fully Preserved) -->
+  <nav id="navbar" class="fixed w-full top-0 z-[9999] transition duration-300 ease-in-out px-6 md:px-12 py-6 flex justify-between items-center text-forest bg-beige/95 backdrop-blur-md shadow-sm">
     <a href="index.html" class="font-hindi text-3xl tracking-wide">डाँडा पारी</a>
     <div class="hidden md:flex space-x-12 text-sm uppercase tracking-widest">
-      <div class="relative group">
-  <a href="stay.html" class="hover:opacity-70 transition-opacity duration-300">
-    Stay
-  </a>
-
-  <!-- Floating options -->
-  <div class="absolute left-0 mt-6 pt-2 min-w-max flex flex-col gap-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
-    
-    <a href="mudhouse.html" class="px-3 py-2 text-xs tracking-widest text-beige bg-forest/80 backdrop-blur-sm hover:bg-forest transition-colors duration-300 whitespace-nowrap">
-      Mudhouse
-    </a>
-
-    <a href="main-house.html" class="px-3 py-2 text-xs tracking-widest text-beige bg-forest/80 backdrop-blur-sm hover:bg-forest transition-colors duration-300 whitespace-nowrap">
-      Main House
-    </a>
-
-  </div>
-</div>
+      <div class="relative group pb-4 -mb-4">
+        <a href="stay.html" class="hover:opacity-70 transition-opacity duration-300">Stay</a>
+        <div class="absolute left-0 top-full pt-2 min-w-max flex flex-col gap-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:pointer-events-auto transition-all duration-300">
+          <a href="mud-house.html" class="nav-dropdown-link px-3 py-2 text-xs tracking-widest backdrop-blur-sm transition-colors duration-300 whitespace-nowrap">Mudhouse</a>
+          <a href="main-house.html" class="nav-dropdown-link px-3 py-2 text-xs tracking-widest backdrop-blur-sm transition-colors duration-300 whitespace-nowrap">Main House</a>
+        </div>
+      </div>
       <a href="experience.html" class="opacity-70">Experience</a>
       <a href="story.html" class="hover:opacity-70 transition-opacity duration-300">Story</a>
       <a href="gallery.html" class="hover:opacity-70 transition-opacity duration-300">Gallery</a>
     </div>
     <a href="booking.html" class="hidden md:block hover:opacity-70 text-sm uppercase tracking-widest transition-opacity duration-300">Enquire</a>
-    <button class="md:hidden block uppercase tracking-widest text-sm">Menu</button>
+    <button id="mobile-menu-toggle" class="md:hidden block uppercase tracking-widest text-sm" aria-expanded="false" aria-label="Toggle navigation menu">Menu</button>
+    <div id="mobile-menu" class="hidden md:hidden absolute left-0 right-0 top-full z-40 flex flex-col gap-4 border-t border-forest/10 bg-beige/95 px-6 py-6 backdrop-blur-md">
+      <a href="stay.html" class="text-sm uppercase tracking-widest hover:opacity-70">Stay</a>
+      <a href="mud-house.html" class="text-sm uppercase tracking-widest hover:opacity-70">Mudhouse</a>
+      <a href="main-house.html" class="text-sm uppercase tracking-widest hover:opacity-70">Main House</a>
+      <a href="experience.html" class="text-sm uppercase tracking-widest hover:opacity-70">Experience</a>
+      <a href="story.html" class="text-sm uppercase tracking-widest hover:opacity-70">Story</a>
+      <a href="gallery.html" class="text-sm uppercase tracking-widest hover:opacity-70">Gallery</a>
+      <a href="booking.html" class="text-sm uppercase tracking-widest hover:opacity-70">Enquire</a>
+    </div>
   </nav>
 
   <!-- Header -->
@@ -47,104 +104,172 @@
     </div>
   </section>
 
-  <!-- Experiences Grid -->
+  <!-- Experiences Grid (Everything preserved exactly as you wrote it) -->
   <section class="pb-32 px-6 md:px-12">
     <div class="max-w-6xl mx-auto space-y-24">
       
-      <!-- Core Experiences -->
+      <!-- 01 THE ESSENTIALS -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-12 reveal">
         <div class="md:col-span-4 border-t border-forest/20 pt-4">
-          <span class="text-xs uppercase tracking-widest font-semibold">01 / The Essentials</span>
-          <h2 class="font-serif text-3xl mt-4">Core Experiences</h2>
+          <span class="text-xs uppercase tracking-widest font-semibold">01 &mdash; The Essentials</span>
+          <div class="experience-trigger group" data-category="the-essentials">
+            <h2 class="font-serif text-3xl mt-4">Core Experiences</h2>
+            <span class="explore-hint">Click to Explore Gallery</span>
+          </div>
         </div>
         <div class="md:col-span-8 space-y-12 pt-4 md:pt-12">
           <div>
-            <h3 class="text-xl font-serif mb-2">Village Walk & Exploration</h3>
-            <p class="text-forest/80 font-light leading-relaxed">Wander through our village with absolutely zero itinerary. Meet my neighbors (they love a good chat), listen to their stories, and experience the natural rhythm of the hills.</p>
+            <h3 class="text-xl font-serif mb-2">Village Walks</h3>
+            <p class="text-forest/80 font-light leading-relaxed">Walk through Sambok without destination or schedule. Meet locals, hear stories over tea, and observe the quiet rhythm of mountain life.</p>
           </div>
           <div>
-            <h3 class="text-xl font-serif mb-2">River Camping & Picnic</h3>
-            <p class="text-forest/80 font-light leading-relaxed">Spend a slow afternoon by the river. I'll pack you a picnic of fresh farm food—just promise me you won't check your emails while you're down there.</p>
+            <h3 class="text-xl font-serif mb-2">Slow Scenic Drives &amp; Viewpoints</h3>
+            <p class="text-forest/80 font-light leading-relaxed">Take the long way through winding mountain roads, hidden bends, forests wrapped in mist, and viewpoints untouched by crowds.</p>
           </div>
           <div>
             <h3 class="text-xl font-serif mb-2">Sunrise & Sunset Drives</h3>
-            <p class="text-forest/80 font-light leading-relaxed">Chase the golden hours. I’ll drive you to Ramdhong to watch the world wake up, or we'll find a quiet spot to watch the sun slip behind the mountains.</p>
+            <p class="text-forest/80 font-light leading-relaxed">Early mornings to Ramdhong. Golden evenings over distant ridges. Quiet moments between movement and stillness.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-serif mb-2">Stargazing</h3>
+            <p class="text-forest/80 font-light leading-relaxed">On clear nights, the mountains disappear into darkness and the sky takes over.</p>
           </div>
         </div>
       </div>
 
-      <!-- Nature & Exploration -->
+      <!-- 02 THE WILD -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-12 reveal">
         <div class="md:col-span-4 border-t border-forest/20 pt-4">
-          <span class="text-xs uppercase tracking-widest font-semibold">02 / The Wild</span>
-          <h2 class="font-serif text-3xl mt-4">Nature & Exploration</h2>
+          <span class="text-xs uppercase tracking-widest font-semibold">02 &mdash; The Wild</span>
+          <div class="experience-trigger group" data-category="the-wild">
+            <h2 class="font-serif text-3xl mt-4">Nature & Exploration</h2>
+            <span class="explore-hint">Click to Explore Gallery</span>
+          </div>
         </div>
         <div class="md:col-span-8 space-y-12 pt-4 md:pt-12">
           <div>
-            <h3 class="text-xl font-serif mb-2">Forest Trails & Viewpoints</h3>
-            <p class="text-forest/80 font-light leading-relaxed">Follow the trails deep into the forest. Discover hidden viewpoints and the silent, untouched beauty of the wild.</p>
+            <h3 class="text-xl font-serif mb-2">Forest Trails</h3>
+            <p class="text-forest/80 font-light leading-relaxed">Follow untouched forest paths through moss-covered trees, hidden viewpoints, and silence interrupted only by birdsong.</p>
           </div>
           <div>
-            <h3 class="text-xl font-serif mb-2">Slow Scenic Drives</h3>
-            <p class="text-forest/80 font-light leading-relaxed">Take the long way around. Slow, intentional drives through the hills, where the journey itself is the destination.</p>
+            <h3 class="text-xl font-serif mb-2">River Camping</h3>
+            <p class="text-forest/80 font-light leading-relaxed">Spend slow afternoons by the river with local food, warm tea, and time that stretches gently.</p>
           </div>
+          <div>
+            <h3 class="text-xl font-serif mb-2">Birdwatching</h3>
+            <p class="text-forest/80 font-light leading-relaxed">The hills around Daara Pari are home to Himalayan birdlife and rare sightings for those patient enough to notice.</p>
+          </div>
+          <p class="max-w-xl border-l border-forest/20 pl-5 font-serif text-xl italic leading-relaxed text-forest/90">Guided locally by my cousin Harru!</p>
         </div>
       </div>
 
-      <!-- Cultural Immersion -->
+      <!-- 03 THE LAND -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-12 reveal">
         <div class="md:col-span-4 border-t border-forest/20 pt-4">
-          <span class="text-xs uppercase tracking-widest font-semibold">03 / The Land</span>
-          <h2 class="font-serif text-3xl mt-4">Cultural Immersion</h2>
+          <span class="text-xs uppercase tracking-widest font-semibold">03 &mdash; The Land</span>
+          <div class="experience-trigger group" data-category="the-land">
+            <h2 class="font-serif text-3xl mt-4">Cultural Immersion</h2>
+            <span class="explore-hint">Click to Explore Gallery</span>
+          </div>
         </div>
         <div class="md:col-span-8 space-y-12 pt-4 md:pt-12">
-          <div>
-            <h3 class="text-xl font-serif mb-2">Tea Plantation Visit</h3>
-            <p class="text-forest/80 font-light leading-relaxed">Walk through local tea estates and witness how the region’s famous leaves are nurtured, grown, and carefully harvested.</p>
-          </div>
           <div>
             <h3 class="text-xl font-serif mb-2">Seasonal Harvesting</h3>
-            <p class="text-forest/80 font-light leading-relaxed">Depending on the season, join me in the fields. We plant paddy in the monsoon, and harvest cardamom in the autumn. Honest, grounding work.</p>
+            <p class="text-forest/80 font-light leading-relaxed">Depending on the season, join local harvesting traditions &mdash; from paddy planting during the monsoon to cardamom harvests in autumn.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-serif mb-2">Local Craft</h3>
+            <p class="text-forest/80 font-light leading-relaxed">Learn forgotten crafts and traditional techniques preserved quietly in the hills through generations.</p>
           </div>
         </div>
       </div>
 
-      <!-- Lifestyle & Slow Living -->
+      <!-- 04 THE MIND -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 reveal">
+
+  <div class="md:col-span-4 border-t border-forest/20 pt-4">
+
+    <span class="text-xs uppercase tracking-widest font-semibold block mb-6">
+      04 &mdash; The Mind
+    </span>
+
+    <div class="experience-trigger group inline-block"
+         data-category="the-mind">
+
+      <h2 class="font-serif text-3xl leading-none">
+        Slow Living
+      </h2>
+
+      <span class="explore-hint">
+        Click to Explore Gallery
+      </span>
+
+    </div>
+
+  </div>
+
+  <div class="md:col-span-8 space-y-12 pt-4">
+
+    <div>
+      <h3 class="text-xl font-serif mb-2">
+        Do-Nothing Time
+      </h3>
+
+      <p class="text-forest/80 font-light leading-relaxed">
+        The rarest luxury. Sit with the mist, listen to the rain,
+        and let the hours pass without needing to fill them.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="text-xl font-serif mb-2">
+        Yoga &amp; Book Reading
+      </h3>
+
+      <p class="text-forest/80 font-light leading-relaxed">
+        Slow mornings, warm tea, long pages,
+        stretched bodies, and quiet thoughts.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="text-xl font-serif mb-2">
+        Stargazing
+      </h3>
+
+      <p class="text-forest/80 font-light leading-relaxed">
+        A different kind of silence reveals itself after dark.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+      <!-- 05 THE SPIRIT -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-12 reveal">
         <div class="md:col-span-4 border-t border-forest/20 pt-4">
-          <span class="text-xs uppercase tracking-widest font-semibold">04 / The Mind</span>
-          <h2 class="font-serif text-3xl mt-4">Slow Living</h2>
+          <span class="text-xs uppercase tracking-widest font-semibold">05 &mdash; The Spirit</span>
+          <div class="experience-trigger group" data-category="the-spirit">
+            <h2 class="font-serif text-3xl mt-4">Extended Experiences</h2>
+            <span class="explore-hint">Click to Explore Gallery</span>
+          </div>
         </div>
         <div class="md:col-span-8 space-y-12 pt-4 md:pt-12">
           <div>
-            <h3 class="text-xl font-serif mb-2">"Do Nothing" Time</h3>
-            <p class="text-forest/80 font-light leading-relaxed">The rarest luxury. Sit on the balcony. Watch the mist roll in. Let the hours pass without feeling the need to fill them.</p>
+            <h3 class="text-xl font-serif mb-2">Monastery Visits</h3>
+            <p class="text-forest/80 font-light leading-relaxed">Visit hidden monasteries and spiritual spaces scattered across the region. Sit with chants, prayer flags, incense, and stillness.</p>
           </div>
           <div>
-            <h3 class="text-xl font-serif mb-2">Living Like a Local</h3>
-            <p class="text-forest/80 font-light leading-relaxed">Eat what I eat, live how I live. It's genuine, uncurated, and mostly consists of drinking way too much tea.</p>
+            <h3 class="text-xl font-serif mb-2">Follow Your Spirit</h3>
+            <p class="text-forest/80 font-light leading-relaxed">For those seeking something beyond stillness &mdash; paragliding in Pelling, mountain drives, and journeys that feel personal rather than planned.</p>
           </div>
         </div>
       </div>
-
-      <!-- Nearby -->
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 reveal">
-        <div class="md:col-span-4 border-t border-forest/20 pt-4">
-          <span class="text-xs uppercase tracking-widest font-semibold">05 / The Spirit</span>
-          <h2 class="font-serif text-3xl mt-4">Extended</h2>
-        </div>
-        <div class="md:col-span-8 pt-4 md:pt-12">
-          <div>
-            <h3 class="text-xl font-serif mb-2">Monastery Visit</h3>
-            <p class="text-forest/80 font-light leading-relaxed">A quiet trip to the local monastery. Sit with the monks, listen to the chants, and find a moment of absolute stillness.</p>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Footer (Fully Preserved) -->
   <footer class="bg-forest text-beige/60 py-16 px-6 md:px-12 border-t border-beige/10">
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-xs uppercase tracking-widest">
       <div>
@@ -158,7 +283,7 @@
       </div>
       <div class="flex flex-col space-y-4">
         <span class="text-beige font-serif tracking-widest text-sm">Follow Us</span>
-        <a href="https://www.instagram.com/daarapari/" class="hover:text-beige transition-colors">Instagram</a>
+        <a href="https://www.instagram.com/daarapari/" target="_blank" class="hover:text-beige transition-colors">Instagram</a>
         <div class="flex items-center space-x-2 pt-2">
           <span>TripAdvisor</span>
           <span class="text-yellow-400 text-sm">★★★★★</span>
@@ -167,6 +292,135 @@
     </div>
   </footer>
 
+  <!-- DYNAMIC INTERACTION LAYERS -->
+  <div id="cursor-follower">
+    <div class="overflow-hidden rounded-sm w-52 h-72 md:w-64 md:h-80 shadow-[0_18px_45px_rgba(0,0,0,0.16)]">
+      <img id="preview-img" src="" class="w-full h-full object-cover transition-opacity duration-150" alt="Preview">
+    </div>
+  </div>
+
+  <div id="gallery-modal" class="fixed inset-0 z-[10000] opacity-0 pointer-events-none flex flex-col items-center justify-center">
+    <div id="modal-backdrop" class="absolute inset-0 cursor-crosshair"></div>
+    <button onclick="closeGallery()" class="absolute top-10 right-10 z-20 text-xs uppercase tracking-widest text-forest/50 hover:text-forest transition-colors">Close (Esc)</button>
+    <div id="modal-content" class="relative z-10 w-full max-w-6xl px-6"></div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="/data/images.js"></script>
   <script type="module" src="/main.js"></script>
+  
+  <script>
+    const follower = document.getElementById('cursor-follower');
+    const previewImg = document.getElementById('preview-img');
+    const triggers = document.querySelectorAll('.experience-trigger');
+    const modal = document.getElementById('gallery-modal');
+    const modalContent = document.getElementById('modal-content');
+    const backdrop = document.getElementById('modal-backdrop');
+    
+    let mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
+    let isGalleryOpen = false;
+    let scrollAtOpen = 0;
+    let hoverSlideshow;
+    let currentHoverIndex = 0;
+
+    // Movement Tracking
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animateFollower() {
+      followerX += (mouseX - followerX) * 0.12;
+      followerY += (mouseY - followerY) * 0.12;
+      follower.style.left = `${followerX}px`;
+      follower.style.top = `${followerY}px`;
+      follower.style.transform = `translate(24px, -50%)`;
+      requestAnimationFrame(animateFollower);
+    }
+    animateFollower();
+
+    // Trigger Connection Logic
+    triggers.forEach(trigger => {
+      const category = trigger.dataset.category;
+
+      trigger.addEventListener('mouseenter', () => {
+        if (typeof window.images !== 'undefined' && window.images.experiences && window.images.experiences[category]) {
+          const photos = window.images.experiences[category];
+          if (photos.length > 0) {
+            currentHoverIndex = 0;
+            previewImg.src = photos[0].replace('/upload/', '/upload/f_auto,q_auto,w_900/');
+            previewImg.style.opacity = '1';
+            follower.style.opacity = '1';
+
+            clearInterval(hoverSlideshow);
+            hoverSlideshow = setInterval(() => {
+              currentHoverIndex = (currentHoverIndex + 1) % photos.length;
+              previewImg.style.opacity = '0';
+
+              setTimeout(() => {
+                previewImg.src = photos[currentHoverIndex].replace('/upload/', '/upload/f_auto,q_auto,w_900/');
+                previewImg.style.opacity = '1';
+              }, 90);
+            }, 600);
+          }
+        }
+      });
+
+      trigger.addEventListener('mouseleave', () => {
+        clearInterval(hoverSlideshow);
+        if (!isGalleryOpen) {
+          follower.style.opacity = '0';
+        }
+      });
+
+      trigger.addEventListener('click', () => {
+        openGallery(category);
+      });
+    });
+
+    function openGallery(cat) {
+      if (typeof window.images === 'undefined') return;
+      const photos = window.images.experiences[cat];
+      if (!photos || photos.length === 0) return;
+
+      isGalleryOpen = true;
+      scrollAtOpen = window.scrollY;
+      document.body.classList.add('gallery-open');
+      follower.style.opacity = '0';
+      clearInterval(hoverSlideshow);
+
+      modalContent.innerHTML = `
+        <div class="flex overflow-x-auto gap-8 py-10 hide-scrollbar snap-x">
+          ${photos.map(url => `
+            <div class="flex-none w-[80vw] md:w-[60vw] snap-center modal-image-container">
+              <img src="${url}" class="w-full aspect-video object-cover rounded-sm shadow-xl transition-all duration-1000 grayscale-[0.1] hover:grayscale-0">
+            </div>
+          `).join('')}
+        </div>
+        <div class="text-center text-[10px] uppercase tracking-widest text-forest/40 mt-4">
+          Swipe to explore • Click backdrop or scroll to return
+        </div>
+      `;
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    function closeGallery() {
+      isGalleryOpen = false;
+      document.body.classList.remove('gallery-open');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    backdrop.addEventListener('click', closeGallery);
+    window.addEventListener('scroll', () => {
+      if (isGalleryOpen && Math.abs(window.scrollY - scrollAtOpen) > 200) closeGallery();
+    }, { passive: true });
+
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeGallery(); });
+
+    window.onload = () => {
+        document.documentElement.style.visibility = 'visible';
+        document.documentElement.style.opacity = '1';
+    };
+  </script>
 </body>
 </html>

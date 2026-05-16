@@ -13,19 +13,19 @@
   <nav id="navbar" class="fixed w-full top-0 z-50 transition duration-300 ease-in-out px-6 md:px-12 py-6 flex justify-between items-center text-forest bg-beige/95 backdrop-blur-md shadow-sm">
     <a href="index.html" class="font-hindi text-3xl tracking-wide">डाँडा पारी</a>
     <div class="hidden md:flex space-x-12 text-sm uppercase tracking-widest">
-      <div class="relative group">
+      <div class="relative group pb-4 -mb-4">
   <a href="stay.html" class="hover:opacity-70 transition-opacity duration-300">
     Stay
   </a>
 
   <!-- Floating options -->
-  <div class="absolute left-0 mt-6 pt-2 min-w-max flex flex-col gap-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
+  <div class="absolute left-0 top-full pt-2 min-w-max flex flex-col gap-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:pointer-events-auto transition-all duration-300">
     
-    <a href="mudhouse.html" class="px-3 py-2 text-xs tracking-widest text-beige bg-forest/80 backdrop-blur-sm hover:bg-forest transition-colors duration-300 whitespace-nowrap">
+    <a href="mud-house.html" class="nav-dropdown-link px-3 py-2 text-xs tracking-widest backdrop-blur-sm transition-colors duration-300 whitespace-nowrap">
       Mudhouse
     </a>
 
-    <a href="main-house.html" class="px-3 py-2 text-xs tracking-widest text-beige bg-forest/80 backdrop-blur-sm hover:bg-forest transition-colors duration-300 whitespace-nowrap">
+    <a href="main-house.html" class="nav-dropdown-link px-3 py-2 text-xs tracking-widest backdrop-blur-sm transition-colors duration-300 whitespace-nowrap">
       Main House
     </a>
 
@@ -36,7 +36,16 @@
       <a href="gallery.html" class="hover:opacity-70 transition-opacity duration-300">Gallery</a>
     </div>
     <a href="booking.html" class="hidden md:block hover:opacity-70 text-sm uppercase tracking-widest transition-opacity duration-300">Enquire</a>
-    <button class="md:hidden block uppercase tracking-widest text-sm">Menu</button>
+    <button id="mobile-menu-toggle" class="md:hidden block uppercase tracking-widest text-sm" aria-expanded="false" aria-label="Toggle navigation menu">Menu</button>
+    <div id="mobile-menu" class="hidden md:hidden absolute left-0 right-0 top-full z-40 flex flex-col gap-4 border-t border-forest/10 bg-beige/95 px-6 py-6 backdrop-blur-md">
+      <a href="stay.html" class="text-sm uppercase tracking-widest hover:opacity-70">Stay</a>
+      <a href="mud-house.html" class="text-sm uppercase tracking-widest hover:opacity-70">Mudhouse</a>
+      <a href="main-house.html" class="text-sm uppercase tracking-widest hover:opacity-70">Main House</a>
+      <a href="experience.html" class="text-sm uppercase tracking-widest hover:opacity-70">Experience</a>
+      <a href="story.html" class="text-sm uppercase tracking-widest hover:opacity-70">Story</a>
+      <a href="gallery.html" class="text-sm uppercase tracking-widest hover:opacity-70">Gallery</a>
+      <a href="booking.html" class="text-sm uppercase tracking-widest hover:opacity-70">Enquire</a>
+    </div>
   </nav>
 
   <!-- Header -->

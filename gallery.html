@@ -5,237 +5,289 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gallery | Daara Pari</title>
 
-  <!-- Fonts (match your site) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
-
-  <!-- Your main CSS -->
   <link rel="stylesheet" href="/style.css">
-
-  <style>
-    body { background:#f3e9dc; color:#1f3d2b; }
-
-    .carousel-track {
-      display:flex;
-      overflow-x:auto;
-      gap:40px;
-      scroll-snap-type:x mandatory;
-      scroll-behavior:smooth;
-    }
-
-    .carousel-track::-webkit-scrollbar { display:none; }
-
-    .slide {
-      flex:0 0 85%;
-      scroll-snap-align:center;
-    }
-
-    @media(min-width:768px){
-      .slide { flex:0 0 48%; }
-    }
-
-    .carousel-btn {
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      background:rgba(243,233,220,0.6);
-      backdrop-filter:blur(6px);
-      border:none;
-      padding:6px 10px;
-      cursor:pointer;
-      opacity:0.5;
-    }
-
-    .carousel-btn:hover { opacity:1; }
-  </style>
 </head>
 
 <body class="font-sans antialiased text-forest bg-beige">
 
-<!-- NAV -->
-<nav id="navbar"
-  class="fixed w-full top-0 z-[9999] px-6 md:px-12 py-6 flex justify-between items-center bg-beige/90 backdrop-blur-md border-b border-forest/10">
-
-  <a href="index.html" class="font-hindi text-3xl text-forest">
-    डाँडा पारी
-  </a>
+<nav id="navbar" class="fixed w-full top-0 z-[9999] px-6 md:px-12 py-6 flex justify-between items-center bg-beige/90 backdrop-blur-md border-b border-forest/10">
+  
+  <a href="index.html" class="font-hindi text-3xl text-forest">डाँडा पारी</a>
 
   <div class="hidden md:flex space-x-12 text-sm uppercase tracking-widest font-sans text-forest/80">
-    <div class="relative group">
-  <a href="stay.html" class="hover:opacity-70 transition-opacity duration-300">
-    Stay
-  </a>
-
-  <!-- Floating options -->
-  <div class="absolute left-0 mt-6 pt-2 min-w-max flex flex-col gap-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
     
-    <a href="mudhouse.html" class="px-3 py-2 text-xs tracking-widest text-beige bg-forest/80 backdrop-blur-sm hover:bg-forest transition-colors duration-300 whitespace-nowrap">
-      Mudhouse
-    </a>
+    <div class="relative group pb-4 -mb-4">
+      
+      <a href="stay.html" class="hover:opacity-70 transition-opacity duration-300">
+        Stay
+      </a>
 
-    <a href="main-house.html" class="px-3 py-2 text-xs tracking-widest text-beige bg-forest/80 backdrop-blur-sm hover:bg-forest transition-colors duration-300 whitespace-nowrap">
-      Main House
-    </a>
+      <div class="absolute left-0 top-full pt-2 min-w-max flex flex-col gap-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:pointer-events-auto transition-all duration-300">
+        
+        <a href="mud-house.html" class="nav-dropdown-link px-3 py-2 text-xs tracking-widest backdrop-blur-sm transition-colors duration-300 whitespace-nowrap">
+          Mudhouse
+        </a>
 
-  </div>
-</div>
+        <a href="main-house.html" class="nav-dropdown-link px-3 py-2 text-xs tracking-widest backdrop-blur-sm transition-colors duration-300 whitespace-nowrap">
+          Main House
+        </a>
+
+      </div>
+    </div>
+
     <a href="experience.html" class="hover:opacity-70">Experience</a>
     <a href="story.html" class="hover:opacity-70">Story</a>
     <a href="gallery.html" class="opacity-70">Gallery</a>
+
   </div>
 
-  <a href="booking.html"
-     class="hidden md:block text-sm uppercase tracking-widest font-sans text-forest hover:opacity-70">
+  <a href="booking.html" class="hidden md:block text-sm uppercase tracking-widest font-sans text-forest hover:opacity-70">
     Enquire
   </a>
+
 </nav>
 
-
-<!-- INTRO -->
 <header class="mx-auto max-w-2xl px-6 pt-44 pb-10 md:pt-52">
+
   <p class="text-xs uppercase tracking-[0.3em] text-forest/50 font-sans">
-    A gallery
+    A curated gallery
   </p>
 
   <h1 class="mt-6 font-serif text-4xl md:text-6xl font-light leading-[1.15]">
-    Some pictures, in no particular order.
+    The Spaces & The Experience.
   </h1>
 
-  <p class="mt-8 text-[15px] leading-[1.85] text-forest/70">
-    Most of these were taken on ordinary mornings. Scroll slowly.
-  </p>
 </header>
 
+<section class="mx-auto max-w-6xl px-6 pt-32">
 
-<!-- SECTION TITLE -->
-<section class="mx-auto max-w-2xl px-6 pt-32 pb-16">
-  <p class="text-xs uppercase tracking-[0.3em] text-forest/50">One</p>
-  <h2 class="font-serif text-3xl md:text-5xl font-light mt-6">The Spaces</h2>
-</section>
-
-
-<script>
-function scrollCarousel(btn, dir){
-  const track = btn.parentElement.querySelector('.carousel-track');
-  const slide = track.querySelector('.slide');
-  const width = slide.offsetWidth + 40;
-
-  track.scrollBy({ left: dir * width, behavior:'smooth' });
-}
-</script>
-
-
-<!-- MUD HOUSE -->
-<section class="mx-auto max-w-5xl px-6">
-
-<p class="font-serif italic text-xl mb-4">Mud House</p>
-
-<!-- HERO IMAGE (added correctly) -->
-<img src="/images/mud-house-hero.jpg" class="w-full mb-10 object-cover">
-
-<!-- GRID → CAROUSEL -->
-<div class="relative">
-
-  <button onclick="scrollCarousel(this,-1)" class="carousel-btn left-2">←</button>
-  <button onclick="scrollCarousel(this,1)" class="carousel-btn right-2">→</button>
-
-  <div class="carousel-track">
-    <div class="slide">
-      <img src="/images/mud-house.jpg" class="aspect-[4/3] object-cover">
-    </div>
-    <div class="slide">
-      <img src="/images/mud-interior.jpg" class="aspect-[4/5] object-cover">
-    </div>
-  </div>
-
-</div>
-</section>
-
-
-<!-- MAIN HOUSE (unchanged) -->
-<section class="mx-auto max-w-5xl px-6 pt-20">
-  <p class="font-serif italic text-xl mb-4">Main House</p>
-  <img src="/images/main-house.jpg" class="w-full object-cover">
-</section>
-
-
-<!-- PRIVATE ROOMS -->
-<section class="mx-auto max-w-5xl px-6 pt-20">
-
-<p class="text-xs uppercase tracking-[0.25em] text-forest/55">Private rooms</p>
-
-<div class="relative mt-6">
-
-  <button onclick="scrollCarousel(this,-1)" class="carousel-btn left-2">←</button>
-  <button onclick="scrollCarousel(this,1)" class="carousel-btn right-2">→</button>
-
-  <div class="carousel-track">
-    <div class="slide">
-      <img src="/images/private-room.jpg" class="aspect-[4/5] object-cover">
-    </div>
-    <div class="slide">
-      <img src="/images/verandah.jpg" class="aspect-[4/5] object-cover">
-    </div>
-  </div>
-
-</div>
-</section>
-
-
-<!-- SHARED ROOM -->
-<section class="mx-auto max-w-5xl px-6 pt-20">
-  <p class="text-xs uppercase tracking-[0.25em] text-forest/55">Shared rooms</p>
-  <img src="/images/shared-room.jpg" class="w-full object-cover mt-6">
-</section>
-
-
-<!-- DORM -->
-<section class="mx-auto max-w-5xl px-6 pt-20">
-  <p class="text-xs uppercase tracking-[0.25em] text-forest/55">Dormitory</p>
-  <img src="/images/dorm.jpg" class="w-full object-cover mt-6">
-</section>
-
-
-<!-- SHARED LIVING -->
-<section class="mx-auto max-w-5xl px-6 pt-20">
-
-<div class="relative">
-
-  <button onclick="scrollCarousel(this,-1)" class="carousel-btn left-2">←</button>
-  <button onclick="scrollCarousel(this,1)" class="carousel-btn right-2">→</button>
-
-  <div class="carousel-track">
-    <div class="slide">
-      <img src="/images/shared-living.jpg" class="aspect-[4/3] object-cover">
-    </div>
-    <div class="slide">
-      <img src="/images/kitchen.jpg" class="aspect-[4/3] object-cover">
-    </div>
-  </div>
-
-</div>
-
-</section>
-
-
-<!-- CTA -->
-<section class="px-6 py-40 text-center">
-  <p class="mx-auto max-w-md font-serif text-2xl italic leading-[1.6]">
-    If anything here looks like a place you'd like to be, write to us.
+  <p class="text-xs uppercase tracking-[0.3em] text-forest/50">
+    Chapter One
   </p>
 
-  <a href="booking.html"
-     class="mt-12 inline-block border-b border-forest pb-1 text-sm uppercase tracking-[0.25em] font-sans hover:opacity-70">
-    Enquire about a stay
-  </a>
+  <h2 class="font-serif text-3xl md:text-5xl font-light mt-4 mb-10">
+    The Spaces
+  </h2>
+
+  <!-- MUDHOUSE -->
+
+  <div class="mb-6">
+
+    <h3 class="font-serif text-2xl md:text-4xl font-light mb-4">
+      The Mudhouse
+    </h3>
+
+    <p class="text-sm text-forest/60 max-w-xl leading-relaxed">
+      Earthen walls, slower rhythms, and a quieter way of staying.
+    </p>
+
+  </div>
+
+  <div id="gallery-mudhouse" class="category-section gallery-section-tight"></div>
+
+  <!-- MAIN HOUSE -->
+
+  <div class="mt-16 mb-6">
+
+    <h3 class="font-serif text-2xl md:text-4xl font-light mb-4">
+      The Main House
+    </h3>
+
+    <p class="text-sm text-forest/60 max-w-xl leading-relaxed">
+      Shared living, quiet corners, and different ways to stay.
+    </p>
+
+  </div>
+
+  <div class="space-y-24">
+
+    <div id="gallery-mainhouse-privateRoomAttachedBathroom" class="category-section gallery-section-tight"></div>
+
+    <div id="gallery-mainhouse-privateRoomSharedBathroom" class="category-section"></div>
+
+    <div id="gallery-mainhouse-dorm" class="category-section"></div>
+
+    <div id="gallery-mainhouse-sharedSpaces" class="category-section"></div>
+
+  </div>
+
 </section>
 
+<section class="mx-auto max-w-6xl px-6 pt-32">
 
-<!-- FOOTER -->
-<footer class="border-t px-6 py-10 text-center text-xs uppercase tracking-[0.2em] text-forest/60 font-sans">
+  <p class="text-xs uppercase tracking-[0.3em] text-forest/50">
+    Chapter Two
+  </p>
+
+  <h2 class="font-serif text-3xl md:text-5xl font-light mt-4 mb-12">
+    The Experiences
+  </h2>
+
+  <div id="gallery-essentials" class="category-section"></div>
+
+  <div id="gallery-wild" class="category-section"></div>
+
+  <div id="gallery-land" class="category-section"></div>
+
+  <div id="gallery-spirit" class="category-section"></div>
+
+  <div id="gallery-mind" class="category-section"></div>
+
+</section>
+
+<footer class="border-t px-6 py-10 mt-40 text-center text-xs uppercase tracking-[0.2em] text-forest/60 font-sans">
   Daara Pari · the Indian Himalayas
 </footer>
 
-<script type="module" src="/main.js"></script>
+<script src="data/images.js"></script>
+
+<script>
+
+  // CAROUSEL SCROLL
+
+  function scrollCarousel(btn, dir) {
+
+    const track = btn.parentElement.querySelector('.carousel-track');
+    const slide = track.querySelector('.slide');
+
+    const gap = parseInt(window.getComputedStyle(track).gap) || 20;
+
+    const width = slide.offsetWidth + gap;
+
+    track.scrollBy({
+      left: dir * width,
+      behavior: 'smooth'
+    });
+
+  }
+
+  // CATEGORY BUILDER
+
+  function renderCategory(containerId, title, images) {
+
+    const container = document.getElementById(containerId);
+
+    if (!container || !images || images.length === 0) return;
+
+    container.innerHTML = `
+
+      ${title ? `
+        <div class="mb-2">
+          <p class="text-xs uppercase tracking-[0.2em] text-forest/40 mb-1 font-sans">
+            ${title}
+          </p>
+        </div>
+      ` : ''}
+
+      <div class="carousel-container relative">
+
+        <button onclick="scrollCarousel(this,-1)" class="carousel-btn btn-prev">
+          ←
+        </button>
+
+        <button onclick="scrollCarousel(this,1)" class="carousel-btn btn-next">
+          →
+        </button>
+
+        <div class="carousel-track flex overflow-x-auto gap-5 hide-scrollbar snap-x snap-mandatory">
+
+          ${images.map(url => `
+            <div class="slide flex-shrink-0 w-[80%] md:w-[45%] snap-start">
+              <img
+                src="${url}"
+                class="w-full aspect-square object-cover rounded-sm"
+                loading="lazy"
+              >
+            </div>
+          `).join('')}
+
+        </div>
+
+      </div>
+
+    `;
+
+  }
+
+  // LOAD GALLERY
+
+  document.addEventListener('DOMContentLoaded', () => {
+
+    if (typeof window.images === 'undefined') {
+
+      console.error("images.js not found.");
+      return;
+
+    }
+
+    // CHAPTER ONE
+
+    renderCategory(
+      'gallery-mudhouse',
+      '',
+      window.images.spaces.mudhouse
+    );
+
+    renderCategory(
+      'gallery-mainhouse-privateRoomAttachedBathroom',
+      'Private Rooms · Attached Bathroom',
+      window.images.spaces.mainhouse.privateRoomAttachedBathroom
+    );
+
+    renderCategory(
+      'gallery-mainhouse-privateRoomSharedBathroom',
+      'Private Rooms · Shared Bathroom',
+      window.images.spaces.mainhouse.privateRoomSharedBathroom
+    );
+
+    renderCategory(
+      'gallery-mainhouse-dorm',
+      'Dorm',
+      window.images.spaces.mainhouse.dorm
+    );
+
+    renderCategory(
+      'gallery-mainhouse-sharedSpaces',
+      'Shared Spaces',
+      window.images.spaces.mainhouse.sharedSpaces
+    );
+
+    // CHAPTER TWO
+
+    renderCategory(
+      'gallery-essentials',
+      'The Essentials',
+      window.images.experiences['the-essentials']
+    );
+
+    renderCategory(
+      'gallery-wild',
+      'The Wild',
+      window.images.experiences['the-wild']
+    );
+
+    renderCategory(
+      'gallery-land',
+      'The Land',
+      window.images.experiences['the-land']
+    );
+
+    renderCategory(
+      'gallery-spirit',
+      'The Spirit',
+      window.images.experiences['the-spirit']
+    );
+
+    renderCategory(
+      'gallery-mind',
+      'The Mind',
+      window.images.experiences['the-mind']
+    );
+
+  });
+
+</script>
 
 </body>
 </html>

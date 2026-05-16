@@ -4,25 +4,45 @@
 @tailwind components;
 @tailwind utilities;
 
+/* --- BASE STYLES --- */
 @layer base {
   html {
     visibility: visible;
     opacity: 1;
     transition: opacity 0.25s ease-out;
     scroll-behavior: smooth;
-    background-color: theme('colors.beige');
-    color: theme('colors.forest');
+    background-color: #f3e9dc; /* Beige theme */
+    color: #1f3d2b; /* Forest theme */
+  }
+
+  body {
+    line-height: 1.6;
+    @apply font-sans antialiased;
   }
 
   ::selection {
-    background-color: theme('colors.forest');
-    color: theme('colors.beige');
+    background-color: #1f3d2b;
+    color: #f3e9dc;
   }
 }
 
+/* --- UTILITIES & ANIMATIONS --- */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .nav-dropdown-link {
+    color: inherit;
+    border: 1px solid currentColor;
+    opacity: 0.82;
+    background: transparent;
+  }
+
+  .nav-dropdown-link:hover,
+  .nav-dropdown-link:focus-visible {
+    opacity: 1;
+    background-color: color-mix(in srgb, currentColor 8%, transparent);
   }
   
   .reveal {
@@ -36,11 +56,7 @@
     transform: translateY(0);
   }
 
-  .delay-100 { transition-delay: 100ms; }
-  .delay-200 { transition-delay: 200ms; }
-  .delay-300 { transition-delay: 300ms; }
-
-  /* Hide scrollbar for gallery */
+  /* Hide scrollbars while maintaining functionality */
   .hide-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -50,11 +66,98 @@
   }
 }
 
-/* Keep the home hero dark on first paint, before Tailwind utilities finish loading. */
+/* --- HERO FILTERS --- */
 #hero-img.hero-night {
   filter: grayscale(1) brightness(0.28) blur(1.5px);
 }
 
 #hero-img.hero-day {
   filter: grayscale(0) brightness(1) blur(0);
+}
+
+/* --- PROFESSIONAL GALLERY SYSTEM --- */
+
+/* Section Spacing & Transitions */
+.category-section {
+  padding: 60px 0;
+  border-bottom: 1px solid rgba(31, 61, 43, 0.05); 
+}
+
+.category-section.gallery-section-tight {
+  padding-top: 18px;
+}
+
+/* Carousel Layout */
+.carousel-container {
+  position: relative;
+  margin-top: 2rem; 
+}
+
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 20px; 
+  @apply hide-scrollbar;
+}
+
+/* Slide Dimensions: Optimized for Cloudinary assets */
+.slide {
+  flex: 0 0 80%;
+  scroll-snap-align: start;
+}
+
+/* Desktop sizing: Show more content per view */
+@media(min-width: 768px) {
+  .slide { 
+    flex: 0 0 45%;
+  }
+}
+
+/* Navigation Controls: Professional Floating Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(243, 233, 220, 0.9);
+  backdrop-filter: blur(8px); 
+  border: 1px solid rgba(31, 61, 43, 0.1); 
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.carousel-btn:hover { 
+  background: #1f3d2b; 
+  color: #f3e9dc; 
+}
+
+/* --- Precision Positioning --- */
+.btn-prev { left: -22px; }
+.btn-next { right: -22px; }
+
+/* --- Responsive visibility --- */
+@media(max-width: 768px) {
+  .carousel-btn { 
+    display: none; /* Rely on native touch swiping for mobile */
+  }
+}
+
+/* --- Image Presentation --- */
+.carousel-track img {
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.carousel-track .slide:hover img {
+  transform: scale(1.02); /* Subtle hover depth */
 }

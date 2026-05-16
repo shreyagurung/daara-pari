@@ -11,33 +11,70 @@
 <body class="font-sans antialiased text-forest bg-beige selection:bg-forest selection:text-beige">
 
   <!-- Navigation -->
-  <nav id="navbar" class="fixed w-full top-0 z-50 px-6 md:px-12 py-6 flex justify-between items-center text-beige">
-    <a href="index.html" class="font-hindi text-3xl tracking-wide">डाँडा पारी</a>
-    <div class="hidden md:flex space-x-12 text-sm uppercase tracking-widest">
-      <div class="relative group">
-  <a href="stay.html" class="hover:opacity-70 transition-opacity duration-300">
-    Stay
+<nav id="navbar" class="fixed w-full top-0 z-50 px-6 md:px-12 py-6 flex justify-between items-center text-beige">
+
+  <!-- Logo -->
+  <a href="index.html" class="font-hindi text-3xl tracking-wide">डाँडा पारी</a>
+
+  <!-- Desktop Menu -->
+  <div class="hidden md:flex space-x-12 text-sm uppercase tracking-widest items-center">
+
+    <!-- Stay Dropdown -->
+    <div class="relative group pb-4 -mb-4">
+      <a href="stay.html" class="hover:opacity-70 transition-opacity duration-300">
+        Stay
+      </a>
+
+      <!-- Dropdown -->
+      <div class="absolute left-0 top-full pt-2 min-w-max flex flex-col gap-2 opacity-0 translate-y-2 pointer-events-none 
+                  group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:pointer-events-auto 
+                  transition-all duration-300">
+
+        <a href="mud-house.html"
+           class="nav-dropdown-link px-3 py-2 text-xs tracking-widest backdrop-blur-sm transition-colors whitespace-nowrap">
+          Mudhouse
+        </a>
+
+        <a href="main-house.html"
+           class="nav-dropdown-link px-3 py-2 text-xs tracking-widest backdrop-blur-sm transition-colors whitespace-nowrap">
+          Main House
+        </a>
+      </div>
+    </div>
+
+    <a href="experience.html" class="hover:opacity-70 transition-opacity duration-300">Experience</a>
+    <a href="story.html" class="hover:opacity-70 transition-opacity duration-300">Story</a>
+    <a href="gallery.html" class="hover:opacity-70 transition-opacity duration-300">Gallery</a>
+  </div>
+
+  <!-- Desktop CTA -->
+  <a href="booking.html" class="hidden md:block text-sm uppercase tracking-widest hover:opacity-70">
+    Enquire
   </a>
 
-  <!-- Floating options -->
-  <div class="absolute left-0 mt-6 pt-2 min-w-max flex flex-col gap-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
-    
-    <a href="mudhouse.html" class="px-3 py-2 text-xs tracking-widest text-beige bg-forest/80 backdrop-blur-sm hover:bg-forest transition-colors duration-300 whitespace-nowrap">
-      Mudhouse
-    </a>
+  <!-- Mobile Toggle -->
+  <button id="mobile-menu-toggle"
+          class="md:hidden block uppercase tracking-widest text-sm"
+          aria-expanded="false"
+          aria-label="Toggle navigation menu">
+    Menu
+  </button>
 
-    <a href="main-house.html" class="px-3 py-2 text-xs tracking-widest text-beige bg-forest/80 backdrop-blur-sm hover:bg-forest transition-colors duration-300 whitespace-nowrap">
-      Main House
-    </a>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu"
+       class="hidden md:hidden absolute left-0 right-0 top-full z-40 flex flex-col gap-4 
+              border-t border-forest/10 bg-beige/95 px-6 py-6 backdrop-blur-md text-forest">
 
+    <a href="stay.html" class="text-sm uppercase tracking-widest hover:opacity-70">Stay</a>
+    <a href="mud-house.html" class="text-sm uppercase tracking-widest hover:opacity-70">Mudhouse</a>
+    <a href="main-house.html" class="text-sm uppercase tracking-widest hover:opacity-70">Main House</a>
+    <a href="experience.html" class="text-sm uppercase tracking-widest hover:opacity-70">Experience</a>
+    <a href="story.html" class="text-sm uppercase tracking-widest hover:opacity-70">Story</a>
+    <a href="gallery.html" class="text-sm uppercase tracking-widest hover:opacity-70">Gallery</a>
+    <a href="booking.html" class="text-sm uppercase tracking-widest hover:opacity-70">Enquire</a>
   </div>
-</div>
-      <a href="experience.html" class="hover:opacity-70">Experience</a>
-      <a href="story.html" class="hover:opacity-70">Story</a>
-      <a href="gallery.html" class="hover:opacity-70">Gallery</a>
-    </div>
-    <a href="booking.html" class="hidden md:block text-sm uppercase tracking-widest hover:opacity-70">Enquire</a>
-  </nav>
+
+</nav>
 
   <!-- Hero -->
   <section class="relative h-[90vh] min-h-[600px] w-full overflow-hidden">
@@ -65,94 +102,197 @@
   </section>
 
   <!-- SECTION 1 -->
-  <section class="px-6 py-24 md:px-12 md:py-32">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-start">
-      
-      <img src="/images/mud-interior.jpg" class="w-full h-auto object-cover">
+  <section class="px-6 py-24 md:px-12 md:py-32 bg-beige">
+  
+  <div class="max-w-6xl mx-auto grid md:grid-cols-[1.15fr_0.85fr] gap-12 md:gap-24 items-center">
 
-      <div class="md:pt-12 max-w-md">
-        <h3 class="font-serif text-2xl md:text-3xl mb-4">
-          A Mudhouse, and Beyond
-        </h3>
-        <p class="text-forest/80 font-light leading-relaxed">
-          A 1BHK mudhouse with a warm kitchen, a small herb garden, and a sunlit lawn. An outdoor shower open to the sky. Out back, a quiet stretch of green that opens into endless cardamom fields, where wild musk deer still wander.
-        </p>
-      </div>
+    <!-- Image -->
+    <div class="overflow-hidden rounded-sm aspect-square bg-mud/5">
+      <img 
+        src="https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,w_1600/v1778739912/daarapari-homestay-sikkim-mountain-view-window-seating_u6dzv8.jpg"
+        alt="Mudhouse at Daara Pari"
+        class="w-full h-full object-cover transition-transform duration-[2200ms] ease-out hover:scale-[1.02]"
+        loading="lazy"
+      >
+    </div>
+
+    <!-- Text -->
+    <div class="max-w-lg md:pt-6">
+
+      <span class="text-[11px] uppercase tracking-[0.25em] text-forest/45 font-semibold block mb-4">
+        The Space
+      </span>
+
+      <h3 class="font-serif text-3xl md:text-5xl leading-tight text-forest/90 mb-6">
+        A Mudhouse, and Beyond
+      </h3>
+
+      <p class="text-forest/75 font-light leading-[1.9] text-[15px] md:text-[16px]">
+        A 1BHK mudhouse with a warm kitchen, a small herb garden, and a sunlit lawn. 
+        An outdoor shower open to the sky. Out back, a quiet stretch of green opens into 
+        endless cardamom fields, where wild musk deer still wander.
+      </p>
 
     </div>
-  </section>
 
-  <!-- SECTION 2 -->
-  <section class="px-6 py-24 md:px-12 md:py-32">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-start">
+  </div>
 
-      <div class="md:pt-12 max-w-md md:order-1">
-        <h3 class="font-serif text-2xl md:text-3xl mb-4">
-          A kitchen, in case you'd like to cook.
-        </h3>
-        <p class="text-forest/80 font-light leading-relaxed">
-          Step inside, and you're greeted by an open, sunlit kitchen. A skylight fills the space with natural light, and at its center sits a stone slab from our farm, used as both a prep space and dining table. It’s simple, intuitive, and made for slow, unhurried meals.
-        </p>
-      </div>
+</section>
 
-      <img src="/images/kitchen.jpg" class="w-full h-auto object-cover md:order-2">
+<!-- SECTION 2 -->
+<section class="px-6 py-24 md:px-12 md:py-32 bg-[#efe6da] border-t border-forest/10">
+  
+  <div class="max-w-6xl mx-auto grid md:grid-cols-[0.85fr_1.15fr] gap-12 md:gap-24 items-center">
 
-    </div>
-  </section>
+    <!-- Text -->
+    <div class="max-w-lg md:pt-6 md:order-1">
 
-  <!-- SECTION 3 -->
-  <section class="px-6 py-24 md:px-12 md:py-32">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-start">
-      
-      <img src="/images/farm-harvest.jpg" class="w-full h-auto object-cover">
+      <span class="text-[11px] uppercase tracking-[0.25em] text-forest/45 font-semibold block mb-4">
+        The Kitchen
+      </span>
 
-      <div class="md:pt-12 max-w-md">
-        <h3 class="font-serif text-2xl md:text-3xl mb-4">
-          A spot to sink into.
-        </h3>
-        <p class="text-forest/80 font-light leading-relaxed">
-          A cozy mud sofa invites you to sink in with a book or your thoughts. A farm-sourced coffee table and a small work desk complete the space, holding both comfort and quiet productivity.
-        </p>
-      </div>
+      <h3 class="font-serif text-3xl md:text-5xl leading-tight text-forest/90 mb-6">
+        A kitchen, that invites you to cook.
+      </h3>
+
+      <p class="text-forest/75 font-light leading-[1.9] text-[15px] md:text-[16px]">
+        Step inside, and you're greeted by an open, sunlit kitchen. 
+        A skylight fills the space with natural light, and at its center 
+        sits a stone slab from our farm, used as both a prep space and dining table. 
+        It’s simple, intuitive, and made for slow, unhurried meals.
+      </p>
 
     </div>
-  </section>
 
-  <!-- SECTION 4 -->
-  <section class="px-6 py-24 md:px-12 md:py-32">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-start">
+    <!-- Image -->
+    <div class="overflow-hidden rounded-sm aspect-square bg-mud/5 md:order-2">
+      <img 
+        src="https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,w_1600/v1778739912/daarapari-homestay-sikkim-traditional-kitchen_wegob0.jpg"
+        alt="Traditional kitchen at Daara Pari"
+        class="w-full h-full object-cover transition-transform duration-[2200ms] ease-out hover:scale-[1.02]"
+        loading="lazy"
+      >
+    </div>
 
-      <div class="md:pt-12 max-w-md md:order-1">
-        <h3 class="font-serif text-2xl md:text-3xl mb-4">
-          Where the day softens.
-        </h3>
-        <p class="text-forest/80 font-light leading-relaxed">
-          Beyond the living room, the bedroom opens into a quiet, earthen space. The bed, built from mud, holds you in a deep, grounding comfort, while a sunroof above frames drifting clouds, monsoon rain, or starlit skies, all from the warmth of your bed.
-        </p>
-      </div>
+  </div>
 
-      <img src="/images/verandah.jpg" class="w-full h-auto object-cover md:order-2">
+</section>
+
+<!-- SECTION 3 -->
+<section class="px-6 py-24 md:px-12 md:py-32 bg-beige">
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-[1.15fr_0.85fr] gap-12 md:gap-24 items-center">
+
+    <!-- Image -->
+    <div class="overflow-hidden rounded-sm aspect-square bg-mud/5">
+      <img 
+        src="https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,w_1600/v1778739912/daarapari-homestay-sikkim-reading-nook_ac9gia.jpg"
+        alt="Reading nook inside mudhouse"
+        class="w-full h-full object-cover transition-transform duration-[2200ms] ease-out hover:scale-[1.02]"
+        loading="lazy"
+      >
+    </div>
+
+    <!-- Text -->
+    <div class="max-w-lg md:pt-6">
+
+      <span class="text-[11px] uppercase tracking-[0.25em] text-forest/45 font-semibold block mb-4">
+        The Living Space
+      </span>
+
+      <h3 class="font-serif text-3xl md:text-5xl leading-tight text-forest/90 mb-6">
+        A spot to sink into.
+      </h3>
+
+      <p class="text-forest/75 font-light leading-[1.9] text-[15px] md:text-[16px]">
+        A cozy mud sofa invites you to sink in with a book or your thoughts. 
+        A farm-sourced coffee table and a small work desk complete the space, 
+        holding both comfort and quiet productivity.
+      </p>
 
     </div>
-  </section>
-  <!-- SECTION 5 -->
-  <section class="px-6 py-24 md:px-12 md:py-32">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-start">
-      
-      <img src="/images/farm-harvest.jpg" class="w-full h-auto object-cover">
 
-      <div class="md:pt-12 max-w-md">
-        <h3 class="font-serif text-2xl md:text-3xl mb-4">
-          More than just a washroom.
-        </h3>
-        <p class="text-forest/80 font-light leading-relaxed">
-          Yes, even our bathroom deserves its own little paragraph. It’s a bit of a vibe.
+  </div>
 
-Morning rituals come with birdsong, fresh air, and the occasional feathery visitor. They seem to like it here too :)
-      </div>
+</section>
+
+<!-- SECTION 4 -->
+<section class="px-6 py-24 md:px-12 md:py-32 bg-[#efe6da] border-t border-forest/10">
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-[0.85fr_1.15fr] gap-12 md:gap-24 items-center">
+
+    <!-- Text -->
+    <div class="max-w-lg md:pt-6 md:order-1">
+
+      <span class="text-[11px] uppercase tracking-[0.25em] text-forest/45 font-semibold block mb-4">
+        The Bedroom
+      </span>
+
+      <h3 class="font-serif text-3xl md:text-5xl leading-tight text-forest/90 mb-6">
+        Where the day softens.
+      </h3>
+
+      <p class="text-forest/75 font-light leading-[1.9] text-[15px] md:text-[16px]">
+        Beyond the living room, the bedroom opens into a quiet, earthen space. 
+        The bed, built from mud, holds you in deep grounding comfort, while a sunroof above 
+        frames drifting clouds, monsoon rain, or starlit skies from the warmth of your bed.
+      </p>
 
     </div>
-  </section>
+
+    <!-- Image -->
+    <div class="overflow-hidden rounded-sm aspect-square bg-mud/5 md:order-2">
+      <img 
+        src="https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,w_1600/v1778739912/daarapari-homestay-sikkim-mudhouse-cozy-bedroom_a3exg8.jpg"
+        alt="Cozy mudhouse bedroom"
+        class="w-full h-full object-cover transition-transform duration-[2200ms] ease-out hover:scale-[1.02]"
+        loading="lazy"
+      >
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SECTION 5 -->
+<section class="px-6 py-24 md:px-12 md:py-32 bg-beige">
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-[1.15fr_0.85fr] gap-12 md:gap-24 items-center">
+
+    <!-- Image -->
+    <div class="overflow-hidden rounded-sm aspect-square bg-mud/5">
+      <img 
+        src="https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,w_1600/v1778921553/daarapari-homestay-sikkim--natural-bathroom_g358vh.webp"
+        alt="Mudhouse washroom"
+        class="w-full h-full object-cover transition-transform duration-[2200ms] ease-out hover:scale-[1.02]"
+        loading="lazy"
+      >
+    </div>
+
+    <!-- Text -->
+    <div class="max-w-lg md:pt-6">
+
+      <span class="text-[11px] uppercase tracking-[0.25em] text-forest/45 font-semibold block mb-4">
+        The Washroom
+      </span>
+
+      <h3 class="font-serif text-3xl md:text-5xl leading-tight text-forest/90 mb-6">
+        More than just a washroom.
+      </h3>
+
+      <p class="text-forest/75 font-light leading-[1.9] text-[15px] md:text-[16px]">
+        Yes, even our bathroom deserves its own little paragraph. 
+        It’s a bit of a vibe.
+        <br><br>
+        Morning rituals come with birdsong, fresh air, and the occasional 
+        feathery visitor. They seem to like it here too.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
 
   <!-- CTA -->
   <section class="px-6 py-32 text-center md:px-12 md:py-40">
