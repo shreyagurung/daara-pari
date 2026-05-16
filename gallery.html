@@ -140,6 +140,27 @@
   Daara Pari · the Indian Himalayas
 </footer>
 
+<div
+  id="gallery-lightbox"
+  class="fixed inset-0 z-[10000] hidden items-center justify-center bg-beige/95 px-4 py-8 backdrop-blur-md"
+  aria-hidden="true"
+>
+  <button
+    type="button"
+    onclick="closeGalleryLightbox()"
+    class="absolute right-6 top-6 text-xs uppercase tracking-[0.25em] text-forest/60 hover:text-forest"
+  >
+    Close
+  </button>
+
+  <img
+    id="gallery-lightbox-img"
+    src=""
+    alt=""
+    class="max-h-[88vh] max-w-[92vw] object-contain"
+  >
+</div>
+
 <script src="data/images.js"></script>
 
 <script>
@@ -160,6 +181,32 @@
       behavior: 'smooth'
     });
 
+  }
+
+  function openGalleryLightbox(url) {
+    const lightbox = document.getElementById('gallery-lightbox');
+    const image = document.getElementById('gallery-lightbox-img');
+
+    if (!lightbox || !image) return;
+
+    image.src = url;
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('overflow-hidden');
+  }
+
+  function closeGalleryLightbox() {
+    const lightbox = document.getElementById('gallery-lightbox');
+    const image = document.getElementById('gallery-lightbox-img');
+
+    if (!lightbox || !image) return;
+
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+    lightbox.setAttribute('aria-hidden', 'true');
+    image.src = '';
+    document.body.classList.remove('overflow-hidden');
   }
 
   // CATEGORY BUILDER
@@ -194,11 +241,19 @@
 
           ${images.map(url => `
             <div class="slide flex-shrink-0 w-[80%] md:w-[45%] snap-start">
-              <img
-                src="${url}"
-                class="w-full aspect-square object-cover rounded-sm"
-                loading="lazy"
+              <button
+                type="button"
+                onclick="openGalleryLightbox('${url}')"
+                class="block w-full cursor-zoom-in overflow-hidden rounded-sm"
+                aria-label="Open gallery image"
               >
+                <img
+                  src="${url}"
+                  class="w-full aspect-square object-cover transition-transform duration-500 hover:scale-[1.02]"
+                  loading="lazy"
+                  alt=""
+                >
+              </button>
             </div>
           `).join('')}
 
@@ -285,6 +340,18 @@
       window.images.experiences['the-mind']
     );
 
+  });
+
+  document.getElementById('gallery-lightbox')?.addEventListener('click', (event) => {
+    if (event.target.id === 'gallery-lightbox') {
+      closeGalleryLightbox();
+    }
+  });
+
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeGalleryLightbox();
+    }
   });
 
 </script>

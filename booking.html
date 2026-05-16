@@ -62,8 +62,7 @@
       
       <!-- Form Column -->
       <div>
-          <form class="space-y-12" onsubmit="event.preventDefault(); alert('Thank you. I will get back to you slowly.');">
-          
+          <form class="space-y-12" id="booking-form">          
           <div class="space-y-2 border-b border-forest/20 pb-2">
             <label for="name" class="block text-xs uppercase tracking-widest text-forest/70">Your Name</label>
             <input type="text" id="name" required class="w-full bg-transparent border-none focus:ring-0 text-lg font-serif placeholder-forest/30 outline-none" placeholder="How should I address you?" />
@@ -108,8 +107,8 @@
           <p class="text-forest/80 font-light mb-8 text-lg">For urgent enquiries (or if you just can't figure out the form), feel free to reach out to me directly.</p>
           
           <div class="flex flex-col space-y-4">
-            <a href="mailto:findyoursukoon@gmail.com" class="inline-flex items-center border border-forest px-8 py-3 text-sm uppercase tracking-widest hover:bg-forest hover:text-beige transition-colors justify-center w-full md:w-auto text-center">
-              Email: findyoursukoon@gmail.com
+            <a href="https://wa.me/918389874713" class="inline-flex items-center border border-forest px-8 py-3 text-sm uppercase tracking-widest hover:bg-forest hover:text-beige transition-colors justify-center w-full md:w-auto text-center">
+              WhatsApp Us
             </a>
             <a href="tel:+918389874713" class="inline-flex items-center border border-forest px-8 py-3 text-sm uppercase tracking-widest hover:bg-forest hover:text-beige transition-colors justify-center w-full md:w-auto text-center">
               Call: +91 83898 74713
@@ -139,7 +138,7 @@
       <div class="flex flex-col space-y-4">
         <span class="text-beige font-serif tracking-widest text-sm">Contact</span>
         <a href="tel:+918389874713" class="hover:text-beige transition-colors">+91 83898 74713</a>
-        <a href="mailto:findyoursukoon@gmail.com" class="hover:text-beige transition-colors">findyoursukoon@gmail.com</a>
+        <a href="mailto:daarapari@gmail.com" class="hover:text-beige transition-colors">daarapari@gmail.com</a>
       </div>
       <div class="flex flex-col space-y-4">
         <span class="text-beige font-serif tracking-widest text-sm">Follow Us</span>
@@ -152,6 +151,39 @@
     </div>
   </footer>
 
-  <script type="module" src="/main.js"></script>
+ <script>
+  document.getElementById('booking-form').addEventListener('submit', function(e) {
+
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const dates = document.getElementById('dates').value;
+    const guests = document.getElementById('guests').value;
+    const message = document.getElementById('message').value;
+
+    const whatsappMessage = `
+Hello, I would like to enquire about staying at Daara Pari.
+
+Name: ${name}
+
+Desired Dates: ${dates}
+
+Guests: ${guests}
+
+Why Daara Pari:
+${message}
+    `;
+
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+
+    window.open(
+      `https://wa.me/918389874713?text=${encodedMessage}`,
+      '_blank'
+    );
+
+  });
+</script>
+
+<script type="module" src="/main.js"></script> 
 </body>
 </html>
