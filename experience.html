@@ -47,7 +47,13 @@
       opacity: 0.6;
       transform: translateY(0);
     }
-
+    @media (max-width: 768px) {
+  .explore-hint {
+    opacity: 0.6;
+    transform: translateY(0);
+    margin-top: 10px;
+  }
+}
     /* Solid Immersive Gallery */
     .hide-scrollbar::-webkit-scrollbar { display: none; }
     .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -294,8 +300,9 @@
 
   <!-- DYNAMIC INTERACTION LAYERS -->
   <div id="cursor-follower">
-    <div class="overflow-hidden rounded-sm w-52 h-72 md:w-64 md:h-80 shadow-[0_18px_45px_rgba(0,0,0,0.16)]">
-      <img id="preview-img" src="" class="w-full h-full object-cover transition-opacity duration-150" alt="Preview">
+    <div class="relative overflow-hidden rounded-sm w-52 h-72 md:w-64 md:h-80 shadow-[0_18px_45px_rgba(0,0,0,0.16)]">
+      <img id="preview-img-a" src="" class="absolute inset-0 h-full w-full object-cover opacity-100 transition-opacity duration-300 ease-out" alt="Preview">
+      <img id="preview-img-b" src="" class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 ease-out" alt="Preview">
     </div>
   </div>
 
@@ -311,7 +318,8 @@
   
   <script>
     const follower = document.getElementById('cursor-follower');
-    const previewImg = document.getElementById('preview-img');
+    const previewImgA = document.getElementById('preview-img-a');
+    const previewImgB = document.getElementById('preview-img-b');
     const triggers = document.querySelectorAll('.experience-trigger');
     const modal = document.getElementById('gallery-modal');
     const modalContent = document.getElementById('modal-content');
@@ -321,7 +329,33 @@
     let isGalleryOpen = false;
     let scrollAtOpen = 0;
     let hoverSlideshow;
+    let activePreviewImg = previewImgA;
+    let inactivePreviewImg = previewImgB;
     let currentHoverIndex = 0;
+
+    function getPreviewUrl(url) {
+      return url.replace('/upload/', '/upload/f_auto,q_auto,w_900/');
+    }
+
+    function setPreviewImage(url, instant = false) {
+      if (!activePreviewImg || !inactivePreviewImg) return;
+
+      if (instant) {
+        activePreviewImg.src = getPreviewUrl(url);
+        inactivePreviewImg.src = '';
+        activePreviewImg.style.opacity = '1';
+        inactivePreviewImg.style.opacity = '0';
+        return;
+      }
+
+      inactivePreviewImg.src = getPreviewUrl(url);
+      inactivePreviewImg.style.opacity = '1';
+      activePreviewImg.style.opacity = '0';
+
+      const previousActive = activePreviewImg;
+      activePreviewImg = inactivePreviewImg;
+      inactivePreviewImg = previousActive;
+    }
 
     // Movement Tracking
     document.addEventListener('mousemove', (e) => {
@@ -348,20 +382,14 @@
           const photos = window.images.experiences[category];
           if (photos.length > 0) {
             currentHoverIndex = 0;
-            previewImg.src = photos[0].replace('/upload/', '/upload/f_auto,q_auto,w_900/');
-            previewImg.style.opacity = '1';
+            setPreviewImage(photos[0], true);
             follower.style.opacity = '1';
 
             clearInterval(hoverSlideshow);
             hoverSlideshow = setInterval(() => {
               currentHoverIndex = (currentHoverIndex + 1) % photos.length;
-              previewImg.style.opacity = '0';
-
-              setTimeout(() => {
-                previewImg.src = photos[currentHoverIndex].replace('/upload/', '/upload/f_auto,q_auto,w_900/');
-                previewImg.style.opacity = '1';
-              }, 90);
-            }, 600);
+              setPreviewImage(photos[currentHoverIndex]);
+            }, 650);
           }
         }
       });

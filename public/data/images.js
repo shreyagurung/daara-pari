@@ -3,11 +3,18 @@ window.images = {
     mainhouse: {
       privateRoomAttachedBathroom: [
         "https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,w_1600/v1778923086/daarapari-homestay-sikkim-private-room_cqro7k.webp",
-        "https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,w_1600/v1778923084/daarapari-homestay-bathroom_jut20l.webp"
+        "https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,w_1600/v1778923084/daarapari-homestay-bathroom_jut20l.webp",
+        "https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,w_1600/v1778937749/daarapari-homestay-sikkim-private-view_it675g.jpg",
+        "https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,w_1600/v1778937745/daarapari-homestay-sikkim-private-with-washroom_u1teuf.jpg",
+        "https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,w_1600/v1778939743/daarapari-homestay-sikkim8_ozt8di.webp"
       ],
 
       privateRoomSharedBathroom: [
-        "/placeholder.webp"
+        "https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,w_1600/v1778937784/daarapari-homestay-sikkim-twin-shared2_ixg1a2.jpg",
+        "https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,w_1600/v1778937780/daarapari-homestay-sikkim-priuvate-without-washroom_gp4sks.jpg",
+        "https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,w_1600/v1778937780/daarapari-homestay-sikkim-private-ww1_hpa2di.jpg",
+        "https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,w_1600/v1778937774/daarapari-homestay-sikkim-twin-shared_r7uyn4.jpg",
+        "https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,w_1600/v1778937769/daarapari-homestay-sikkim-twin-shared1_zrnekv.jpg"
       ],
 
       dorm: [
