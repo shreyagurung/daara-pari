@@ -31,29 +31,30 @@
     }
 
     /* Subtle discovery hint */
-    .explore-hint {
-      display: block;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: #1f3d2b;
-      opacity: 0;
-      transform: translateY(5px);
-      transition: all 0.4s ease;
-      margin-top: 8px;
-    }
+.explore-hint {
+  display: inline-block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #1f3d2b;
+  opacity: 0.72;
+  transform: translateY(0);
+  transition: opacity 0.4s ease;
+  margin-top: 10px;
+}
 
-    .experience-trigger:hover .explore-hint {
-      opacity: 0.6;
-      transform: translateY(0);
-    }
-    @media (max-width: 768px) {
-  .explore-hint {
-    opacity: 0.6;
-    transform: translateY(0);
-    margin-top: 10px;
+@media (hover: hover) and (pointer: fine) {
+  .experience-trigger:hover .explore-hint {
+    opacity: 1;
   }
 }
+
+    @media (hover: hover) and (pointer: fine) {
+      .experience-trigger:hover .explore-hint {
+        opacity: 1;
+        background: rgba(31, 61, 43, 0.08);
+      }
+    }
     /* Solid Immersive Gallery */
     .hide-scrollbar::-webkit-scrollbar { display: none; }
     .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -91,10 +92,14 @@
     </div>
     <a href="booking.html" class="hidden md:block hover:opacity-70 text-sm uppercase tracking-widest transition-opacity duration-300">Enquire</a>
     <button id="mobile-menu-toggle" class="md:hidden block uppercase tracking-widest text-sm" aria-expanded="false" aria-label="Toggle navigation menu">Menu</button>
-    <div id="mobile-menu" class="hidden md:hidden absolute left-0 right-0 top-full z-40 flex flex-col gap-4 border-t border-forest/10 bg-beige/95 px-6 py-6 backdrop-blur-md">
-      <a href="stay.html" class="text-sm uppercase tracking-widest hover:opacity-70">Stay</a>
-      <a href="mud-house.html" class="text-sm uppercase tracking-widest hover:opacity-70">Mudhouse</a>
-      <a href="main-house.html" class="text-sm uppercase tracking-widest hover:opacity-70">Main House</a>
+    <div id="mobile-menu" class="hidden md:hidden absolute left-0 right-0 top-full z-40 flex flex-col gap-4 border-t border-forest/10 bg-beige/95 px-6 py-6 backdrop-blur-md text-forest">
+      <div class="space-y-3">
+        <a href="stay.html" class="block text-sm uppercase tracking-widest hover:opacity-70">Stay</a>
+        <div class="ml-4 flex flex-col gap-3 border-l border-forest/20 pl-4">
+          <a href="mud-house.html" class="text-xs uppercase tracking-widest text-forest/70 hover:opacity-70">Mudhouse</a>
+          <a href="main-house.html" class="text-xs uppercase tracking-widest text-forest/70 hover:opacity-70">Main House</a>
+        </div>
+      </div>
       <a href="experience.html" class="text-sm uppercase tracking-widest hover:opacity-70">Experience</a>
       <a href="story.html" class="text-sm uppercase tracking-widest hover:opacity-70">Story</a>
       <a href="gallery.html" class="text-sm uppercase tracking-widest hover:opacity-70">Gallery</a>
@@ -332,6 +337,7 @@
     let activePreviewImg = previewImgA;
     let inactivePreviewImg = previewImgB;
     let currentHoverIndex = 0;
+    const canHoverPreview = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
     function getPreviewUrl(url) {
       return url.replace('/upload/', '/upload/f_auto,q_auto,w_900/');
@@ -377,29 +383,31 @@
     triggers.forEach(trigger => {
       const category = trigger.dataset.category;
 
-      trigger.addEventListener('mouseenter', () => {
-        if (typeof window.images !== 'undefined' && window.images.experiences && window.images.experiences[category]) {
-          const photos = window.images.experiences[category];
-          if (photos.length > 0) {
-            currentHoverIndex = 0;
-            setPreviewImage(photos[0], true);
-            follower.style.opacity = '1';
+      if (canHoverPreview) {
+        trigger.addEventListener('mouseenter', () => {
+          if (typeof window.images !== 'undefined' && window.images.experiences && window.images.experiences[category]) {
+            const photos = window.images.experiences[category];
+            if (photos.length > 0) {
+              currentHoverIndex = 0;
+              setPreviewImage(photos[0], true);
+              follower.style.opacity = '1';
 
-            clearInterval(hoverSlideshow);
-            hoverSlideshow = setInterval(() => {
-              currentHoverIndex = (currentHoverIndex + 1) % photos.length;
-              setPreviewImage(photos[currentHoverIndex]);
-            }, 650);
+              clearInterval(hoverSlideshow);
+              hoverSlideshow = setInterval(() => {
+                currentHoverIndex = (currentHoverIndex + 1) % photos.length;
+                setPreviewImage(photos[currentHoverIndex]);
+              }, 650);
+            }
           }
-        }
-      });
+        });
 
-      trigger.addEventListener('mouseleave', () => {
-        clearInterval(hoverSlideshow);
-        if (!isGalleryOpen) {
-          follower.style.opacity = '0';
-        }
-      });
+        trigger.addEventListener('mouseleave', () => {
+          clearInterval(hoverSlideshow);
+          if (!isGalleryOpen) {
+            follower.style.opacity = '0';
+          }
+        });
+      }
 
       trigger.addEventListener('click', () => {
         openGallery(category);

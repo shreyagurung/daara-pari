@@ -46,6 +46,29 @@
     Enquire
   </a>
 
+  <button
+    id="mobile-menu-toggle"
+    class="md:hidden block uppercase tracking-widest text-sm text-forest"
+    aria-expanded="false"
+    aria-label="Toggle navigation menu"
+  >
+    Menu
+  </button>
+
+  <div id="mobile-menu" class="hidden md:hidden absolute left-0 right-0 top-full z-40 flex flex-col gap-4 border-t border-forest/10 bg-beige/95 px-6 py-6 backdrop-blur-md text-forest">
+    <div class="space-y-3">
+      <a href="stay.html" class="block text-sm uppercase tracking-widest hover:opacity-70">Stay</a>
+      <div class="ml-4 flex flex-col gap-3 border-l border-forest/20 pl-4">
+        <a href="mud-house.html" class="text-xs uppercase tracking-widest text-forest/70 hover:opacity-70">Mudhouse</a>
+        <a href="main-house.html" class="text-xs uppercase tracking-widest text-forest/70 hover:opacity-70">Main House</a>
+      </div>
+    </div>
+    <a href="experience.html" class="text-sm uppercase tracking-widest hover:opacity-70">Experience</a>
+    <a href="story.html" class="text-sm uppercase tracking-widest hover:opacity-70">Story</a>
+    <a href="gallery.html" class="text-sm uppercase tracking-widest opacity-70">Gallery</a>
+    <a href="booking.html" class="text-sm uppercase tracking-widest hover:opacity-70">Enquire</a>
+  </div>
+
 </nav>
 
 <header class="mx-auto max-w-2xl px-6 pt-44 pb-10 md:pt-52">
@@ -160,23 +183,21 @@
 
 <div
   id="gallery-lightbox"
-  class="fixed inset-0 z-[10000] hidden items-center justify-center bg-beige/95 px-4 py-8 backdrop-blur-md"
+  class="fixed inset-0 z-[10000] hidden overflow-y-auto bg-beige/95 px-4 py-20 backdrop-blur-md md:overflow-x-auto md:overflow-y-hidden md:px-12 md:py-16"
   aria-hidden="true"
 >
   <button
     type="button"
     onclick="closeGalleryLightbox()"
-    class="absolute right-6 top-6 text-xs uppercase tracking-[0.25em] text-forest/60 hover:text-forest"
+    class="fixed right-6 top-6 z-10 text-xs uppercase tracking-[0.25em] text-forest/60 hover:text-forest"
   >
     Close
   </button>
 
-  <img
-    id="gallery-lightbox-img"
-    src=""
-    alt=""
-    class="max-h-[88vh] max-w-[92vw] object-contain"
-  >
+  <div
+    id="gallery-lightbox-content"
+    class="mx-auto flex w-full max-w-5xl flex-col gap-6 md:h-full md:max-w-none md:flex-row md:items-center md:gap-8"
+  ></div>
 </div>
 
 <script src="data/images.js"></script>
@@ -201,29 +222,46 @@
 
   }
 
-  function openGalleryLightbox(url) {
+  const galleryLightboxSections = {};
+
+  function openGalleryLightbox(sectionId, startIndex = 0) {
     const lightbox = document.getElementById('gallery-lightbox');
-    const image = document.getElementById('gallery-lightbox-img');
+    const content = document.getElementById('gallery-lightbox-content');
+    const images = galleryLightboxSections[sectionId];
 
-    if (!lightbox || !image) return;
+    if (!lightbox || !content || !images || images.length === 0) return;
 
-    image.src = url;
+    content.innerHTML = images.map((url, index) => `
+      <div class="gallery-lightbox-slide w-full flex-none md:w-[78vw]" data-lightbox-slide="${index}">
+        <img
+          src="${url}"
+          alt=""
+          class="h-auto w-full object-contain md:max-h-[82vh]"
+        >
+      </div>
+    `).join('');
+
     lightbox.classList.remove('hidden');
-    lightbox.classList.add('flex');
+    lightbox.classList.add('block');
     lightbox.setAttribute('aria-hidden', 'false');
     document.body.classList.add('overflow-hidden');
+
+    requestAnimationFrame(() => {
+      const activeSlide = content.querySelector(`[data-lightbox-slide="${startIndex}"]`);
+      activeSlide?.scrollIntoView({ behavior: 'auto', block: 'start', inline: 'center' });
+    });
   }
 
   function closeGalleryLightbox() {
     const lightbox = document.getElementById('gallery-lightbox');
-    const image = document.getElementById('gallery-lightbox-img');
+    const content = document.getElementById('gallery-lightbox-content');
 
-    if (!lightbox || !image) return;
+    if (!lightbox || !content) return;
 
     lightbox.classList.add('hidden');
-    lightbox.classList.remove('flex');
+    lightbox.classList.remove('block');
     lightbox.setAttribute('aria-hidden', 'true');
-    image.src = '';
+    content.innerHTML = '';
     document.body.classList.remove('overflow-hidden');
   }
 
@@ -234,6 +272,7 @@
     const container = document.getElementById(containerId);
 
     if (!container || !images || images.length === 0) return;
+    galleryLightboxSections[containerId] = images;
 
     container.innerHTML = `
 
@@ -257,13 +296,13 @@
 
         <div class="carousel-track flex overflow-x-auto gap-5 hide-scrollbar snap-x snap-mandatory">
 
-          ${images.map(url => `
+          ${images.map((url, index) => `
             <div class="slide flex-shrink-0 w-[80%] md:w-[45%] snap-start">
               <button
                 type="button"
-                onclick="openGalleryLightbox('${url}')"
+                onclick="openGalleryLightbox('${containerId}', ${index})"
                 class="block w-full cursor-zoom-in overflow-hidden rounded-sm"
-                aria-label="Open gallery image"
+                aria-label="Open gallery section"
               >
                 <img
                   src="${url}"
@@ -286,6 +325,30 @@
   // LOAD GALLERY
 
   document.addEventListener('DOMContentLoaded', () => {
+    const nav = document.getElementById('navbar');
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (nav && mobileMenuToggle && mobileMenu) {
+      const closeMenu = () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+      };
+
+      mobileMenuToggle.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.toggle('hidden');
+        mobileMenuToggle.setAttribute('aria-expanded', String(!isHidden));
+        nav.classList.add('bg-beige/90', 'backdrop-blur-md');
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) closeMenu();
+      });
+    }
 
     if (typeof window.images === 'undefined') {
 

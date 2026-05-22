@@ -103,10 +103,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // NAVBAR SCROLL + STATE CONTROL
   // -----------------------------
   const nav = document.getElementById('navbar');
+  const navUsesHeroState = nav?.classList.contains('text-beige');
   let isMenuOpen = false;
 
   const updateNavbarOnScroll = () => {
     if (!nav || isMenuOpen) return;
+    if (!navUsesHeroState) return;
 
     if (window.scrollY > 50) {
       nav.classList.add('bg-beige/95', 'backdrop-blur-md', 'shadow-sm', 'text-forest');
@@ -117,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  if (nav && nav.classList.contains('text-beige')) {
+  if (navUsesHeroState) {
     window.addEventListener('scroll', updateNavbarOnScroll);
   }
 

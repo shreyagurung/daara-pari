@@ -1,39 +1,57 @@
 backend:
   name: github
-  repo: shreyagurung/daara-pari
+  [cite_start]repo: shreyagurung/daara-pari # Updated to your repo [cite: 178]
   branch: main
 
 media_library:
   name: cloudinary
   config:
-    cloud_name: YOUR_CLOUD_NAME
-    api_key: YOUR_API_KEY
+    [cite_start]cloud_name: dchfozs9d # Your cloud name [cite: 5]
+    [cite_start]api_key: 718743584267132 # Your API Key [cite: 180]
 
 collections:
-  - name: "site_images"
-    label: "Site Images"
-    files:
-      - file: "content/site-images.json"
-        label: "Main Images"
-        name: "images"
-        fields:
-          - { label: "Hero Image", name: "hero_image", widget: "image" }
-          - { label: "Mudhouse Image", name: "mudhouse_image", widget: "image" }
-          - { label: "Deck Image", name: "deck_image", widget: "image" }
-          - { label: "BB Daju Image", name: "bb_daju_image", widget: "image" }
-          - { label: "Hands in Soil", name: "hand_soil_image", widget: "image" }
-
   - name: "gallery"
     label: "Gallery"
+    delete: false # Prevents accidental deletion of the file structure
+    editor:
+      preview: false
     files:
       - file: "content/gallery.json"
-        label: "Gallery Images"
-        name: "gallery"
+        label: "Gallery Data"
+        name: "gallery_data"
         fields:
-          - label: "Images"
-            name: "images"
+          - label: "Mudhouse"
+            name: "mudhouse"
             widget: "list"
-            field:
-              label: "Image"
-              name: "image"
-              widget: "image"
+            summary: '{{fields.url}}'
+            field: { label: "Image", name: "url", widget: "image" }
+          - label: "Main House"
+            name: "mainhouse"
+            widget: "list"
+            summary: '{{fields.url}}'
+            field: { label: "Image", name: "url", widget: "image" }
+          - label: "The Essentials"
+            name: "essentials"
+            widget: "list"
+            summary: '{{fields.url}}'
+            field: { label: "Image", name: "url", widget: "image" }
+          - label: "The Wild"
+            name: "wild"
+            widget: "list"
+            summary: '{{fields.url}}'
+            field: { label: "Image", name: "url", widget: "image" }
+          - label: "The Land"
+            name: "land"
+            widget: "list"
+            summary: '{{fields.url}}'
+            field: { label: "Image", name: "url", widget: "image" }
+          - label: "The Spirit"
+            name: "spirit"
+            widget: "list"
+            summary: '{{fields.url}}'
+            field: { label: "Image", name: "url", widget: "image" }
+          - label: "The Mind"
+            name: "mind"
+            widget: "list"
+            summary: '{{fields.url}}'
+            field: { label: "Image", name: "url", widget: "image" }
