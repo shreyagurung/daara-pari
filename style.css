@@ -188,3 +188,20 @@
 #reviewCarousel article{
     flex:0 0 100%;
 }
+
+
+
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.hide-scrollbar {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
