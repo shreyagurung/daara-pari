@@ -248,9 +248,10 @@
 
   </div>
 </section>
+ 
  <!-- Stay Preview -->
- <section
-  class="relative h-screen bg-cover bg-center"
+<section
+  class="relative h-[85vh] md:h-screen bg-cover bg-center"
   style="background-image: url('public/images/mudhouse-main.jpg');"
 >
 
@@ -258,23 +259,57 @@
   <div class="absolute inset-0 bg-black/35"></div>
 
   <!-- Text -->
-  <div class="relative z-10 flex h-full items-center">
-   <div class="absolute bottom-20 right-20 md:right-28 text-white/90 text-right max-w-md">
+  <div class="relative z-10 h-full">
 
+    <div
+      class="
+        absolute
+        bottom-12 right-6
+        w-[78%]
 
-<h2 class="font-serif text-5xl md:text-6xl leading-none mb-6 text-white/95">
-    Come Home.
-</h2>
+        md:bottom-20
+        md:right-20
+        lg:right-28
+        md:max-w-md
 
-<p class="text-lg leading-8 mb-8 text-white/80">
-    Stay with us in our family home,<br>
-    or find your own in the mud house.
-</p>
+        text-right
+        text-white/90
+      ">
 
-<a href="/stay" class="inline-block border-b border-white/70 pb-1 text-white/90 hover:text-white transition">
-    Explore Our Homes →
-</a>
+      <h2
+        class="font-serif
+               text-[clamp(2.8rem,7vw,5.8rem)]
+               leading-[0.95]
+               text-white/95
+               mb-5">
+        Come Home.
+      </h2>
+
+      <p
+        class="text-base md:text-lg
+               leading-relaxed md:leading-8
+               text-white/80
+               mb-8">
+        Stay with us in our family home,<br>
+        or find your own in the mud house.
+      </p>
+
+      <a
+        href="/stay"
+        class="inline-block
+               border-b border-white/70
+               pb-1
+               text-[11px]
+               uppercase
+               tracking-[0.22em]
+               text-white/90
+               hover:text-white
+               transition">
+        Explore Our Homes →
+      </a>
+
     </div>
+
   </div>
 
 </section>
