@@ -636,41 +636,46 @@ function scrollReviews(direction){
 
         </figure>
 
-        <!-- Final Photo -->
-        <figure class="mb-10 md:mb-12 reveal">
+   <!-- Final Photo -->
+<figure class="relative reveal">
 
-            <a href="gallery.html" class="block group">
+    <a href="gallery.html" class="block group relative overflow-hidden">
 
-                <img
-                    src="https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,w_1800/v1778744069/daarapari-homestay-sikkim-the-land15_e1fj9t.jpg"
-                    alt="Life at Daarapari"
-                    loading="lazy"
-                    class="w-full h-auto block transition-transform duration-[1200ms] ease-out group-hover:scale-[1.01]"
-                >
+        <img
+            src="https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,w_1800/v1778744069/daarapari-homestay-sikkim-the-land15_e1fj9t.jpg"
+            alt="Life at Daarapari"
+            loading="lazy"
+            class="w-full h-auto block transition-transform duration-[1200ms] ease-out group-hover:scale-[1.01]"
+        >
 
-            </a>
+        <!-- Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent"></div>
 
-        </figure>
+        <!-- CTA -->
+        <div class="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2">
 
-        <!-- Gallery CTA -->
-        <div class="text-center mb-8 md:mb-12 reveal">
+            <span class="inline-flex items-center gap-3 text-white text-lg md:text-xl tracking-wide">
 
-            <a
-                href="gallery.html"
-                class="inline-flex items-center gap-3 text-base md:text-lg text-forest/80 hover:text-forest transition-colors duration-300"
-            >
                 Browse the Gallery
 
-                <span class="transition-transform duration-300 group-hover:translate-x-1">
-                    →
-                </span>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="w-5 h-5"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
 
-            </a>
+            </span>
 
         </div>
 
-    </div>
+    </a>
 
+</figure>
 </section>
   <!-- Final CTA -->
   <!-- Final CTA -->
