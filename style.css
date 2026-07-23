@@ -163,12 +163,28 @@
 }
 
 
-/* Hide horizontal scrollbar */
-.scrollbar-hide::-webkit-scrollbar {
-    display: none;
+/* Hide scrollbar */
+
+.scrollbar-hide::-webkit-scrollbar{
+    display:none;
 }
 
-.scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+.scrollbar-hide{
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+}
+
+/* Better scrolling */
+
+#reviewCarousel{
+    -webkit-overflow-scrolling:touch;
+    cursor:grab;
+}
+
+#reviewCarousel:active{
+    cursor:grabbing;
+}
+
+#reviewCarousel article{
+    flex:0 0 100%;
 }
