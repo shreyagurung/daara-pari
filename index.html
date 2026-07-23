@@ -577,21 +577,28 @@ dots.forEach((dot,index)=>{
 
 carousel.addEventListener("scroll",updateDots);
 
-let auto = setInterval(()=>{
+let auto;
 
-    let next = Math.round(carousel.scrollLeft/carousel.offsetWidth)+1;
+window.addEventListener("load", () => {
 
-    if(next>=dots.length) next=0;
+    setTimeout(() => {
 
-    carousel.scrollTo({
+        auto = setInterval(() => {
 
-        left:next*carousel.offsetWidth,
+            let next = Math.round(carousel.scrollLeft / carousel.offsetWidth) + 1;
 
-        behavior:"smooth"
+            if (next >= dots.length) next = 0;
 
-    });
+            carousel.scrollTo({
+                left: next * carousel.offsetWidth,
+                behavior: "smooth"
+            });
 
-},7000);
+        }, 7000);
+
+    }, 500);
+
+});
 </script>
 
 
