@@ -390,7 +390,8 @@
     <div class="max-w-6xl mx-auto px-6">
 
         <!-- Heading -->
-        <div class="flex items-end justify-between mb-20">
+
+        <div class="flex items-end justify-between mb-16">
 
             <div>
 
@@ -404,17 +405,18 @@
 
             </div>
 
-            <!-- Desktop Navigation -->
             <div class="hidden md:flex gap-3">
 
-                <button id="prevReview"
+                <button
+                    onclick="scrollReviews(-1)"
                     class="w-12 h-12 rounded-full border border-forest/20 hover:bg-forest hover:text-white transition">
 
                     ←
 
                 </button>
 
-                <button id="nextReview"
+                <button
+                    onclick="scrollReviews(1)"
                     class="w-12 h-12 rounded-full border border-forest/20 hover:bg-forest hover:text-white transition">
 
                     →
@@ -426,130 +428,101 @@
         </div>
 
 
-        <!-- Reviews -->
+        <!-- Carousel -->
 
-        <div class="overflow-hidden">
+        <div id="reviewCarousel"
+            class="flex overflow-x-auto gap-8 snap-x snap-mandatory scrollbar-hide scroll-smooth pb-6">
 
-            <div id="reviewTrack"
-                class="flex transition-transform duration-700 ease-in-out">
+            <!-- Review -->
 
-                <!-- Review 1 -->
+            <article class="snap-start shrink-0 w-full">
 
-                <div class="min-w-full">
+                <blockquote class="font-serif text-2xl md:text-3xl lg:text-4xl leading-snug text-forest max-w-4xl">
 
-                    <div class="max-w-4xl">
+                    “I stayed for almost four weeks, but I could have spent one year.
+                    This place truly feels like home.”
 
-                        <blockquote class="font-serif text-2xl md:text-3xl lg:text-4xl leading-snug text-forest">
+                </blockquote>
 
-                            “I stayed for almost four weeks, but I could have spent one year.
-                            This place truly feels like home.”
+                <div class="mt-10">
 
-                        </blockquote>
+                    <p class="uppercase tracking-[0.3em] text-sm text-forest/70">
 
-                        <div class="mt-12">
+                        GEMMA R.
 
-                            <p class="uppercase tracking-[0.3em] text-sm text-forest/70">
+                    </p>
 
-                                GEMMA R.
+                    <p class="text-forest/50 mt-2">
 
-                            </p>
+                        Stayed for 28 days · Airbnb
 
-                            <p class="text-lg text-forest/50 mt-2">
-
-                                Stayed for 28 days · Airbnb
-
-                            </p>
-
-                        </div>
-
-                    </div>
+                    </p>
 
                 </div>
 
+            </article>
 
-                <!-- Review 2 -->
 
-                <div class="min-w-full">
+            <!-- Review -->
 
-                    <div class="max-w-4xl">
+            <article class="snap-start shrink-0 w-full">
 
-                        <blockquote class="font-serif text-2xl md:text-3xl lg:text-4xl leading-snug text-forest">
+                <blockquote class="font-serif text-2xl md:text-3xl lg:text-4xl leading-snug text-forest max-w-4xl">
 
-                            “If you want to step away from city distractions
-                            and experience slow living,
-                            this place is perfect.”
+                    “If you want to step away from city distractions
+                    and experience slow living,
+                    this place is perfect.”
 
-                        </blockquote>
+                </blockquote>
 
-                        <div class="mt-12">
+                <div class="mt-10">
 
-                            <p class="uppercase tracking-[0.3em] text-sm text-forest/70">
+                    <p class="uppercase tracking-[0.3em] text-sm text-forest/70">
 
-                                GAURAV B.
+                        GAURAV B.
 
-                            </p>
+                    </p>
 
-                            <p class="text-lg text-forest/50 mt-2">
+                    <p class="text-forest/50 mt-2">
 
-                                TripAdvisor
+                        TripAdvisor
 
-                            </p>
-
-                        </div>
-
-                    </div>
+                    </p>
 
                 </div>
 
+            </article>
 
-                <!-- Review 3 -->
 
-                <div class="min-w-full">
+            <!-- Review -->
 
-                    <div class="max-w-4xl">
+            <article class="snap-start shrink-0 w-full">
 
-                        <blockquote class="font-serif text-2xl md:text-3xl lg:text-4xl leading-snug text-forest">
+                <blockquote class="font-serif text-2xl md:text-3xl lg:text-4xl leading-snug text-forest max-w-4xl">
 
-                            “Every meal felt like home.
-                            Every conversation felt like family.
-                            Leaving was the hardest part.”
+                    “Every meal felt like home.
+                    Every conversation felt like family.
+                    Leaving was the hardest part.”
 
-                        </blockquote>
+                </blockquote>
 
-                        <div class="mt-12">
+                <div class="mt-10">
 
-                            <p class="uppercase tracking-[0.3em] text-sm text-forest/70">
+                    <p class="uppercase tracking-[0.3em] text-sm text-forest/70">
 
-                                SAJITH C.
+                        SAJITH C.
 
-                            </p>
+                    </p>
 
-                            <p class="text-lg text-forest/50 mt-2">
+                    <p class="text-forest/50 mt-2">
 
-                                TripAdvisor
+                        TripAdvisor
 
-                            </p>
-
-                        </div>
-
-                    </div>
+                    </p>
 
                 </div>
 
-            </div>
-
-        </div>
-
-
-        <!-- Dots -->
-
-        <div class="flex justify-center gap-3 mt-16">
-
-            <button class="review-dot w-2.5 h-2.5 rounded-full bg-forest transition"></button>
-
-            <button class="review-dot w-2.5 h-2.5 rounded-full bg-forest/20 transition"></button>
-
-            <button class="review-dot w-2.5 h-2.5 rounded-full bg-forest/20 transition"></button>
+            </article>
 
         </div>
 
@@ -559,62 +532,19 @@
 
 <script>
 
-let currentReview = 0;
+function scrollReviews(direction){
 
-const track = document.getElementById("reviewTrack");
-const dots = document.querySelectorAll(".review-dot");
+    const carousel = document.getElementById("reviewCarousel");
 
-const totalReviews = dots.length;
+    carousel.scrollBy({
 
-function updateReview(){
+        left: carousel.offsetWidth * direction,
 
-    track.style.transform = `translateX(-${currentReview * 100}%)`;
-
-    dots.forEach((dot,index)=>{
-
-        if(index===currentReview){
-
-            dot.classList.remove("bg-forest/20");
-            dot.classList.add("bg-forest");
-
-        }else{
-
-            dot.classList.remove("bg-forest");
-            dot.classList.add("bg-forest/20");
-
-        }
+        behavior: "smooth"
 
     });
 
 }
-
-document.getElementById("nextReview").addEventListener("click",()=>{
-
-    currentReview=(currentReview+1)%totalReviews;
-
-    updateReview();
-
-});
-
-document.getElementById("prevReview").addEventListener("click",()=>{
-
-    currentReview=(currentReview-1+totalReviews)%totalReviews;
-
-    updateReview();
-
-});
-
-dots.forEach((dot,index)=>{
-
-    dot.addEventListener("click",()=>{
-
-        currentReview=index;
-
-        updateReview();
-
-    });
-
-});
 
 </script>
   
