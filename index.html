@@ -437,42 +437,44 @@
     <div class="max-w-6xl mx-auto px-6">
 
         <!-- Heading -->
+<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12 md:mb-16">
 
-        <div class="flex items-end justify-between mb-16">
+    <div>
 
-            <div>
+        <p class="uppercase tracking-[0.35em] text-xs text-forest/50 mb-5">
+            GUEST STORIES
+        </p>
+<h2
+    class="font-serif text-forest leading-[0.95] tracking-[-0.02em]"
+    style="font-size: clamp(2.6rem, 7vw, 5.5rem);"
+>
+    From Those<br>Who've Stayed
+</h2>
 
-                <p class="uppercase tracking-[0.35em] text-xs text-forest/50 mb-5">
-                    GUEST STORIES
-                </p>
+    </div>
 
-                <h2 class="font-serif text-5xl md:text-6xl lg:text-7xl text-forest leading-[0.95]">
-                    From Those<br>Who've Stayed
-                </h2>
+    <!-- Navigation -->
+    <div class="flex gap-3 self-end md:self-auto">
 
-            </div>
+        <button
+            onclick="scrollReviews(-1)"
+            class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-forest/20 hover:bg-forest hover:text-white transition">
 
-            <div class="hidden md:flex gap-3">
+            ←
 
-                <button
-                    onclick="scrollReviews(-1)"
-                    class="w-12 h-12 rounded-full border border-forest/20 hover:bg-forest hover:text-white transition">
+        </button>
 
-                    ←
+        <button
+            onclick="scrollReviews(1)"
+            class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-forest/20 hover:bg-forest hover:text-white transition">
 
-                </button>
+            →
 
-                <button
-                    onclick="scrollReviews(1)"
-                    class="w-12 h-12 rounded-full border border-forest/20 hover:bg-forest hover:text-white transition">
+        </button>
 
-                    →
+    </div>
 
-                </button>
-
-            </div>
-
-        </div>
+</div>
 
 
         <!-- Carousel -->
