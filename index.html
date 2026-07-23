@@ -459,28 +459,7 @@
         <!-- Carousel -->
 
         <div id="reviewCarousel"
-            class="flex overflow-x-auto gap-8 snap-x snap-mandatory scrollbar-hide scroll-smooth pb-6">
-
-         
-          <!-- Review Dots -->
-<div class="flex justify-center gap-3 mt-10">
-
-    <button
-        onclick="goToReview(0)"
-        class="review-dot w-2.5 h-2.5 rounded-full bg-forest transition-all duration-300">
-    </button>
-
-    <button
-        onclick="goToReview(1)"
-        class="review-dot w-2.5 h-2.5 rounded-full bg-forest/20 hover:bg-forest/40 transition-all duration-300">
-    </button>
-
-    <button
-        onclick="goToReview(2)"
-        class="review-dot w-2.5 h-2.5 rounded-full bg-forest/20 hover:bg-forest/40 transition-all duration-300">
-    </button>
-
-</div>
+            class="flex overflow-x-auto gap-8 snap-x snap-mandatory scrollbar-hide scroll-smooth pb-6"> 
           
           <!-- Review -->
 
@@ -512,68 +491,88 @@
             </article>
 
 
-            <!-- Review -->
+            <!-- Reviews -->
+<div class="relative max-w-5xl mx-auto min-h-[360px] md:min-h-[300px]">
 
-            <article class="snap-start shrink-0 w-full">
+    <!-- Review 1 -->
+    <article class="review active absolute inset-0 transition-opacity duration-1000">
 
-                <blockquote class="font-serif text-2xl md:text-3xl lg:text-4xl leading-snug text-forest max-w-4xl">
+        <blockquote class="font-serif text-2xl md:text-4xl lg:text-5xl leading-[1.2] text-forest">
+            “I stayed for almost four weeks, but I could have spent one year.
+            This place truly feels like home.”
+        </blockquote>
 
-                    “If you want to step away from city distractions
-                    and experience slow living,
-                    this place is perfect.”
+        <div class="mt-12">
 
-                </blockquote>
+            <p class="uppercase tracking-[0.3em] text-sm text-forest/80">
+                GEMMA R.
+            </p>
 
-                <div class="mt-10">
-
-                    <p class="uppercase tracking-[0.3em] text-sm text-forest/70">
-
-                        GAURAV B.
-
-                    </p>
-
-                    <p class="text-forest/50 mt-2">
-
-                        TripAdvisor
-
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <!-- Review -->
-
-            <article class="snap-start shrink-0 w-full">
-
-                <blockquote class="font-serif text-2xl md:text-3xl lg:text-4xl leading-snug text-forest max-w-4xl">
-
-                    “Every meal felt like home.
-                    Every conversation felt like family.
-                    Leaving was the hardest part.”
-
-                </blockquote>
-
-                <div class="mt-10">
-
-                    <p class="uppercase tracking-[0.3em] text-sm text-forest/70">
-
-                        SAJITH C.
-
-                    </p>
-
-                    <p class="text-forest/50 mt-2">
-
-                        TripAdvisor
-
-                    </p>
-
-                </div>
-
-            </article>
+            <p class="mt-2 text-forest/50">
+                Stayed for 28 days • Airbnb
+            </p>
 
         </div>
+
+    </article>
+
+    <!-- Review 2 -->
+    <article class="review absolute inset-0 opacity-0 pointer-events-none transition-opacity duration-1000">
+
+        <blockquote class="font-serif text-2xl md:text-4xl lg:text-5xl leading-[1.2] text-forest">
+            “Every meal felt like home.
+            Every conversation felt like family.
+            Leaving was the hardest part.”
+        </blockquote>
+
+        <div class="mt-12">
+
+            <p class="uppercase tracking-[0.3em] text-sm text-forest/80">
+                SAJITH C.
+            </p>
+
+            <p class="mt-2 text-forest/50">
+                TripAdvisor
+            </p>
+
+        </div>
+
+    </article>
+
+    <!-- Review 3 -->
+    <article class="review absolute inset-0 opacity-0 pointer-events-none transition-opacity duration-1000">
+
+        <blockquote class="font-serif text-2xl md:text-4xl lg:text-5xl leading-[1.2] text-forest">
+            “The kind of place that quietly changes the way
+            you think about travelling.”
+        </blockquote>
+
+        <div class="mt-12">
+
+            <p class="uppercase tracking-[0.3em] text-sm text-forest/80">
+                ANNA S.
+            </p>
+
+            <p class="mt-2 text-forest/50">
+                Google Reviews
+            </p>
+
+        </div>
+
+    </article>
+
+</div>
+
+<!-- Dots -->
+<div class="flex justify-center gap-4 mt-12">
+
+    <button class="review-dot w-1.5 h-1.5 rounded-full bg-forest"></button>
+
+    <button class="review-dot w-1.5 h-1.5 rounded-full bg-forest/20"></button>
+
+    <button class="review-dot w-1.5 h-1.5 rounded-full bg-forest/20"></button>
+
+</div>
 
     </div>
 
