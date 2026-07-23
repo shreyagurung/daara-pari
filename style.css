@@ -163,67 +163,19 @@
 }
 
 
-/* Hide scrollbar */
 
-.scrollbar-hide::-webkit-scrollbar{
-    display:none;
+
+
+
+.review{
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 900ms ease;
+    position:absolute;
+    inset:0;
 }
 
-.scrollbar-hide{
-    scrollbar-width:none;
-    -ms-overflow-style:none;
+.review.active{
+    opacity:1;
+    pointer-events:auto;
 }
-
-/* Better scrolling */
-
-#reviewCarousel{
-    -webkit-overflow-scrolling:touch;
-    cursor:grab;
-}
-
-#reviewCarousel:active{
-    cursor:grabbing;
-}
-
-#reviewCarousel article{
-    flex:0 0 100%;
-}
-
-
-
-
-.hide-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-.hide-scrollbar::-webkit-scrollbar {
-    display: none;
-}
-
-.hide-scrollbar {
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-}
-
-
-
-const carousel = document.getElementById("reviewCarousel");
-const dots = document.querySelectorAll(".review-dot");
-const cards = carousel.children;
-
-function goToReview(index) {
-    cards[index].scrollIntoView({
-        behavior: "smooth",
-        inline: "start"
-    });
-}
-
-carousel.addEventListener("scroll", () => {
-    const index = Math.round(carousel.scrollLeft / cards[0].offsetWidth);
-
-    dots.forEach((dot, i) => {
-        dot.classList.toggle("bg-forest", i === index);
-        dot.classList.toggle("bg-forest/20", i !== index);
-    });
-});
