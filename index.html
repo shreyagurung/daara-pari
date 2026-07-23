@@ -452,11 +452,13 @@
         </div>
 
         <!-- Reviews -->
-        <div class="relative min-h-[290px] md:min-h-[240px]">
+        <div
+    id="reviewCarousel"
+    class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide"
+>
 
             <!-- Review 1 -->
-            <article class="review active">
-
+            <article class="snap-start shrink-0 w-full">
                 <blockquote class="font-serif text-[1.8rem] md:text-[2.5rem] lg:text-[3rem] leading-[1.25] text-forest max-w-5xl">
 
                     “I stayed for almost four weeks, but I could have spent one year.
@@ -479,7 +481,7 @@
             </article>
 
             <!-- Review 2 -->
-            <article class="review">
+            <article class="snap-start shrink-0 w-full">
 
                 <blockquote class="font-serif text-[1.8rem] md:text-[2.5rem] lg:text-[3rem] leading-[1.25] text-forest max-w-5xl">
 
@@ -504,7 +506,7 @@
             </article>
 
             <!-- Review 3 -->
-            <article class="review">
+            <article class="snap-start shrink-0 w-full">
 
                 <blockquote class="font-serif text-[1.8rem] md:text-[2.5rem] lg:text-[3rem] leading-[1.25] text-forest max-w-5xl">
 
@@ -544,37 +546,16 @@
 
 <script>
 
-const reviews = document.querySelectorAll(".review");
+const carousel = document.getElementById("reviewCarousel");
 const dots = document.querySelectorAll(".review-dot");
 
-let current = 0;
-let interval;
+function updateDots(){
 
-function showReview(index){
-
-    reviews.forEach((review,i)=>{
-        review.classList.toggle("active",i===index);
-    });
+    const index = Math.round(carousel.scrollLeft / carousel.offsetWidth);
 
     dots.forEach((dot,i)=>{
-        dot.classList.toggle("active",i===index);
+        dot.classList.toggle("active", i===index);
     });
-
-    current=index;
-
-}
-
-function nextReview(){
-
-    showReview((current+1)%reviews.length);
-
-}
-
-function restart(){
-
-    clearInterval(interval);
-
-    interval=setInterval(nextReview,7000);
 
 }
 
@@ -582,16 +563,35 @@ dots.forEach((dot,index)=>{
 
     dot.addEventListener("click",()=>{
 
-        showReview(index);
+        carousel.scrollTo({
 
-        restart();
+            left:index*carousel.offsetWidth,
+
+            behavior:"smooth"
+
+        });
 
     });
 
 });
 
-restart();
+carousel.addEventListener("scroll",updateDots);
 
+let auto = setInterval(()=>{
+
+    let next = Math.round(carousel.scrollLeft/carousel.offsetWidth)+1;
+
+    if(next>=dots.length) next=0;
+
+    carousel.scrollTo({
+
+        left:next*carousel.offsetWidth,
+
+        behavior:"smooth"
+
+    });
+
+},7000);
 </script>
 
 
