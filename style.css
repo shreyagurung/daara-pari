@@ -205,3 +205,25 @@
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
 }
+
+
+
+const carousel = document.getElementById("reviewCarousel");
+const dots = document.querySelectorAll(".review-dot");
+const cards = carousel.children;
+
+function goToReview(index) {
+    cards[index].scrollIntoView({
+        behavior: "smooth",
+        inline: "start"
+    });
+}
+
+carousel.addEventListener("scroll", () => {
+    const index = Math.round(carousel.scrollLeft / cards[0].offsetWidth);
+
+    dots.forEach((dot, i) => {
+        dot.classList.toggle("bg-forest", i === index);
+        dot.classList.toggle("bg-forest/20", i !== index);
+    });
+});
