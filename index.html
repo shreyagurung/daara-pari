@@ -453,27 +453,6 @@
 
     </div>
 
-    <!-- Navigation -->
-    <div class="flex gap-3 self-end md:self-auto">
-
-        <button
-            onclick="scrollReviews(-1)"
-            class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-forest/20 hover:bg-forest hover:text-white transition">
-
-            ←
-
-        </button>
-
-        <button
-            onclick="scrollReviews(1)"
-            class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-forest/20 hover:bg-forest hover:text-white transition">
-
-            →
-
-        </button>
-
-    </div>
-
 </div>
 
 
@@ -482,7 +461,28 @@
         <div id="reviewCarousel"
             class="flex overflow-x-auto gap-8 snap-x snap-mandatory scrollbar-hide scroll-smooth pb-6">
 
-            <!-- Review -->
+         
+          <!-- Review Dots -->
+<div class="flex justify-center gap-3 mt-10">
+
+    <button
+        onclick="goToReview(0)"
+        class="review-dot w-2.5 h-2.5 rounded-full bg-forest transition-all duration-300">
+    </button>
+
+    <button
+        onclick="goToReview(1)"
+        class="review-dot w-2.5 h-2.5 rounded-full bg-forest/20 hover:bg-forest/40 transition-all duration-300">
+    </button>
+
+    <button
+        onclick="goToReview(2)"
+        class="review-dot w-2.5 h-2.5 rounded-full bg-forest/20 hover:bg-forest/40 transition-all duration-300">
+    </button>
+
+</div>
+          
+          <!-- Review -->
 
             <article class="snap-start shrink-0 w-full">
 
