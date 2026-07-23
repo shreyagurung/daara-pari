@@ -381,34 +381,161 @@
 </section>
 </figure>
   
- <!-- Testimonials -->
-  <section class="py-28 md:py-32 bg-forest text-beige overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6 md:px-12 mb-16">
-      <span class="uppercase tracking-widest text-xs opacity-70 block mb-4">Guest Stories</span>
+<!-- GUEST STORIES -->
+<section class="py-28 md:py-36 bg-[#F6EFE6] overflow-hidden">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Heading -->
+        <div class="flex items-end justify-between mb-24">
+
+            <div>
+
+                <p class="uppercase tracking-[0.35em] text-xs text-forest/50 mb-4">
+                    GUEST STORIES
+                </p>
+
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-forest leading-[0.95]">
+                    From Those<br>Who've Stayed
+                </h2>
+
+            </div>
+
+            <!-- Navigation -->
+            <div class="hidden md:flex items-center gap-3">
+
+                <button
+                    onclick="document.getElementById('reviews').scrollBy({left:-750,behavior:'smooth'})"
+                    class="w-12 h-12 flex items-center justify-center rounded-full border border-forest/15 hover:bg-forest hover:text-white transition">
+
+                    ←
+
+                </button>
+
+                <button
+                    onclick="document.getElementById('reviews').scrollBy({left:750,behavior:'smooth'})"
+                    class="w-12 h-12 flex items-center justify-center rounded-full border border-forest/15 hover:bg-forest hover:text-white transition">
+
+                    →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Carousel -->
+        <div
+            id="reviews"
+            class="flex gap-24 overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth pb-4">
+
+            <!-- Review 1 -->
+            <article class="min-w-[90vw] md:min-w-[780px] lg:min-w-[850px] snap-start">
+
+                <blockquote class="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.18] text-forest">
+
+                    “I stayed for almost four weeks,
+                    but I could have spent one year.
+                    This place truly feels like home.”
+
+                </blockquote>
+
+                <div class="mt-14">
+
+                    <p class="uppercase tracking-[0.3em] text-sm text-forest/70">
+
+                        GEMMA R.
+
+                    </p>
+
+                    <p class="text-forest/50 mt-2">
+
+                        Stayed for 28 days · Airbnb
+
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- Review 2 -->
+            <article class="min-w-[90vw] md:min-w-[780px] lg:min-w-[850px] snap-start">
+
+                <blockquote class="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.18] text-forest">
+
+                    “If you want to step away from city distractions
+                    and experience slow living,
+                    this place is perfect.”
+
+                </blockquote>
+
+                <div class="mt-14">
+
+                    <p class="uppercase tracking-[0.3em] text-sm text-forest/70">
+
+                        GAURAV B.
+
+                    </p>
+
+                    <p class="text-forest/50 mt-2">
+
+                        TripAdvisor
+
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- Review 3 -->
+            <article class="min-w-[90vw] md:min-w-[780px] lg:min-w-[850px] snap-start">
+
+                <blockquote class="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.18] text-forest">
+
+                    “Every meal felt like home.
+                    Every conversation felt like family.
+                    Leaving was the hardest part.”
+
+                </blockquote>
+
+                <div class="mt-14">
+
+                    <p class="uppercase tracking-[0.3em] text-sm text-forest/70">
+
+                        SAJITH C.
+
+                    </p>
+
+                    <p class="text-forest/50 mt-2">
+
+                        TripAdvisor
+
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- Mobile Hint -->
+        <div class="md:hidden text-center mt-10">
+
+            <p class="uppercase tracking-[0.3em] text-xs text-forest/40">
+
+                Swipe to read more →
+
+            </p>
+
+        </div>
+
     </div>
-    <div class="flex overflow-x-auto hide-scrollbar pl-6 md:pl-12 pr-6 pb-8 snap-x" id="testimonial-container" style="scrollbar-width: none;">
-      <div class="flex-none w-[85vw] md:w-[40vw] mr-8 snap-center">
-        <div class="flex text-yellow-400 mb-4 text-sm">★★★★★</div>
-        <p class="font-serif text-xl md:text-2xl leading-relaxed mb-4">"If you want to step away from city distractions and experience slow living... this place is perfect."</p>
-        <span class="uppercase tracking-widest text-xs opacity-70 block">Gaurav B. <span class="opacity-50 ml-2">via TripAdvisor</span></span>
-      </div>
-      <div class="flex-none w-[85vw] md:w-[40vw] mr-8 snap-center">
-        <div class="flex text-yellow-400 mb-4 text-sm">★★★★★</div>
-        <p class="font-serif text-xl md:text-2xl leading-relaxed mb-4">"I stayed for almost 4 weeks - but I could have spent one year. This place truly feels like home."</p>
-        <span class="uppercase tracking-widest text-xs opacity-70 block">Gemma R. <span class="opacity-50 ml-2">via TripAdvisor</span></span>
-      </div>
-      <div class="flex-none w-[85vw] md:w-[40vw] mr-8 snap-center">
-        <div class="flex text-yellow-400 mb-4 text-sm">★★★★★</div>
-        <p class="font-serif text-xl md:text-2xl leading-relaxed mb-4">"Every meal was made with so much care... it truly felt like a home away from home."</p>
-        <span class="uppercase tracking-widest text-xs opacity-70 block">Sajith C. <span class="opacity-50 ml-2">via TripAdvisor</span></span>
-      </div>
-      <div class="flex-none w-[85vw] md:w-[40vw] mr-8 snap-center">
-        <div class="flex text-yellow-400 mb-4 text-sm">★★★★★</div>
-        <p class="font-serif text-xl md:text-2xl leading-relaxed mb-4">"BB Daju's food and Sristi's warmth made this an unforgettable stay."</p>
-        <span class="uppercase tracking-widest text-xs opacity-70 block">Prakash M. <span class="opacity-50 ml-2">via TripAdvisor</span></span>
-      </div>
-    </div>
-  </section>
+
+</section>
   
   <!-- A Day Here -->
   <section class="py-32 px-6 md:px-12">
