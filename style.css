@@ -166,16 +166,29 @@
 
 
 
-
 .review{
-    opacity:0;
-    pointer-events:none;
-    transition:opacity 900ms ease;
     position:absolute;
     inset:0;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .8s ease;
 }
 
 .review.active{
     opacity:1;
     pointer-events:auto;
+    position:relative;
+}
+
+.review-dot{
+    width:8px;
+    height:8px;
+    border-radius:999px;
+    background:rgba(31,61,43,.22);
+    transition:.35s;
+}
+
+.review-dot.active{
+    background:#1f3d2b;
+    transform:scale(1.25);
 }
