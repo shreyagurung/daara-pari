@@ -161,3 +161,14 @@
 .carousel-track .slide:hover img {
   transform: scale(1.02); /* Subtle hover depth */
 }
+
+
+/* Hide horizontal scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
