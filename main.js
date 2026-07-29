@@ -109,11 +109,11 @@ let isMenuOpen = false;
 const updateNavbarOnScroll = () => {
   if (!nav || isMenuOpen) return;
 
-  if (window.scrollY > window.innerHeight * 0.6) {
-    nav.classList.add('scrolled');
-  } else {
-    nav.classList.remove('scrolled');
-  }
+ if (window.scrollY >= window.innerHeight) {
+    nav.classList.add("scrolled");
+} else {
+    nav.classList.remove("scrolled");
+}
 };
 
 updateNavbarOnScroll();
