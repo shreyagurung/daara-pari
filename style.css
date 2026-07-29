@@ -205,22 +205,19 @@
 
 
 
-/* Transparent hero navbar */
-
-#navbar{
-    background:transparent;
-    color:white;
-    transition:all .4s ease;
+#navbar {
+    background: transparent;
+    color: white;
+    transition: all .4s ease;
 }
 
 #navbar a,
-#navbar button{
-    color:inherit;
+#navbar button {
+    color: inherit;
 }
 
-#navbar.scrolled{
-    background:rgba(247,242,235,.95);
-    
-    color:#2F4736;
-    box-shadow:0 8px 30px rgba(0,0,0,.06);
+#navbar.scrolled {
+    background: #F7F2EB;
+    color: #2F4736;
+    box-shadow: 0 2px 12px rgba(0,0,0,.05);
 }
