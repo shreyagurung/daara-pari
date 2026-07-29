@@ -220,8 +220,7 @@
 
 #navbar.scrolled{
     background:rgba(247,242,235,.95);
-    backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);
+    
     color:#2F4736;
     box-shadow:0 8px 30px rgba(0,0,0,.06);
 }
