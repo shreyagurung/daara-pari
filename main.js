@@ -103,47 +103,25 @@ document.addEventListener('DOMContentLoaded', () => {
 // NAVBAR SCROLL + STATE CONTROL
 // -----------------------------
 const nav = document.getElementById('navbar');
-const navUsesHeroState = true;
 let isMenuOpen = false;
 
 const updateNavbarOnScroll = () => {
   if (!nav || isMenuOpen) return;
 
-  // Change navbar after 75% of the hero has scrolled away
   if (window.scrollY > window.innerHeight * 0.75) {
 
-    nav.classList.add(
-      'bg-beige/95',
-      'backdrop-blur-md',
-      'shadow-sm',
-      'text-forest'
-    );
-
-    nav.classList.remove(
-      'text-beige',
-      'bg-transparent'
-    );
+    nav.classList.remove('text-beige');
+    nav.classList.add('text-forest');
 
   } else {
 
-    nav.classList.remove(
-      'bg-beige/95',
-      'backdrop-blur-md',
-      'shadow-sm',
-      'text-forest'
-    );
-
-    nav.classList.add(
-      'text-beige',
-      'bg-transparent'
-    );
+    nav.classList.remove('text-forest');
+    nav.classList.add('text-beige');
 
   }
 };
 
-// Set the correct state immediately on page load
 updateNavbarOnScroll();
-
 window.addEventListener('scroll', updateNavbarOnScroll);
 
   // -----------------------------
