@@ -108,7 +108,7 @@ let isMenuOpen = false;
 const updateNavbarOnScroll = () => {
   if (!nav || isMenuOpen) return;
 
-  if (window.scrollY > window.innerHeight * 0.75) {
+  if (window.scrollY > window.innerHeight * 0.6) {
 
     nav.classList.remove(
       'bg-transparent',
