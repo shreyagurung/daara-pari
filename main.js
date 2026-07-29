@@ -117,16 +117,14 @@ const updateNavbarOnScroll = () => {
 
     nav.classList.add(
       'bg-beige',
-      'text-forest',
-      'shadow-sm'
+      'text-forest'
     );
 
   } else {
 
     nav.classList.remove(
       'bg-beige',
-      'text-forest',
-      'shadow-sm'
+      'text-forest'
     );
 
     nav.classList.add(
@@ -139,6 +137,8 @@ const updateNavbarOnScroll = () => {
 
 updateNavbarOnScroll();
 window.addEventListener('scroll', updateNavbarOnScroll);
+
+  
   // -----------------------------
   // SCROLL REVEAL
   // -----------------------------
