@@ -110,20 +110,35 @@ const updateNavbarOnScroll = () => {
 
   if (window.scrollY > window.innerHeight * 0.75) {
 
-    nav.classList.remove('text-beige');
-    nav.classList.add('text-forest');
+    nav.classList.remove(
+      'bg-transparent',
+      'text-beige'
+    );
+
+    nav.classList.add(
+      'bg-beige',
+      'text-forest',
+      'shadow-sm'
+    );
 
   } else {
 
-    nav.classList.remove('text-forest');
-    nav.classList.add('text-beige');
+    nav.classList.remove(
+      'bg-beige',
+      'text-forest',
+      'shadow-sm'
+    );
+
+    nav.classList.add(
+      'bg-transparent',
+      'text-beige'
+    );
 
   }
 };
 
 updateNavbarOnScroll();
 window.addEventListener('scroll', updateNavbarOnScroll);
-
   // -----------------------------
   // SCROLL REVEAL
   // -----------------------------
