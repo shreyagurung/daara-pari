@@ -100,25 +100,39 @@ import './style.css'
 document.addEventListener('DOMContentLoaded', () => {
 
 // -----------------------------
-// NAVBAR SCROLL + STATE CONTROL
+// NAVBAR SCROLL
 // -----------------------------
-  
-const nav = document.getElementById('navbar');
-let isMenuOpen = false;
+const nav = document.getElementById("navbar");
+const hasHero = document.body.classList.contains("has-hero");
 
-const updateNavbarOnScroll = () => {
-  if (!nav || isMenuOpen) return;
+if (nav) {
 
- if (window.scrollY >= window.innerHeight) {
-    nav.classList.add("scrolled");
-} else {
-    nav.classList.remove("scrolled");
+    // Pages without hero always use beige navbar
+    if (!hasHero) {
+        nav.classList.add("scrolled");
+    }
+
+    // Pages with hero
+    if (hasHero) {
+
+        const hero = document.querySelector("section");
+
+        const updateNavbar = () => {
+
+            if (window.scrollY >= hero.offsetHeight) {
+                nav.classList.add("scrolled");
+            } else {
+                nav.classList.remove("scrolled");
+            }
+
+        };
+
+        updateNavbar();
+        window.addEventListener("scroll", updateNavbar);
+
+    }
+
 }
-};
-
-updateNavbarOnScroll();
-window.addEventListener('scroll', updateNavbarOnScroll);
-
   
   // -----------------------------
   // SCROLL REVEAL
