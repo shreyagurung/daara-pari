@@ -206,24 +206,19 @@
 
 
 #navbar{
-    background: transparent;
-    color: white;
-    transition: all .4s ease;
+    background:transparent;
+    color:white;
+    transition:all .35s ease;
 }
 
 #navbar a,
 #navbar button{
-    color: inherit;
-    transition: color .4s ease;
+    color:inherit;
+    transition:color .35s ease;
 }
 
 #navbar.scrolled{
     background:#F7F2EB;
     color:#2F4736;
     border-bottom:1px solid rgba(47,71,54,.08);
-}
-
-#navbar.scrolled a,
-#navbar.scrolled button{
-    color:#2F4736 !important;
 }
