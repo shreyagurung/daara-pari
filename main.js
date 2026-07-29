@@ -104,12 +104,15 @@ document.addEventListener('DOMContentLoaded', () => {
 // -----------------------------
   
 const nav = document.getElementById('navbar');
+const hero = document.querySelector('section.hero'); // or your hero ID/class
 let isMenuOpen = false;
 
 const updateNavbarOnScroll = () => {
-  if (!nav || isMenuOpen) return;
+  if (!nav || !hero || isMenuOpen) return;
 
-  if (window.scrollY > window.innerHeight * 0.6) {
+  const heroBottom = hero.offsetHeight;
+
+  if (window.scrollY >= heroBottom) {
     nav.classList.add('scrolled');
   } else {
     nav.classList.remove('scrolled');
@@ -118,7 +121,6 @@ const updateNavbarOnScroll = () => {
 
 updateNavbarOnScroll();
 window.addEventListener('scroll', updateNavbarOnScroll);
-
   
   // -----------------------------
   // SCROLL REVEAL
