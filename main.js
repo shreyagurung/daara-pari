@@ -119,12 +119,11 @@ if (nav) {
 
         const updateNavbar = () => {
 
-            if (window.scrollY >= hero.offsetHeight) {
-                nav.classList.add("scrolled");
-            } else {
-                nav.classList.remove("scrolled");
-            }
-
+            if (window.scrollY >= hero.offsetHeight - 80) {
+    nav.classList.add("scrolled");
+} else {
+    nav.classList.remove("scrolled");
+}
         };
 
         updateNavbar();
