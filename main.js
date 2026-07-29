@@ -99,29 +99,52 @@ import './style.css'
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // -----------------------------
-  // NAVBAR SCROLL + STATE CONTROL
-  // -----------------------------
-  const nav = document.getElementById('navbar');
-  const navUsesHeroState = nav?.classList.contains('text-beige');
-  let isMenuOpen = false;
+// -----------------------------
+// NAVBAR SCROLL + STATE CONTROL
+// -----------------------------
+const nav = document.getElementById('navbar');
+const navUsesHeroState = true;
+let isMenuOpen = false;
 
-  const updateNavbarOnScroll = () => {
-    if (!nav || isMenuOpen) return;
-    if (!navUsesHeroState) return;
+const updateNavbarOnScroll = () => {
+  if (!nav || isMenuOpen) return;
 
-    if (window.scrollY > 50) {
-      nav.classList.add('bg-beige/95', 'backdrop-blur-md', 'shadow-sm', 'text-forest');
-      nav.classList.remove('text-beige', 'bg-transparent');
-    } else {
-      nav.classList.remove('bg-beige/95', 'backdrop-blur-md', 'shadow-sm', 'text-forest');
-      nav.classList.add('text-beige', 'bg-transparent');
-    }
-  };
+  // Change navbar after 75% of the hero has scrolled away
+  if (window.scrollY > window.innerHeight * 0.75) {
 
-  if (navUsesHeroState) {
-    window.addEventListener('scroll', updateNavbarOnScroll);
+    nav.classList.add(
+      'bg-beige/95',
+      'backdrop-blur-md',
+      'shadow-sm',
+      'text-forest'
+    );
+
+    nav.classList.remove(
+      'text-beige',
+      'bg-transparent'
+    );
+
+  } else {
+
+    nav.classList.remove(
+      'bg-beige/95',
+      'backdrop-blur-md',
+      'shadow-sm',
+      'text-forest'
+    );
+
+    nav.classList.add(
+      'text-beige',
+      'bg-transparent'
+    );
+
   }
+};
+
+// Set the correct state immediately on page load
+updateNavbarOnScroll();
+
+window.addEventListener('scroll', updateNavbarOnScroll);
 
   // -----------------------------
   // SCROLL REVEAL
