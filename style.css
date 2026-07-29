@@ -216,8 +216,9 @@
     color: inherit;
 }
 
-#navbar.scrolled {
-    background: #F7F2EB;
-    color: #2F4736;
-    box-shadow: 0 2px 12px rgba(0,0,0,.05);
+#navbar.scrolled{
+    background:#F7F2EB;
+    color:#2F4736;
+    box-shadow:0 1px 0 rgba(47,71,54,.08),
+               0 8px 24px rgba(47,71,54,.04);
 }
