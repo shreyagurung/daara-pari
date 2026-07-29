@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // -----------------------------
 // NAVBAR SCROLL + STATE CONTROL
 // -----------------------------
+  
 const nav = document.getElementById('navbar');
 let isMenuOpen = false;
 
@@ -109,29 +110,9 @@ const updateNavbarOnScroll = () => {
   if (!nav || isMenuOpen) return;
 
   if (window.scrollY > window.innerHeight * 0.6) {
-
-    nav.classList.remove(
-      'bg-transparent',
-      'text-beige'
-    );
-
-    nav.classList.add(
-      'bg-beige',
-      'text-forest'
-    );
-
+    nav.classList.add('scrolled');
   } else {
-
-    nav.classList.remove(
-      'bg-beige',
-      'text-forest'
-    );
-
-    nav.classList.add(
-      'bg-transparent',
-      'text-beige'
-    );
-
+    nav.classList.remove('scrolled');
   }
 };
 
