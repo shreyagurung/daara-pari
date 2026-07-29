@@ -205,20 +205,25 @@
 
 
 
-#navbar {
+#navbar{
     background: transparent;
     color: white;
     transition: all .4s ease;
 }
 
 #navbar a,
-#navbar button {
+#navbar button{
     color: inherit;
+    transition: color .4s ease;
 }
 
 #navbar.scrolled{
     background:#F7F2EB;
     color:#2F4736;
-    box-shadow:0 1px 0 rgba(47,71,54,.08),
-               0 8px 24px rgba(47,71,54,.04);
+    border-bottom:1px solid rgba(47,71,54,.08);
+}
+
+#navbar.scrolled a,
+#navbar.scrolled button{
+    color:#2F4736 !important;
 }
