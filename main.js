@@ -104,41 +104,36 @@ document.addEventListener('DOMContentLoaded', () => {
 // -----------------------------
 
 const nav = document.getElementById("navbar");
-const hero = document.getElementById("hero");
+const hasHero = document.body.classList.contains("has-hero");
 
-function updateNavbar() {
+if (nav) {
 
-    if (!nav) return;
-
-    // Pages without hero
-    if (!hero) {
-
+    // Pages without hero always use beige navbar
+    if (!hasHero) {
         nav.classList.add("scrolled");
-        return;
-
     }
 
-    // Hero pages
+    // Pages with hero
+    if (hasHero) {
 
-    const trigger = hero.offsetHeight - nav.offsetHeight;
+        const hero = document.querySelector("section");
 
-    if (window.scrollY >= trigger) {
+        const updateNavbar = () => {
 
-        nav.classList.add("scrolled");
+            if (window.scrollY >= hero.offsetHeight - 80) {
+    nav.classList.add("scrolled");
+} else {
+    nav.classList.remove("scrolled");
+}
+        };
 
-    } else {
-
-        nav.classList.remove("scrolled");
+        updateNavbar();
+        window.addEventListener("scroll", updateNavbar);
 
     }
 
 }
-
-updateNavbar();
-
-window.addEventListener("scroll", updateNavbar);
-
-window.addEventListener("resize", updateNavbar);
+  
   // -----------------------------
   // SCROLL REVEAL
   // -----------------------------
