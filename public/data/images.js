@@ -39,7 +39,7 @@ window.images = {
       "https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,w_1600/v1778739912/daarapari-homestay-sikkim-traditional-kitchen_wegob0.jpg",
       "https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,w_1600/v1778739912/daarapari-homestay-sikkim-mudhouse-cozy-bedroom_a3exg8.jpg",
       "https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,w_1600/v1778921553/daarapari-homestay-sikkim--natural-bathroom_g358vh.webp",
-      "https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,w_2200/v1778661021/mh-hero_vo3jon.png"
+      "https://res.cloudinary.com/u6enmraw/image/upload/v1785510324/gaairi_ghar_front.jpg"
     ]
   },
 
