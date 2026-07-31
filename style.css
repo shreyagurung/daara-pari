@@ -11,15 +11,15 @@
     opacity: 1;
     transition: opacity 0.25s ease-out;
     scroll-behavior: smooth;
-    background-color: #f3e9dc; /* Beige theme */
+    background-color: #F8F4EC; /* Beige theme */
     color: #1f3d2b; /* Forest theme */
   }
 
   body {
+    background: inherit;
     line-height: 1.6;
     @apply font-sans antialiased;
-  }
-
+}
   ::selection {
     background-color: #1f3d2b;
     color: #f3e9dc;
@@ -218,7 +218,7 @@
 }
 
 #navbar.scrolled{
-    background: #F7F2EB;
+    background: #F8F4EC;
     color: #2F4736;
     border-bottom: 1px solid rgba(47,71,54,.08);
 }
