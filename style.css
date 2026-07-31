@@ -208,9 +208,14 @@
 #navbar{
     background: transparent;
     color: white;
-    transition: background-color .18s ease, color .18s ease, border-color .18s ease;
-}
 
+    transition:
+        background-color .45s ease,
+        color .45s ease,
+        border-color .45s ease,
+        backdrop-filter .45s ease,
+        padding .35s ease;
+}
 #navbar a,
 #navbar button{
     color: inherit;
@@ -218,7 +223,15 @@
 }
 
 #navbar.scrolled{
-    background: #F8F4EC;
-    color: #2F4736;
-    border-bottom: 1px solid rgba(47,71,54,.08);
+
+    background:rgba(248,244,236,.92);
+
+    color:#2F4736;
+
+    border-bottom:1px solid rgba(47,71,54,.08);
+
+    backdrop-filter:blur(16px);
+
+    -webkit-backdrop-filter:blur(16px);
+
 }
