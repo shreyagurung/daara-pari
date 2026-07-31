@@ -103,36 +103,25 @@ document.addEventListener('DOMContentLoaded', () => {
 // NAVBAR SCROLL
 // -----------------------------
 const nav = document.getElementById("navbar");
-const hasHero = document.body.classList.contains("has-hero");
+const hero = document.getElementById("hero");
 
-if (nav) {
+function updateNavbar() {
+    if (!nav) return;
 
-    // Pages without hero always use beige navbar
-    if (!hasHero) {
+    if (!hero) {
         nav.classList.add("scrolled");
+        return;
     }
 
-    // Pages with hero
-    if (hasHero) {
-
-        const hero = document.querySelector("section");
-
-        const updateNavbar = () => {
-
-            if (window.scrollY >= hero.offsetHeight - 80) {
-    nav.classList.add("scrolled");
-} else {
-    nav.classList.remove("scrolled");
-}
-        };
-
-        updateNavbar();
-        window.addEventListener("scroll", updateNavbar);
-
+    if (window.scrollY > hero.offsetHeight - 80) {
+        nav.classList.add("scrolled");
+    } else {
+        nav.classList.remove("scrolled");
     }
-
 }
-  
+
+updateNavbar();
+window.addEventListener("scroll", updateNavbar);
   // -----------------------------
   // SCROLL REVEAL
   // -----------------------------
