@@ -100,28 +100,45 @@ import './style.css'
 document.addEventListener('DOMContentLoaded', () => {
 
 // -----------------------------
-// NAVBAR SCROLL
+// UNIVERSAL NAVBAR
 // -----------------------------
+
 const nav = document.getElementById("navbar");
 const hero = document.getElementById("hero");
 
 function updateNavbar() {
+
     if (!nav) return;
 
+    // Pages without hero
     if (!hero) {
+
         nav.classList.add("scrolled");
         return;
+
     }
 
-    if (window.scrollY > hero.offsetHeight - 80) {
+    // Hero pages
+
+    const trigger = hero.offsetHeight - nav.offsetHeight;
+
+    if (window.scrollY >= trigger) {
+
         nav.classList.add("scrolled");
+
     } else {
+
         nav.classList.remove("scrolled");
+
     }
+
 }
 
 updateNavbar();
+
 window.addEventListener("scroll", updateNavbar);
+
+window.addEventListener("resize", updateNavbar);
   // -----------------------------
   // SCROLL REVEAL
   // -----------------------------
@@ -246,7 +263,7 @@ setTimeout(() => {
       isMenuOpen = false;
 
       // restore correct state
-      updateNavbarOnScroll();
+updateNavbar();
     };
 
     mobileMenuToggle.addEventListener('click', () => {
