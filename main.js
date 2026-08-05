@@ -2,7 +2,7 @@
 // -----------------------------
 // CLOUDINARY & GALLERY DATA
 // -----------------------------
-const cloudBase = "https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto/v1/";
+const cloudBase = "https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,c_limit,w_2000/f_auto,q_auto/v1/";
 
 // PLACEHOLDER CLOUDINARY PATHS - UPDATE THESE WITH ACTUAL FILE NAMES
 const experienceData = {
