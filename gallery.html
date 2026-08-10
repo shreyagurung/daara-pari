@@ -17,24 +17,71 @@
 
   <div class="hidden md:flex space-x-12 text-sm uppercase tracking-widest font-sans text-forest/80">
     
-    <div class="relative group pb-4 -mb-4">
-      
-      <a href="stay.html" class="hover:opacity-70 transition-opacity duration-300">
-        Stay
+   <!-- Stay Dropdown -->
+<div class="relative group">
+
+  <a href="stay.html"
+     class="hover:opacity-70 transition-opacity">
+    Stay
+  </a>
+
+  <div class="absolute left-0 top-full pt-5
+              opacity-0 invisible translate-y-2
+              group-hover:opacity-100
+              group-hover:visible
+              group-hover:translate-y-0
+              transition-all duration-300 ease-out">
+
+    <div class="flex flex-col gap-4 min-w-[170px]">
+
+      <!-- Gairi Ghar -->
+      <a href="mud-house.html"
+         class="group/item block transition-all duration-300">
+
+        <span class="block text-xs uppercase tracking-[0.18em]
+                     opacity-80
+                     transition-all duration-300
+                     group-hover/item:translate-x-1
+                     group-hover/item:opacity-100">
+          Gairi Ghar
+        </span>
+
+        <span class="block mt-1 text-[11px] tracking-wide
+                     opacity-50
+                     transition-all duration-300
+                     group-hover/item:translate-x-1
+                     group-hover/item:opacity-80">
+          the mud home
+        </span>
+
       </a>
 
-      <div class="absolute left-0 top-full pt-2 min-w-max flex flex-col gap-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:pointer-events-auto transition-all duration-300">
-        
-        <a href="mud-house.html" class="nav-dropdown-link px-3 py-2 text-xs tracking-widest backdrop-blur-sm transition-colors duration-300 whitespace-nowrap">
-          Mudhouse
-        </a>
+      <!-- Mul Ghar -->
+      <a href="main-house.html"
+         class="group/item block transition-all duration-300">
 
-        <a href="main-house.html" class="nav-dropdown-link px-3 py-2 text-xs tracking-widest backdrop-blur-sm transition-colors duration-300 whitespace-nowrap">
-          Main House
-        </a>
+        <span class="block text-xs uppercase tracking-[0.18em]
+                     opacity-80
+                     transition-all duration-300
+                     group-hover/item:translate-x-1
+                     group-hover/item:opacity-100">
+          Mul Ghar
+        </span>
 
-      </div>
+        <span class="block mt-1 text-[11px] tracking-wide
+                     opacity-50
+                     transition-all duration-300
+                     group-hover/item:translate-x-1
+                     group-hover/item:opacity-80">
+          the family home
+        </span>
+
+      </a>
+
     </div>
+
+  </div>
+</div>
 
     <a href="experience.html" class="hover:opacity-70">Experience</a>
     <a href="story.html" class="hover:opacity-70">Story</a>
