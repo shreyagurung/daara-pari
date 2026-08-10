@@ -221,6 +221,11 @@
     color: inherit;
     transition: color .18s ease;
 }
+/* Mul Ghar hero navigation */
+body.main-house-page #navbar {
+    color: #2F4736;
+}
+
 
 #navbar.scrolled{
 
