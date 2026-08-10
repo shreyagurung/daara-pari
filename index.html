@@ -157,6 +157,11 @@
   // Transition interaction
   lampHotspot.addEventListener('click', () => {
     heroAwakened = true;
+      document.body.classList.add('overflow-hidden');
+
+  setTimeout(() => {
+    document.body.classList.remove('overflow-hidden');
+  }, 8200);
 
     // Hide hint immediately
     hintText.style.opacity = '0';
