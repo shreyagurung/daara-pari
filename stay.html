@@ -23,24 +23,72 @@ class="fixed top-0 left-0 w-full z-50 bg-transparent transition-all duration-500
     <!-- Desktop Navigation -->
     <div class="hidden md:flex items-center space-x-12 text-sm uppercase tracking-widest">
 
-      <!-- Stay Dropdown -->
-      <div class="relative group">
-        <a href="stay.html" class="hover:opacity-70 transition-opacity">
-          Stay
-        </a>
+     <!-- Stay Dropdown -->
+<div class="relative group">
 
-        <div class="absolute left-0 top-full pt-3 min-w-max flex flex-col gap-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300">
+  <a href="stay.html"
+     class="hover:opacity-70 transition-opacity">
+    Stay
+  </a>
 
-          <a href="mud-house.html" class="nav-dropdown-link px-3 py-2 text-xs whitespace-nowrap">
-            Mudhouse
-          </a>
+  <div class="absolute left-0 top-full pt-5
+              opacity-0 invisible translate-y-2
+              group-hover:opacity-100
+              group-hover:visible
+              group-hover:translate-y-0
+              transition-all duration-300 ease-out">
 
-          <a href="main-house.html" class="nav-dropdown-link px-3 py-2 text-xs whitespace-nowrap">
-            Main House
-          </a>
+    <div class="flex flex-col gap-4 min-w-[170px]">
 
-        </div>
-      </div>
+      <!-- Gairi Ghar -->
+      <a href="mud-house.html"
+         class="group/item block transition-all duration-300">
+
+        <span class="block text-xs uppercase tracking-[0.18em]
+                     opacity-80
+                     transition-all duration-300
+                     group-hover/item:translate-x-1
+                     group-hover/item:opacity-100">
+          Gairi Ghar
+        </span>
+
+        <span class="block mt-1 text-[11px] tracking-wide
+                     opacity-50
+                     transition-all duration-300
+                     group-hover/item:translate-x-1
+                     group-hover/item:opacity-80">
+          the mud home
+        </span>
+
+      </a>
+
+      <!-- Mul Ghar -->
+      <a href="main-house.html"
+         class="group/item block transition-all duration-300">
+
+        <span class="block text-xs uppercase tracking-[0.18em]
+                     opacity-80
+                     transition-all duration-300
+                     group-hover/item:translate-x-1
+                     group-hover/item:opacity-100">
+          Mul Ghar
+        </span>
+
+        <span class="block mt-1 text-[11px] tracking-wide
+                     opacity-50
+                     transition-all duration-300
+                     group-hover/item:translate-x-1
+                     group-hover/item:opacity-80">
+          the family home
+        </span>
+
+      </a>
+
+    </div>
+
+  </div>
+</div>
+
 
       <a href="experience.html">Experience</a>
       <a href="story.html">Story</a>
