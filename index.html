@@ -9,79 +9,30 @@
   <style>
     html{visibility:hidden;opacity:0;}
     #hero-img.hero-night{filter:grayscale(1) brightness(.28) blur(1.5px);}
+    /* Styles for the camera roll dots */
+    .camera-dot.active { background-color: #1f3d2b; transform: scale(1.3); }
   </style>
 </head>
 <body class="has-hero font-sans antialiased text-forest bg-beige selection:bg-forest selection:text-beige overflow-hidden">  
-    <!-- Navigation -->
+  <!-- Navigation -->
   <nav id="navbar" class="fixed w-full top-0 z-50 transition duration-300 ease-in-out px-6 md:px-12 py-6 flex justify-between items-center text-beige">
     <a href="index.html" class="font-hindi text-3xl tracking-wide">डाँडा पारी</a>
     <div class="hidden md:flex space-x-12 text-sm uppercase tracking-widest">
-<!-- Stay Dropdown -->
-<div class="relative group">
-
-  <a href="stay.html"
-     class="hover:opacity-70 transition-opacity">
-    Stay
-  </a>
-
-  <div class="absolute left-0 top-full pt-5
-              opacity-0 invisible translate-y-2
-              group-hover:opacity-100
-              group-hover:visible
-              group-hover:translate-y-0
-              transition-all duration-300 ease-out">
-
-    <div class="flex flex-col gap-4 min-w-[170px]">
-
-      <!-- Gairi Ghar -->
-      <a href="mud-house.html"
-         class="group/item block transition-all duration-300">
-
-        <span class="block text-xs uppercase tracking-[0.18em]
-                     opacity-80
-                     transition-all duration-300
-                     group-hover/item:translate-x-1
-                     group-hover/item:opacity-100">
-          Gairi Ghar
-        </span>
-
-        <span class="block mt-1 text-[11px] tracking-wide
-                     opacity-50
-                     transition-all duration-300
-                     group-hover/item:translate-x-1
-                     group-hover/item:opacity-80">
-          the mud home
-        </span>
-
-      </a>
-
-      <!-- Mul Ghar -->
-      <a href="main-house.html"
-         class="group/item block transition-all duration-300">
-
-        <span class="block text-xs uppercase tracking-[0.18em]
-                     opacity-80
-                     transition-all duration-300
-                     group-hover/item:translate-x-1
-                     group-hover/item:opacity-100">
-          Mul Ghar
-        </span>
-
-        <span class="block mt-1 text-[11px] tracking-wide
-                     opacity-50
-                     transition-all duration-300
-                     group-hover/item:translate-x-1
-                     group-hover/item:opacity-80">
-          the family home
-        </span>
-
-      </a>
-
-    </div>
-
-  </div>
-</div>
-
+      <div class="relative group">
+        <a href="stay.html" class="hover:opacity-70 transition-opacity">Stay</a>
+        <div class="absolute left-0 top-full pt-5 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out">
+          <div class="flex flex-col gap-4 min-w-[170px]">
+            <a href="mud-house.html" class="group/item block transition-all duration-300">
+              <span class="block text-xs uppercase tracking-[0.18em] opacity-80 transition-all duration-300 group-hover/item:translate-x-1 group-hover/item:opacity-100">Gairi Ghar</span>
+              <span class="block mt-1 text-[11px] tracking-wide opacity-50 transition-all duration-300 group-hover/item:translate-x-1 group-hover/item:opacity-80">the mud home</span>
+            </a>
+            <a href="main-house.html" class="group/item block transition-all duration-300">
+              <span class="block text-xs uppercase tracking-[0.18em] opacity-80 transition-all duration-300 group-hover/item:translate-x-1 group-hover/item:opacity-100">Mul Ghar</span>
+              <span class="block mt-1 text-[11px] tracking-wide opacity-50 transition-all duration-300 group-hover/item:translate-x-1 group-hover/item:opacity-80">the family home</span>
+            </a>
+          </div>
+        </div>
+      </div>
       <a href="experience.html" class="hover:opacity-70 transition-opacity duration-300">Experience</a>
       <a href="story.html" class="hover:opacity-70 transition-opacity duration-300">Story</a>
       <a href="gallery.html" class="hover:opacity-70 transition-opacity duration-300">Gallery</a>
@@ -102,784 +53,340 @@
       <a href="booking.html" class="text-sm uppercase tracking-widest hover:opacity-70">Enquire</a>
     </div>
   </nav>
-<!-- Hero Section -->
-<section class="relative h-screen w-full overflow-hidden bg-black">
 
-  <!-- IMAGE STACK -->
-  <div class="absolute inset-0">
+  <!-- Hero Section -->
+  <section class="relative h-screen w-full overflow-hidden bg-black">
+    <div class="absolute inset-0">
+      <img src="/images/hero-night.jpg" id="hero-night" style="filter: grayscale(1) brightness(0.28) blur(1.5px);" class="absolute inset-0 w-full h-full object-cover object-[20%_75%] md:object-[center] transition-[filter] duration-[1600ms]" />
+      <img src="/images/hero-day.jpg" id="hero-day" style="opacity:0; visibility:hidden;" class="absolute inset-0 w-full h-full object-cover object-[20%_75%] md:object-[center] transition-opacity duration-[8200ms] ease-in-out" />
+    </div>
+    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.6)_100%)]"></div>
+    <button id="lamp-hotspot" class="group absolute z-20 flex items-center justify-center left-[38%] top-[76%] md:left-[26%] md:top-[78%] w-14 h-14 md:w-[5.5rem] md:h-[5.5rem] -translate-x-1/2 -translate-y-1/2">
+      <span class="absolute inset-0 rounded-full bg-amber-200/25 blur-xl md:blur-2xl animate-soft-pulse"></span>
+      <span class="absolute inset-4 rounded-full bg-amber-100/40 blur-lg md:blur-xl animate-soft-pulse"></span>
+      <span class="relative h-2 w-2 rounded-full bg-amber-50 shadow-[0_0_24px_8px_rgba(255,221,160,0.6)]"></span>
+    </button>
+    <div id="hero-text" style="opacity:0; visibility:hidden; transform: translateX(40px);" class="pointer-events-none absolute inset-0 z-10 flex flex-col justify-center px-6 items-center text-center md:items-end md:text-right md:pr-[8vw] md:pl-6 transition-[opacity,transform] duration-[1800ms] ease-[cubic-bezier(0.22,0.61,0.36,1)] delay-[600ms]">
+      <h1 class="font-serif text-white/95 leading-[0.92] tracking-[-0.03em]" style="font-size: clamp(3rem, 7vw, 7rem);">Daara Pari</h1>
+      <p class="mt-4 text-white/75 font-hindi" style="font-size: clamp(1.2rem, 2vw, 2.4rem);">डाँडा पारी</p>
+    </div>
+  </section>
 
-    <!-- NIGHT IMAGE -->
-    <img 
-      src="/images/hero-night.jpg"
-      id="hero-night"
-      style="filter: grayscale(1) brightness(0.28) blur(1.5px);"
-      class="absolute inset-0 w-full h-full 
-             object-cover object-[20%_75%] md:object-[center]
-             transition-[filter] duration-[1600ms]"
-    />
+  <script>
+    const heroNight = document.getElementById('hero-night');
+    const heroDay = document.getElementById('hero-day');
+    const lampHotspot = document.getElementById('lamp-hotspot');
+    const heroText = document.getElementById('hero-text');
+    let heroAwakened = false;
 
-    <!-- DAY IMAGE -->
-    <img 
-      src="/images/hero-day.jpg"
-      id="hero-day"
-      style="opacity:0; visibility:hidden;"
-      class="absolute inset-0 w-full h-full 
-             object-cover object-[20%_75%] md:object-[center]
-             transition-opacity duration-[8200ms] ease-in-out"
-    />
-
-  </div>
-
-  <!-- Vignette -->
-  <div class="pointer-events-none absolute inset-0 
-              bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.6)_100%)]">
-  </div>
-
-  <!-- Hotspot -->
-  <button 
-    id="lamp-hotspot"
-    class="group absolute z-20 flex items-center justify-center
-           left-[38%] top-[76%]
-           md:left-[26%] md:top-[78%]
-           w-14 h-14 md:w-[5.5rem] md:h-[5.5rem]
-           -translate-x-1/2 -translate-y-1/2"
-  >
-    <span class="absolute inset-0 rounded-full bg-amber-200/25 blur-xl md:blur-2xl animate-soft-pulse"></span>
-    <span class="absolute inset-4 rounded-full bg-amber-100/40 blur-lg md:blur-xl animate-soft-pulse"></span>
-    <span class="relative h-2 w-2 rounded-full bg-amber-50 shadow-[0_0_24px_8px_rgba(255,221,160,0.6)]"></span>
-  </button>
-
-  <!-- Hint -->
-
-<!-- Hero Text -->
-<div
-  id="hero-text"
-  style="opacity:0; visibility:hidden; transform: translateX(40px);"
-  class="pointer-events-none absolute inset-0 z-10 flex flex-col justify-center
-
-         px-6
-         items-center text-center
-
-         md:items-end md:text-right md:pr-[8vw] md:pl-6
-
-         transition-[opacity,transform] duration-[1800ms]
-         ease-[cubic-bezier(0.22,0.61,0.36,1)] delay-[600ms]"
->
-
- 
-  <h1
-    class="font-serif text-white/95 leading-[0.92] tracking-[-0.03em]"
-    style="font-size: clamp(3rem, 7vw, 7rem);"
-  >
-    Daara Pari
-  </h1>
-
-  <p
-    class="mt-4 text-white/75 font-hindi"
-    style="font-size: clamp(1.2rem, 2vw, 2.4rem);"
-  >
-    डाँडा पारी
-  </p>
-
-</div>
-
-</section>
-
-<script>
-  const heroNight = document.getElementById('hero-night');
-  const heroDay = document.getElementById('hero-day');
-  const lampHotspot = document.getElementById('lamp-hotspot');
-  const heroText = document.getElementById('hero-text');
-  const hintText = document.getElementById('hint-text');
-  let heroAwakened = false;
-
-  // Hint fade in
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      if (!heroAwakened) {
-        hintText.style.opacity = '1';
-      }
-    }, 2200);
-  });
-
-  // Transition interaction
-  lampHotspot.addEventListener('click', () => {
-    heroAwakened = true;
+    lampHotspot.addEventListener('click', () => {
+      heroAwakened = true;
       document.body.classList.add('overflow-hidden');
-
-  setTimeout(() => {
-    document.body.classList.remove('overflow-hidden');
-  }, 8200);
-
-    // Hide hint immediately
-    hintText.style.opacity = '0';
-
-    // Fade night atmosphere
-    heroNight.style.filter = 'grayscale(0) brightness(0.9) blur(0px)';
-
-    // Reveal day image
-    heroDay.style.visibility = 'visible';
-
-    requestAnimationFrame(() => {
-      heroDay.style.opacity = '1';
-      hintText.style.opacity = '0';
+      setTimeout(() => { document.body.classList.remove('overflow-hidden'); }, 8200);
+      heroNight.style.filter = 'grayscale(0) brightness(0.9) blur(0px)';
+      heroDay.style.visibility = 'visible';
+      requestAnimationFrame(() => { heroDay.style.opacity = '1'; });
+      lampHotspot.style.opacity = '0';
+      lampHotspot.style.pointerEvents = 'none';
+      setTimeout(() => {
+        heroText.style.visibility = 'visible';
+        heroText.style.opacity = '1';
+        heroText.style.transform = 'translateX(0)';
+      }, 1200);
     });
-
-    // Hide hotspot after interaction
-    lampHotspot.style.opacity = '0';
-    lampHotspot.style.pointerEvents = 'none';
-
-    // Reveal text
-    setTimeout(() => {
-      heroText.style.visibility = 'visible';
-      heroText.style.opacity = '1';
-      heroText.style.transform = 'translateX(0)';
-    }, 1200);
-
-  });
-</script>
-
+  </script>
 
   <!-- Philosophy -->
-  <section class="py-32 px-6 md:px-12">
-  <div class="max-w-4xl mx-auto reveal">
-
-   
- <h2
-class="font-serif text-forest leading-[0.95] tracking-[-0.02em] mb-6"
-style="font-size:clamp(2.8rem,5vw,4.25rem);"
->
-      Welcome to Daarapari
-    </h2>
-
-    <p class="text-xl md:text-2xl text-forest/70 font-light italic mb-10">
-I'm so glad you found your way here.</p>
-
-    <div class="space-y-6 text-base md:text-lg leading-8 md:leading-10 text-forest/85 leading-9 font-light">
-
-      <p>
-        Daarapari is my family home on our ancestral land in Hee Bermiok, a small village in West Sikkim.
-      </p>
-       <p>
-      Life here has always followed its own pace. The seasons decide what grows in the fields, 
-         what ends up on our table, and how the days unfold. We grow our food, work on the farm, 
-         and neighbours still stop by just to sit for a while and catch up.
-       </p>
-      <p>
-        Nothing here rushes you.
-               </p>
-
-      <p>
-       Whether you're here to rest, create, work remotely, or simply disappear into nature for a little while,
-        I hope you'll stay a little longer and make yourself at home.
-      </p>
-
-  
-      <p class="mt-6 text-left font-serif italic text-xl text-forest/70">
-    -Sristi
-</p>
-
+  <section class="py-20 md:py-32 px-6 md:px-12">
+    <div class="max-w-4xl mx-auto reveal">
+      <h2 class="font-serif text-forest leading-[0.95] tracking-[-0.02em] mb-6" style="font-size:clamp(2.8rem,5vw,4.25rem);">Welcome to Daarapari</h2>
+      <p class="text-xl md:text-2xl text-forest/70 font-light italic mb-10 text-balance">I'm so glad you found your way here.</p>
+      <div class="space-y-6 text-base md:text-lg leading-8 md:leading-10 text-forest/85 font-light max-w-prose">
+        <p>Daarapari is my family home on our ancestral land in Hee Bermiok, a small village in West Sikkim.</p>
+        <p>Life here has always followed its own pace. The seasons decide what grows in the fields, what ends up on our table, and how the days unfold. We grow our food, work on the farm, and neighbours still stop by just to sit for a while and catch up.</p>
+        <p>Nothing here rushes you.</p>
+        <p>Whether you're here to rest, create, work remotely, or simply disappear into nature for a little while, I hope you'll stay a little longer and make yourself at home.</p>
+        <p class="mt-6 text-left font-serif italic text-xl text-forest/70">-Sristi</p>
+      </div>
     </div>
-
-  </div>
-</section>
+  </section>
  
- <!-- Stay Preview -->
-<section
-  class="relative h-[85vh] md:h-screen bg-cover bg-center"
-  style="background-image: url('https://res.cloudinary.com/u6enmraw/image/upload/f_auto,q_auto,c_limit,w_2000/v1785599995/spaces_lmpsss.jpg');"
->
-
-  <!-- Dark Overlay -->
-<!-- Softer Bottom Gradient -->
-<div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/30 via-black/5 to-transparent pointer-events-none"></div>
-  <!-- Text -->
-  <div class="relative z-10 h-full">
-
-    <div
-      class="
-        absolute
-        bottom-12 right-6
-        w-[82%] md:max-w-md
-
-        md:bottom-20
-        md:right-20
-        lg:right-28
-        md:max-w-md
-
-        text-right
-        text-white/90
-      ">
-
-      <h2
-        class="font-serif
-               text-[clamp(2.8rem,5vw,4.25rem)]
-               leading-[0.95]
-               text-white/95
-               mb-5">
-        Choose your pace.
-      </h2>
-
-      <p
-        class="text-base md:text-lg
-               leading-relaxed md:leading-8
-               text-white/80
-               mb-8">
-        Stay with us in our family home,<br>
-        or enjoy more solitude in the mud house.
-      </p>
-
-      <a
-        href="/stay.html"
-        class="inline-block
-               border-b border-white/70
-               pb-1
-               text-[11px]
-               uppercase
-               tracking-[0.22em]
-               text-white/90
-               hover:text-white
-               transition">
-        Explore Our Homes →
-      </a>
-
+  <!-- Stay Preview -->
+  <section class="relative h-[85vh] md:h-screen bg-cover bg-center" style="background-image: url('https://res.cloudinary.com/u6enmraw/image/upload/f_auto,q_auto,c_limit,w_2000/v1785599995/spaces_lmpsss.jpg');">
+    <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/30 via-black/5 to-transparent pointer-events-none"></div>
+    <div class="relative z-10 h-full">
+      <div class="absolute bottom-16 right-6 w-[82%] md:max-w-md md:bottom-20 md:right-20 lg:right-28 text-right text-white/90">
+        <h2 class="font-serif text-[clamp(2.8rem,5vw,4.25rem)] leading-[0.95] text-white/95 mb-5 text-balance">Choose your pace.</h2>
+        <p class="text-base md:text-lg leading-relaxed md:leading-8 text-white/80 mb-8 text-balance">Stay with us in our family home,<br>or enjoy more solitude in the mud house.</p>
+        <a href="/stay.html" class="inline-block border-b border-white/70 pb-1 text-[11px] uppercase tracking-[0.22em] text-white/90 hover:text-white transition">Explore Our Homes →</a>
+      </div>
     </div>
+  </section>
 
-  </div>
-
-</section>
-
-<!-- Life Here Preview -->
-<section class="py-24 md:py-36 bg-[#F6EFE6]">
-
-    <div class="grid grid-cols-1 lg:grid-cols-[1.25fr_0.9fr] lg:max-w-7xl lg:mx-auto gap-14 lg:gap-24 items-start">
-
-        <!-- Image -->
-        <div class="reveal delay-200">
-            <img
-                src="https://res.cloudinary.com/u6enmraw/image/upload/f_auto,q_auto,c_limit,w_2000/v1785603187/DSCF6607_wuyb0y.jpg"
-                alt="Life on the farm"
-                class="w-full h-auto object-cover md:rounded-sm"
-            >
+ <!-- Life Here Preview -->
+  <section class="py-20 md:py-36 bg-[#F6EFE6]">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1fr] lg:max-w-6xl lg:mx-auto gap-10 md:gap-16 lg:gap-20 items-center">
+      
+      <!-- Image with a strict max-width cap to prevent endless vertical scaling -->
+      <div class="px-6 md:px-0 reveal delay-200">
+        <div class="w-full max-w-[440px] mx-auto lg:ml-auto lg:mr-0">
+          <img 
+            src="https://res.cloudinary.com/u6enmraw/image/upload/f_auto,q_auto,c_limit,w_2000/v1785603187/DSCF6607_wuyb0y.jpg" 
+            alt="Life on the farm" 
+            class="w-full aspect-[4/5] object-cover object-[center_80%] rounded-sm shadow-sm"
+          >
         </div>
+      </div>
 
-        <!-- Content -->
-        <div class="px-6 md:px-0 reveal">
-
-            <p class="uppercase tracking-[0.35em] text-xs text-forest/50 mb-6">
-                LIFE HERE
-            </p>
-
-            <h2
-                class="font-serif leading-[0.95] text-forest mb-10"
-                style="font-size: clamp(2.8rem,5vw,4.25rem);"
-            >
-                A day at<br>Daarapari.
-            </h2>
-
-            <p class="text-xl md:text-2xl text-forest font-light mb-8 leading-relaxed">
-             We usually wake up, look outside, and let the day decide.           
-            </p>
-
-            <p class="text-base md:text-lg text-forest/70 leading-8 md:leading-10 mb-8 font-light">
-              It might be a morning in the fields, a swim in Kalez Khola, or an evening drive 
-              to watch Kanchenjunga catch the last light. Sometimes we stay till the moon rises.
-           </p>  
+      <!-- Content -->
+      <div class="px-6 md:px-0 reveal lg:pr-10">
+        <p class="uppercase tracking-[0.35em] text-xs text-forest/50 mb-4">LIFE HERE</p>
+        <h2 class="font-serif leading-[0.95] text-forest mb-6" style="font-size: clamp(2.8rem,5vw,4.25rem);">A day at<br>Daarapari.</h2>
+        <p class="text-xl md:text-2xl text-forest font-light mb-6 leading-relaxed text-balance">We usually wake up, look outside, and let the day decide.</p>
         
-          <p class="text-base md:text-lg text-forest/70 leading-8 md:leading-10 mb-8 font-light">
-              And sometimes we take an unknown left, simply because we've never been down that road before.           
+        <!-- Tightened paragraph spacing and line height -->
+        <div class="space-y-4 text-base md:text-[17px] text-forest/70 leading-relaxed md:leading-8 mb-8 font-light max-w-prose">
+          <p>It might be a morning in the fields, a swim in Kalez Khola, or an evening drive to watch Kanchenjunga catch the last light. Sometimes we stay till the moon rises.</p>  
+          <p>And sometimes we take an unknown left, simply because we've never been down that road before.</p>
+          <p>And every now and then, we do absolutely nothing at all. Just a cup of tea, and the rain slowly moving from one hill to the next.</p>
+        </div>
+        
+        <a href="experience.html" class="uppercase tracking-[0.28em] text-xs border-b border-forest pb-2 hover:opacity-60 transition duration-300">Things you'll probably end up doing →</a>
+      </div>
+
+    </div>
+  </section>
+  
+  <!-- HOW IT ALL BEGAN -->
+  <section class="py-20 md:py-32 bg-[#F6EFE6]">
+    
+    <!-- Removed max-w wrapper so the figure spans the full viewport -->
+    <figure class="relative w-full overflow-hidden h-[65vh] md:h-[75vh] max-h-[900px] reveal">
+      
+      <!-- Image -->
+      <img src="https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,c_limit,w_2000/f_auto,q_auto,w_2000/v1778917036/team_shzrbw.jpg" alt="Sristi and BB Daju" class="absolute inset-0 w-full h-full object-cover object-[center_28%]" loading="lazy">
+      
+      <!-- Gradient Overlay -->
+      <div class="absolute inset-y-0 right-0 w-[85%] md:w-[50%] bg-gradient-to-l from-black/70 via-black/40 to-transparent z-10"></div>
+      
+      <!-- Text Content (padded safely away from the right edge) -->
+      <div class="absolute inset-0 md:inset-y-0 flex items-end md:items-center justify-end z-20 px-6 md:px-12 lg:pr-24 pb-12 md:pb-0">
+        <div class="max-w-xl text-right">
+          <p class="uppercase tracking-[0.4em] text-xs text-white/75 mb-6">OUR STORY</p>
+          <h2 class="font-serif text-white leading-[0.95] tracking-[-0.02em] mb-8" style="font-size:clamp(2.8rem,5vw,4.25rem);">How It All <span class="md:block">Began</span></h2>
+          <p class="text-[17px] md:text-xl leading-relaxed text-white/90 mb-10 max-w-[28ch] md:max-w-[32ch] ml-auto text-balance">Sometimes I wonder if I really started Daarapari at all. The house beyond the hill has always welcomed people. I'm simply continuing the story.</p>
+          <div class="flex justify-end">
+            <a href="/story.html" class="inline-flex items-center gap-3 uppercase tracking-[0.25em] text-sm text-white border-b border-white pb-2 hover:opacity-70 transition">Read Our Story <span>→</span></a>
+          </div>
+        </div>
+      </div>
+
+    </figure>
+
+  </section>
+
+  <!-- GUEST STORIES -->
+  <section class="py-20 md:py-36 bg-[#F6EFE6]">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+
+      <!-- Heading -->
+      <div class="mb-16 md:mb-24 reveal text-center md:text-left">
+        <h2 class="font-serif text-forest leading-[0.95] tracking-[-0.02em]" style="font-size:clamp(2.8rem,5vw,4.25rem);">
+          From our Guestbook
+        </h2>
+      </div>
+
+      <!-- Three-Column Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-12 lg:gap-20">
+
+        <!-- Review 1 -->
+        <article class="reveal delay-100 flex flex-col justify-between">
+          <blockquote class="font-serif italic text-[1.35rem] md:text-2xl leading-relaxed text-forest/90 mb-8 text-balance">
+            “I stayed for almost four weeks, but I could have spent one year.”
+          </blockquote>
+          <!-- The border and mt-auto force the names to align perfectly at the bottom -->
+          <p class="uppercase tracking-[0.3em] text-xs text-forest/50 border-t border-forest/10 pt-6 mt-auto">
+            Gemma
           </p>
-              
-             <p class="text-base md:text-lg text-forest/70 leading-8 md:leading-10 mb-8 font-light">
+        </article>
 
-              And every now and then, we do absolutely nothing at all. Just a cup of tea, and the 
-               rain slowly moving from one hill to the next.
+        <!-- Review 2 -->
+        <article class="reveal delay-200 flex flex-col justify-between">
+          <blockquote class="font-serif italic text-[1.35rem] md:text-2xl leading-relaxed text-forest/90 mb-8 text-balance">
+            “Every meal felt like home. Every conversation felt like family. Leaving was the hardest part.”
+          </blockquote>
+          <p class="uppercase tracking-[0.3em] text-xs text-forest/50 border-t border-forest/10 pt-6 mt-auto">
+            Sajith
+          </p>
+        </article>
 
-            </p>
-           <a
-                href="experience.html"
-                class="uppercase tracking-[0.28em] text-xs border-b border-forest pb-2 hover:opacity-60 transition duration-300"
-            >
-              Things you'll probably end up doing →         
-            </a>
+        <!-- Review 3 -->
+        <article class="reveal delay-300 flex flex-col justify-between">
+          <blockquote class="font-serif italic text-[1.35rem] md:text-2xl leading-relaxed text-forest/90 mb-8 text-balance">
+            "I could spend days writing, having chai and just staring at the view that keeps changing every five minutes."
+          </blockquote>
+          <p class="uppercase tracking-[0.3em] text-xs text-forest/50 border-t border-forest/10 pt-6 mt-auto">
+            Rajat
+          </p>
+        </article>
 
-        </div>
-
-    </div>
-
-</section>
-  
-<!-- HOW IT ALL BEGAN -->
-<section class="py-24 md:py-36 bg-[#F6EFE6]">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <figure class="relative overflow-hidden h-[85vh]
-md:h-[75vh]
-min-h-[650px] max-h-[900px] reveal">
-
-            <!-- Image -->
-            <img
-                src="https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,c_limit,w_2000/f_auto,q_auto,w_2000/v1778917036/team_shzrbw.jpg"
-                alt="Sristi and BB Daju"
-                class="absolute inset-0 w-full h-full object-cover object-[center_28%]"
-                loading="lazy"
-            >
-
-            <!-- Left Gradient -->
-            <div class="absolute inset-y-0 right-0 w-[45%]
-bg-gradient-to-l from-black/60 via-black/35 to-transparent z-10"></div>
-<div class="absolute inset-0 md:inset-y-0 md:right-[6%] flex items-end md:items-center justify-end z-20 px-6 pb-10 md:pb-0">
-
-    <div class="max-w-xl text-right">
-        <p class="uppercase tracking-[0.4em] text-xs text-white/75 mb-6">
-            OUR STORY
-        </p>
-
-        <h2
-            class="font-serif text-white leading-[0.95] tracking-[-0.02em] mb-8"
-            style="font-size:clamp(2.8rem,5vw,4.25rem);">
-            How It All <span class="md:block">Began</span>
-        </h2>
-
-        <p class="text-[17px] md:text-xl leading-relaxed text-white/90 mb-10 max-w-[28ch] md:max-w-[32ch] ml-auto">
-    Sometimes I wonder if I really started Daarapari at all. The house beyond the hill has always welcomed people. I'm simply continuing the story.
-</p>
-
-        <div class="flex justify-end">
-            <a
-                href="/story.html"
-                class="inline-flex items-center gap-3 uppercase tracking-[0.25em] text-sm text-white border-b border-white pb-2 hover:opacity-70 transition">
-                Read Our Story
-                <span>→</span>
-            </a>
-        </div>
+      </div>
 
     </div>
+  </section>
 
-</div>
-        </figure>
-
-    </div>
-
-</section>
-
-  
-<!-- GUEST STORIES -->
-<section class="py-24 md:py-36 bg-[#F6EFE6]">
-
-    <div class="max-w-6xl mx-auto px-6">
-
-        <!-- Heading -->
-        <div class="mb-20">
-
-
-
-
-          
-            <h2
-                class="font-serif text-forest leading-[0.95] tracking-[-0.02em]"
-                style="font-size:clamp(2.8rem,5vw,4.25rem);"
-            >
-                From our Guestbook
-            </h2>
-
-        </div>
-
-        <!-- Reviews -->
-        <div
-    id="reviewCarousel"
-    class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide"
->
-
-            <!-- Review 1 -->
-            <article class="snap-start shrink-0 w-full">
-                <blockquote class="font-serif text-[1.35rem] md:text-[1.75rem] lg:text-[2.1rem] leading-[1.35] text-forest max-w-4xl">
-
-                    “I stayed for almost four weeks, but I could have spent one year.”
-
-                </blockquote>
-
-                <div class="mt-10">
-
-                    <p class="uppercase tracking-[0.3em] text-sm text-forest/70">
-                        Gemma
-                    </p>
-
-                </div>
-
-            </article>
-
-            <!-- Review 2 -->
-            <article class="snap-start shrink-0 w-full">
-
-                <blockquote class="font-serif text-[1.35rem] md:text-[1.75rem] lg:text-[2.1rem] leading-[1.35] text-forest max-w-4xl">
-
-                    “Every meal felt like home.
-                    Every conversation felt like family.
-                    Leaving was the hardest part.”
-
-                </blockquote>
-
-                <div class="mt-10">
-
-                    <p class="uppercase tracking-[0.3em] text-sm text-forest/70">
-                        Sajith
-                    </p>
-
-                </div>
-
-            </article>
-
-            <!-- Review 3 -->
-            <article class="snap-start shrink-0 w-full">
-
-                <blockquote class="font-serif text-[1.35rem] md:text-[1.75rem] lg:text-[2.1rem] leading-[1.35] text-forest max-w-4xl">
-
-                    "I could spend days writing, having chai and just staring at the view that keeps changing every five minutes."
-
-                </blockquote>
-
-                <div class="mt-10">
-
-                    <p class="uppercase tracking-[0.3em] text-sm text-forest/70">
-                        Rajat
-                    </p>
-
-                </div>
-
-            </article>
-
-        </div>
-
-        <!-- Dots -->
-        <div class="flex justify-center gap-3 mt-16">
-
-            <button class="review-dot active"></button>
-            <button class="review-dot"></button>
-            <button class="review-dot"></button>
-
-        </div>
-
-    </div>
-
-</section>
-
-<script>
-
-const carousel = document.getElementById("reviewCarousel");
-const dots = document.querySelectorAll(".review-dot");
-
-function updateDots(){
-
-    const index = Math.round(carousel.scrollLeft / carousel.offsetWidth);
-
-    dots.forEach((dot,i)=>{
-        dot.classList.toggle("active", i===index);
-    });
-
-}
-
-dots.forEach((dot,index)=>{
-
-    dot.addEventListener("click",()=>{
-
-        carousel.scrollTo({
-
-            left:index*carousel.offsetWidth,
-
-            behavior:"smooth"
-
-        });
-
-    });
-
-});
-
-carousel.addEventListener("scroll",updateDots);
-
-let auto;
-
-window.addEventListener("load", () => {
-
-    setTimeout(() => {
-
-        auto = setInterval(() => {
-
-            let next = Math.round(carousel.scrollLeft / carousel.offsetWidth) + 1;
-
-            if (next >= dots.length) next = 0;
-
-            carousel.scrollTo({
-                left: next * carousel.offsetWidth,
-                behavior: "smooth"
-            });
-
-        }, 7000);
-
-    }, 500);
-
-});
-</script>
-
-
- 
-</section>
-
-<script>
-
-function scrollReviews(direction){
-
+  <script>
     const carousel = document.getElementById("reviewCarousel");
-
-    carousel.scrollBy({
-
-        left: carousel.offsetWidth * direction,
-
-        behavior: "smooth"
-
+    const dots = document.querySelectorAll(".review-dot");
+    function updateDots(){
+      const index = Math.round(carousel.scrollLeft / carousel.offsetWidth);
+      dots.forEach((dot,i) => { dot.classList.toggle("active", i===index); });
+    }
+    dots.forEach((dot,index) => {
+      dot.addEventListener("click", () => {
+        carousel.scrollTo({ left:index*carousel.offsetWidth, behavior:"smooth" });
+      });
     });
+    carousel.addEventListener("scroll",updateDots);
+    let auto;
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        auto = setInterval(() => {
+          let next = Math.round(carousel.scrollLeft / carousel.offsetWidth) + 1;
+          if (next >= dots.length) next = 0;
+          carousel.scrollTo({ left: next * carousel.offsetWidth, behavior: "smooth" });
+        }, 7000);
+      }, 500);
+    });
+  </script>
 
-}
-
-</script>
-  
-
-
- 
-<!-- Photo Essay -->
-<section class="pt-32 pb-20 md:pt-40 md:pb-24 bg-beige">
-
+  <!-- Photo Essay / Camera Roll (Rebuilt as true horizontal carousel) -->
+  <section class="pt-24 pb-20 md:pt-40 md:pb-24 bg-beige overflow-hidden">
     <!-- Heading -->
-    <div class="max-w-6xl mx-auto px-6 md:px-12 mb-20 reveal">
-
-        <span class="text-xs uppercase tracking-[0.3em] text-forest/45 font-semibold block mb-4">
-            LIFE HERE
-        </span>
-
-        <h2
-class="font-serif text-forest leading-[0.95] tracking-[-0.02em]"
-style="font-size:clamp(2.8rem,5vw,4.25rem);">
-            From my camera roll
-        </h2>
-
+    <div class="max-w-6xl mx-auto px-6 md:px-12 mb-12 md:mb-20 reveal">
+      <span class="text-xs uppercase tracking-[0.3em] text-forest/45 font-semibold block mb-4">LIFE HERE</span>
+      <h2 class="font-serif text-forest leading-[0.95] tracking-[-0.02em]" style="font-size:clamp(2.8rem,5vw,4.25rem);">From my camera roll</h2>
     </div>
 
-
-    <div class="max-w-6xl mx-auto px-6 md:px-12">
-
+    <!-- Carousel Container -->
+    <div class="relative w-full">
+      <div id="cameraRollCarousel" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth hide-scrollbar gap-4 md:gap-8 px-6 md:px-12 pb-4">
+        
         <!-- Photo 1 -->
-        <figure class="mb-24 reveal">
-
-            <a href="gallery.html">
-
-                <img
-                    src="https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,c_limit,w_2000/f_auto,q_auto,w_1600/v1778742996/daarapari-homestay-sikkim-experiences8_xtffp1.jpg"
-                    alt="aroundjc"
-                    loading="eager"
-                    class="w-full h-auto transition duration-[1200ms] ease-out hover:scale-[1.01]"
-                >
-
-            </a>
-
+        <figure class="snap-start shrink-0 w-[85vw] md:w-[60vw] max-w-3xl reveal">
+          <a href="gallery.html" class="block">
+            <img src="https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,c_limit,w_2000/f_auto,q_auto,w_1600/v1778742996/daarapari-homestay-sikkim-experiences8_xtffp1.jpg" alt="aroundjc" loading="eager" class="w-full aspect-[4/5] md:aspect-[3/2] object-cover object-center transition duration-[1200ms] ease-out hover:scale-[1.01]">
+          </a>
         </figure>
-
 
         <!-- Photo 2 -->
-        <figure class="w-full md:w-[72%] ml-auto mb-28 reveal">
-
-            <a href="gallery.html">
-
-                <img
-                    src="https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,c_limit,w_2000/f_auto,q_auto,w_1600/v1778744090/daarapari-homestay-sikkim-the-wild4_s5rkpn.webp"
-                    alt="walks"
-                    loading="lazy"
-                    class="w-full h-auto transition duration-[1200ms] ease-out hover:scale-[1.01]"
-                >
-
-            </a>
-
+        <figure class="snap-start shrink-0 w-[85vw] md:w-[60vw] max-w-3xl reveal">
+          <a href="gallery.html" class="block">
+            <img src="https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,c_limit,w_2000/f_auto,q_auto,w_1600/v1778744090/daarapari-homestay-sikkim-the-wild4_s5rkpn.webp" alt="walks" loading="lazy" class="w-full aspect-[4/5] md:aspect-[3/2] object-cover object-center transition duration-[1200ms] ease-out hover:scale-[1.01]">
+          </a>
         </figure>
-
 
         <!-- Photo 3 -->
-        <figure class="mb-28 reveal">
-
-            <a href="gallery.html">
-
-                <img
-                    src="https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,c_limit,w_2000/f_auto,q_auto,w_1800/v1778744069/daarapari-homestay-sikkim-the-land15_e1fj9t.jpg"
-                    alt="Mist in the Hills"
-                    loading="lazy"
-                    class="w-full h-auto transition duration-[1200ms] ease-out hover:scale-[1.01]"
-                >
-
-            </a>
-
+        <figure class="snap-start shrink-0 w-[85vw] md:w-[60vw] max-w-3xl reveal">
+          <a href="gallery.html" class="block">
+            <img src="https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,c_limit,w_2000/f_auto,q_auto,w_1800/v1778744069/daarapari-homestay-sikkim-the-land15_e1fj9t.jpg" alt="Mist in the Hills" loading="lazy" class="w-full aspect-[4/5] md:aspect-[3/2] object-cover object-top transition duration-[1200ms] ease-out hover:scale-[1.01]">
+          </a>
         </figure>
-
 
         <!-- Photo 4 -->
-        <figure class="w-full md:w-[68%] mr-auto mb-28 reveal">
-
-            <a href="gallery.html">
-
-                <img
-                    src="https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,c_limit,w_2000/f_auto,q_auto,w_1600/v1778744075/daarapari-homestay-sikkim-the-mind3_f4epnm.jpg"
-                    alt="Farm Fields"
-                    loading="lazy"
-                    class="w-full h-auto transition duration-[1200ms] ease-out hover:scale-[1.01]"
-                >
-
-            </a>
-
+        <figure class="snap-start shrink-0 w-[85vw] md:w-[60vw] max-w-3xl reveal">
+          <a href="gallery.html" class="block">
+            <img src="https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,c_limit,w_2000/f_auto,q_auto,w_1600/v1778744075/daarapari-homestay-sikkim-the-mind3_f4epnm.jpg" alt="Farm Fields" loading="lazy" class="w-full aspect-[4/5] md:aspect-[3/2] object-cover object-bottom transition duration-[1200ms] ease-out hover:scale-[1.01]">
+          </a>
         </figure>
 
-   <!-- Final Photo -->
-<figure class="relative reveal">
+        <!-- Final Photo with Overlay -->
+        <figure class="snap-start shrink-0 w-[85vw] md:w-[60vw] max-w-3xl relative reveal">
+          <a href="gallery.html" class="block group relative overflow-hidden">
+            <img src="https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,c_limit,w_2000/f_auto,q_auto,w_1600/v1778744091/daarapari-homestay-sikkim-the-wild1_oachvt.jpg" alt="Life at Daarapari" loading="lazy" class="w-full aspect-[4/5] md:aspect-[3/2] object-cover object-center block transition-transform duration-[1200ms] ease-out group-hover:scale-[1.01]">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent"></div>
+            <div class="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 w-max">
+              <span class="inline-flex items-center gap-3 text-white text-base md:text-xl tracking-wide hover:opacity-80 transition">
+                Browse our Gallery
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+        </figure>
 
-    <a href="gallery.html" class="block group relative overflow-hidden">
-
-        <img
-            src="https://res.cloudinary.com/dchfozs9d/image/upload/f_auto,q_auto,c_limit,w_2000/f_auto,q_auto,w_1600/v1778744091/daarapari-homestay-sikkim-the-wild1_oachvt.jpg"
-            alt="Life at Daarapari"
-            loading="lazy"
-            class="w-full h-auto block transition-transform duration-[1200ms] ease-out group-hover:scale-[1.01]"
-        >
-
-        <!-- Gradient -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent"></div>
-
-        <!-- CTA -->
-       <div class="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2">
-
-    <a
-        href="gallery.html"
-        class="inline-flex items-center gap-3 text-white text-lg md:text-xl tracking-wide hover:opacity-80 transition"
-    >
-
-        Browse our Gallery
-
-        <svg xmlns="http://www.w3.org/2000/svg"
-            class="w-5 h-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor">
-
-            <path stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-
-        </svg>
-
-    </a>
-
-</div>
-    </a>
-
-</figure>
-</section>
- 
- <!-- Final CTA -->
-<section class="relative py-24 md:py-32 px-6 md:px-12 text-center bg-[#efe6da] border-t border-forest/10 overflow-hidden">
-
-  <!-- Subtle Texture -->
-  <div class="absolute inset-0 opacity-[0.02] pointer-events-none">
-    <div class="w-full h-full bg-[radial-gradient(circle_at_center,rgba(31,61,43,0.08)_0%,transparent_70%)]"></div>
-  </div>
-
-  <div class="relative z-10 reveal max-w-3xl mx-auto">
-
-    <h2
-      class="font-serif text-forest font-normal leading-[1.05] tracking-[-0.03em] mx-auto"
-      style="font-size:clamp(2.5rem,5vw,5rem);">
-
-      The door's open.
-
-    </h2>
-
-    <a
-      href="booking.html"
-      class="mt-16 inline-block border-b border-forest/60 pb-1 text-[0.8rem] uppercase tracking-[0.3em] font-sans text-forest hover:opacity-70 transition-opacity duration-500"
-    >
-      Enquire about a stay
-    </a>
-
-  </div>
-
-</section>
-  
-  <!-- Footer -->
-<footer class="bg-forest text-beige/60 py-16 px-6 md:px-12 border-t border-beige/10">
-
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-xs uppercase tracking-widest">
-
-        <!-- Address -->
-        <div>
-
-            <span class="text-beige text-2xl font-hindi tracking-wide block mb-4">
-                डाँडा पारी
-            </span>
-
-            <p class="leading-relaxed">
-                Sambok, 13 Mile, Bermiok<br>
-                West Sikkim, India – 737113
-            </p>
-
-        </div>
-
-        <!-- Contact -->
-        <div class="flex flex-col space-y-3">
-
-            <span class="text-beige font-serif tracking-widest text-sm">
-                Get in touch
-            </span>
-
-            <a
-                href="tel:+918389874713"
-                class="hover:text-beige transition-colors normal-case tracking-normal"
-            >
-                +91 83898 74713
-            </a>
-
-            <a
-                href="tel:+919832730711"
-                class="hover:text-beige transition-colors normal-case tracking-normal"
-            >
-                +91 98327 30711
-            </a>
-
-            <a
-                href="mailto:daarapari@gmail.com"
-                class="hover:text-beige transition-colors normal-case tracking-normal"
-            >
-                daarapari@gmail.com
-            </a>
-
-        </div>
-
-        <!-- Find Us -->
-        <div class="flex flex-col space-y-3">
-
-            <span class="text-beige font-serif tracking-widest text-sm">
-                Find us
-            </span>
-
-            <a
-                href="https://www.instagram.com/daarapari/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="hover:text-beige transition-colors normal-case tracking-normal"
-            >
-                Instagram
-            </a>
-
-        </div>
-
+      </div>
     </div>
 
-</footer>
+    <!-- Carousel Indicator Dots -->
+    <div class="flex justify-center gap-3 mt-8 md:mt-12">
+      <div class="camera-dot active w-2 h-2 rounded-full bg-forest/20 transition-all duration-300"></div>
+      <div class="camera-dot w-2 h-2 rounded-full bg-forest/20 transition-all duration-300"></div>
+      <div class="camera-dot w-2 h-2 rounded-full bg-forest/20 transition-all duration-300"></div>
+      <div class="camera-dot w-2 h-2 rounded-full bg-forest/20 transition-all duration-300"></div>
+      <div class="camera-dot w-2 h-2 rounded-full bg-forest/20 transition-all duration-300"></div>
+    </div>
+  </section>
+
+  <script>
+    const camCarousel = document.getElementById("cameraRollCarousel");
+    const camDots = document.querySelectorAll(".camera-dot");
+    
+    camCarousel.addEventListener("scroll", () => {
+      // Calculate active slide based on scroll position and item width
+      const scrollPosition = camCarousel.scrollLeft;
+      const slideWidth = camCarousel.firstElementChild.offsetWidth;
+      const index = Math.round(scrollPosition / slideWidth);
+      
+      camDots.forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.add("active");
+          dot.style.backgroundColor = "#1f3d2b";
+          dot.style.transform = "scale(1.3)";
+        } else {
+          dot.classList.remove("active");
+          dot.style.backgroundColor = "rgba(31,61,43,0.2)";
+          dot.style.transform = "scale(1)";
+        }
+      });
+    });
+  </script>
+ 
+  <!-- Final CTA -->
+  <section class="relative py-20 md:py-32 px-6 md:px-12 text-center bg-[#efe6da] border-t border-forest/10 overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.02] pointer-events-none">
+      <div class="w-full h-full bg-[radial-gradient(circle_at_center,rgba(31,61,43,0.08)_0%,transparent_70%)]"></div>
+    </div>
+    <div class="relative z-10 reveal max-w-3xl mx-auto">
+      <h2 class="font-serif text-forest font-normal leading-[1.05] tracking-[-0.03em] mx-auto text-balance" style="font-size:clamp(2.5rem,5vw,5rem);">
+        The door's open.
+      </h2>
+      <a href="booking.html" class="mt-12 md:mt-16 inline-block border-b border-forest/60 pb-1 text-[0.8rem] uppercase tracking-[0.3em] font-sans text-forest hover:opacity-70 transition-opacity duration-500">
+        Enquire about a stay
+      </a>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="bg-forest text-beige/60 py-16 px-6 md:px-12 border-t border-beige/10">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-xs uppercase tracking-widest">
+      <div>
+        <span class="text-beige text-2xl font-hindi tracking-wide block mb-4">डाँडा पारी</span>
+        <p class="leading-relaxed text-balance">Sambok, 13 Mile, Bermiok<br>West Sikkim, India – 737113</p>
+      </div>
+      <div class="flex flex-col space-y-3">
+        <span class="text-beige font-serif tracking-widest text-sm">Get in touch</span>
+        <a href="tel:+918389874713" class="hover:text-beige transition-colors normal-case tracking-normal">+91 83898 74713</a>
+        <a href="tel:+919832730711" class="hover:text-beige transition-colors normal-case tracking-normal">+91 98327 30711</a>
+        <a href="mailto:daarapari@gmail.com" class="hover:text-beige transition-colors normal-case tracking-normal">daarapari@gmail.com</a>
+      </div>
+      <div class="flex flex-col space-y-3">
+        <span class="text-beige font-serif tracking-widest text-sm">Find us</span>
+        <a href="https://www.instagram.com/daarapari/" target="_blank" rel="noopener noreferrer" class="hover:text-beige transition-colors normal-case tracking-normal">Instagram</a>
+      </div>
+    </div>
+  </footer>
 
   <script type="module" src="/main.js"></script>
 </body>
