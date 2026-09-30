@@ -1,7 +1,7 @@
 # डाँडा पारी · Daara Pari
 
 ### Not a stay. A way of living.
-[Visit Daarapari]([https://example.com](https://www.daarapari.in/))
+[Visit Daarapari](https://www.daarapari.in/)
 
 Daara Pari is a small homestay and working farm in **Sambok Village, Gyalshing, West Sikkim**.
 
