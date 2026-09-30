@@ -1,79 +1,61 @@
-# Daara Pari - Farmstay Website
+# डाँडा पारी · Daara Pari
 
-A modern, minimal, and deeply personal website for Daara Pari, a slow-living farmstay and homestay located in Sambok Village, West Sikkim. The design reflects the raw, unpolished beauty of the Himalayas, written from the authentic, first-person perspective of the host, Sristi.
+### Not a stay. A way of living.
 
-## Tech Stack
-- **HTML5** for semantic structure
-- **Tailwind CSS** for rapid, utility-first styling and responsive design
-- **Vanilla JavaScript** for interactive elements (scroll reveals, night-to-day transitions, dynamic navbar)
-- **Vite** as the frontend build tool for a fast and optimized development experience
+Daara Pari is a small homestay and working farm in **Sambok Village, Gyalshing, West Sikkim**.
 
----
+It is a home opened to people who want to slow down, spend time with the land, eat food grown close to home, walk through the village, and experience the quiet rhythm of mountain life.
 
-## Getting Started
+Daara Pari was never imagined as a resort.
 
-Follow these instructions to set up the project locally on your machine.
+It is a lived-in home, with a mudhouse, a main house, a farm, shared meals, stories, and the people who make the place what it is.
 
-### Prerequisites
-Make sure you have [Node.js](https://nodejs.org/) installed on your machine. You can verify this by running:
-```bash
-node -v
-npm -v
-```
+## About this project
 
-### Installation
+This repository contains the website for Daara Pari.
 
-1. **Clone the repository** (or navigate to the project directory):
-   ```bash
-   cd daara-api-gemini
-   ```
+The website is designed to feel like the place itself: quiet, spacious, earthy, personal, and unhurried.
 
-2. **Install dependencies**:
-   Run the following command to install all necessary packages (like Vite and Tailwind CSS) defined in `package.json`:
-   ```bash
-   npm install
-   ```
+Rather than treating Daara Pari as a collection of rooms and amenities, the website tells the story of:
 
-### Running the Development Server
+* **The place** and its landscape
+* **The homes**: Gairi Ghar and Mul Ghar
+* **The people** behind Daara Pari
+* **The farm and food**
+* **The experiences** of village life
+* **The everyday moments** that make the stay meaningful
 
-To start the local development server with Hot Module Replacement (HMR):
+The goal is simple:
 
-```bash
-npm run dev
-```
+> **To give people a glimpse of Daara Pari before they arrive, and a feeling of it after they leave.**
 
-- This will start Vite and output a local server URL in your terminal (usually `http://localhost:5173`).
-- Open that URL in your browser. Any changes you make to the HTML, CSS, or JS files will automatically refresh in the browser.
+## Built with
 
-### Building for Production
+* HTML
+* Tailwind CSS
+* JavaScript
+* Vite
 
-When you are ready to deploy the website to a live server (like Vercel, Netlify, or GitHub Pages), you need to create an optimized production build:
+## Pages
 
-```bash
-npm run build
-```
+* `index.html` — Home
+* `stay.html` — The spaces
+* `mud-house.html` — Gairi Ghar
+* `main-house.html` — Mul Ghar
+* `experience.html` — Life around Daara Pari
+* `story.html` — The people and story
+* `gallery.html` — The visual archive
+* `booking.html` — Enquiries
 
-- This command will bundle and minify all your HTML, CSS, and JavaScript.
-- The compiled output will be placed in a new `dist/` directory.
-- You can test the production build locally before deploying by running:
-  ```bash
-  npm run preview
-  ```
+## The idea
 
----
+Daara Pari is about **less**.
 
-## Project Structure
+Less rushing.
+Less consuming.
+Less performing.
 
-- `index.html`: The home page featuring the night-to-day hero transition.
-- `stay.html`: Details about the Mud House and Main House.
-- `experience.html`: Information about village walks, farm activities, and slow living.
-- `story.html`: The history of Daara Pari, BB Daju, and Sristi's vision.
-- `booking.html`: The enquiry form and contact details.
-- `style.css`: Base Tailwind imports and custom utilities (like hiding scrollbars).
-- `main.js`: Core logic for the navbar scroll effects, scroll reveal animations, and the hero lamp interaction.
-- `tailwind.config.js`: Tailwind configuration including custom colors (`forest`, `beige`, `mud`, `mist`) and font families (serif, sans, hindi).
-- `public/`: Static assets like images. Images placed here can be referenced directly (e.g., `/images/hero.png`).
+And more time with the land, food, people, weather, and each other.
 
-## Next Steps for the Host
-1. **Images**: Ensure all high-quality photos of the property, Sristi, and BB Daju are placed in the `public/images/` folder with the correct filenames (e.g., `hero.png`, `mudhouse-1.jpg`, `sristi.jpg`).
-2. **Form Integration**: The booking form is currently set up for UI testing. You will need to connect the form's `action` attribute to a service like [Formspree](https://formspree.io/) or your backend API to actually receive emails from guests.
+**डाँडा पारी · Daara Pari**
+*Sambok Village, West Sikkim, India*
